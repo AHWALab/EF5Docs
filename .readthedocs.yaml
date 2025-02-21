@@ -18,9 +18,7 @@ python:
   install:
     - method: pip
       path: .
-      packages:
-        - sphinx
-        - sphinx_rtd_theme
+      requirements: requirements.txt
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
