@@ -314,9 +314,13 @@ Parameters' influence in the simulated time series
 
 
 :::{dropdown} Dropdown title
+
 .. image:: _static/Parameters_Sensitivity.png
   :width: 400
+
 :::
+
+
 ### Complete Sample Configuration File for Calibrating
 
 .. code-block:: ini
