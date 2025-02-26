@@ -45,17 +45,49 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">EF5 User Manual</a><ul>
 <li><a class="reference internal" href="#about-ef5">About EF5</a></li>
-<li><a class="reference internal" href="#hydrologic-water-balance-models">Hydrologic Water Balance Models</a></li>
-<li><a class="reference internal" href="#routing-models">Routing Models</a></li>
-<li><a class="reference internal" href="#snow-melt-models">Snow Melt Models</a></li>
-<li><a class="reference internal" href="#inundation-models">Inundation Models</a></li>
+<li><a class="reference internal" href="#hydrologic-water-balance-models">Hydrologic Water Balance Models</a><ul>
+<li><a class="reference internal" href="#crest">CREST</a></li>
+<li><a class="reference internal" href="#sac-sma">SAC-SMA</a></li>
+<li><a class="reference internal" href="#hp">HP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#routing-models">Routing Models</a><ul>
+<li><a class="reference internal" href="#linear-reservoir">Linear Reservoir</a></li>
+<li><a class="reference internal" href="#kinematic-wave">Kinematic Wave</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#snow-melt-models">Snow Melt Models</a><ul>
+<li><a class="reference internal" href="#snow-17">Snow-17</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inundation-models">Inundation Models</a><ul>
+<li><a class="reference internal" href="#simple-inundation">Simple Inundation</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#compiling-ef5">Compiling EF5</a></li>
-<li><a class="reference internal" href="#configuration-file">Configuration File</a></li>
+<li><a class="reference internal" href="#configuration-file">Configuration File</a><ul>
+<li><a class="reference internal" href="#basic-information">Basic Information</a></li>
+<li><a class="reference internal" href="#precipitation-information">Precipitation Information</a></li>
+<li><a class="reference internal" href="#potential-evapotranspiration-pet-information">Potential Evapotranspiration (PET) Information</a></li>
+<li><a class="reference internal" href="#gauge-locations">Gauge Locations</a></li>
+<li><a class="reference internal" href="#basins">Basins</a></li>
+<li><a class="reference internal" href="#parameter-sets">Parameter Sets</a></li>
+<li><a class="reference internal" href="#crest-parameter-set">CREST Parameter Set</a></li>
+<li><a class="reference internal" href="#sac-sma-parameter-set">SAC-SMA Parameter Set</a></li>
+<li><a class="reference internal" href="#hp-parameter-set">HP Parameter Set</a></li>
+<li><a class="reference internal" href="#linear-reservoir-parameter-set">Linear Reservoir Parameter Set</a></li>
+<li><a class="reference internal" href="#kinematic-wave-parameter-set">Kinematic Wave Parameter Set</a></li>
+<li><a class="reference internal" href="#snow-17-parameter-set">Snow-17 Parameter Set</a></li>
+<li><a class="reference internal" href="#simple-inundation-parameter-set">Simple Inundation Parameter Set</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#tasks">Tasks</a></li>
 <li><a class="reference internal" href="#execute-block">Execute Block</a></li>
 <li><a class="reference internal" href="#running-ef5">Running EF5</a></li>
-<li><a class="reference internal" href="#calibrating-the-models">Calibrating the Models</a></li>
-<li><a class="reference internal" href="#appendix">Appendix</a></li>
+<li><a class="reference internal" href="#calibrating-the-models">Calibrating the Models</a><ul>
+<li><a class="reference internal" href="#complete-sample-configuration-file-for-calibrating">Complete Sample Configuration File for Calibrating</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -90,17 +122,55 @@
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#about-ef5" id="id3">About EF5</a></p></li>
-<li><p><a class="reference internal" href="#hydrologic-water-balance-models" id="id4">Hydrologic Water Balance Models</a></p></li>
-<li><p><a class="reference internal" href="#routing-models" id="id5">Routing Models</a></p></li>
-<li><p><a class="reference internal" href="#snow-melt-models" id="id6">Snow Melt Models</a></p></li>
-<li><p><a class="reference internal" href="#inundation-models" id="id7">Inundation Models</a></p></li>
-<li><p><a class="reference internal" href="#compiling-ef5" id="id8">Compiling EF5</a></p></li>
-<li><p><a class="reference internal" href="#configuration-file" id="id9">Configuration File</a></p></li>
-<li><p><a class="reference internal" href="#tasks" id="id10">Tasks</a></p></li>
-<li><p><a class="reference internal" href="#execute-block" id="id11">Execute Block</a></p></li>
-<li><p><a class="reference internal" href="#running-ef5" id="id12">Running EF5</a></p></li>
-<li><p><a class="reference internal" href="#calibrating-the-models" id="id13">Calibrating the Models</a></p></li>
-<li><p><a class="reference internal" href="#appendix" id="id14">Appendix</a></p></li>
+<li><p><a class="reference internal" href="#hydrologic-water-balance-models" id="id4">Hydrologic Water Balance Models</a></p>
+<ul>
+<li><p><a class="reference internal" href="#crest" id="id5">CREST</a></p></li>
+<li><p><a class="reference internal" href="#sac-sma" id="id6">SAC-SMA</a></p></li>
+<li><p><a class="reference internal" href="#hp" id="id7">HP</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#routing-models" id="id8">Routing Models</a></p>
+<ul>
+<li><p><a class="reference internal" href="#linear-reservoir" id="id9">Linear Reservoir</a></p></li>
+<li><p><a class="reference internal" href="#kinematic-wave" id="id10">Kinematic Wave</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#snow-melt-models" id="id11">Snow Melt Models</a></p>
+<ul>
+<li><p><a class="reference internal" href="#snow-17" id="id12">Snow-17</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#inundation-models" id="id13">Inundation Models</a></p>
+<ul>
+<li><p><a class="reference internal" href="#simple-inundation" id="id14">Simple Inundation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#compiling-ef5" id="id15">Compiling EF5</a></p></li>
+<li><p><a class="reference internal" href="#configuration-file" id="id16">Configuration File</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basic-information" id="id17">Basic Information</a></p></li>
+<li><p><a class="reference internal" href="#precipitation-information" id="id18">Precipitation Information</a></p></li>
+<li><p><a class="reference internal" href="#potential-evapotranspiration-pet-information" id="id19">Potential Evapotranspiration (PET) Information</a></p></li>
+<li><p><a class="reference internal" href="#gauge-locations" id="id20">Gauge Locations</a></p></li>
+<li><p><a class="reference internal" href="#basins" id="id21">Basins</a></p></li>
+<li><p><a class="reference internal" href="#parameter-sets" id="id22">Parameter Sets</a></p></li>
+<li><p><a class="reference internal" href="#crest-parameter-set" id="id23">CREST Parameter Set</a></p></li>
+<li><p><a class="reference internal" href="#sac-sma-parameter-set" id="id24">SAC-SMA Parameter Set</a></p></li>
+<li><p><a class="reference internal" href="#hp-parameter-set" id="id25">HP Parameter Set</a></p></li>
+<li><p><a class="reference internal" href="#linear-reservoir-parameter-set" id="id26">Linear Reservoir Parameter Set</a></p></li>
+<li><p><a class="reference internal" href="#kinematic-wave-parameter-set" id="id27">Kinematic Wave Parameter Set</a></p></li>
+<li><p><a class="reference internal" href="#snow-17-parameter-set" id="id28">Snow-17 Parameter Set</a></p></li>
+<li><p><a class="reference internal" href="#simple-inundation-parameter-set" id="id29">Simple Inundation Parameter Set</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tasks" id="id30">Tasks</a></p></li>
+<li><p><a class="reference internal" href="#execute-block" id="id31">Execute Block</a></p></li>
+<li><p><a class="reference internal" href="#running-ef5" id="id32">Running EF5</a></p></li>
+<li><p><a class="reference internal" href="#calibrating-the-models" id="id33">Calibrating the Models</a></p>
+<ul>
+<li><p><a class="reference internal" href="#complete-sample-configuration-file-for-calibrating" id="id34">Complete Sample Configuration File for Calibrating</a></p></li>
+</ul>
+</li>
 </ul>
 </nav>
 <section id="about-ef5">
@@ -109,36 +179,50 @@
 </section>
 <section id="hydrologic-water-balance-models">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">Hydrologic Water Balance Models</a><a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h2>
-<p>### CREST
-The Coupled Routing and Excess Storage (CREST) distributed hydrological model is a hybrid strategy developed by the University of Oklahoma and the NASA SERVIR Project Team. CREST simulates the spatiotemporal variation of water and energy fluxes and storages on a user-defined grid. Its scalability is achieved through sub-grid scale representation of soil moisture storage (using a variable infiltration curve) and runoff generation (using linear reservoirs). Originally developed for global flood predictions, it is also suitable for basin-scale applications.</p>
+<section id="crest">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">CREST</a><a class="headerlink" href="#crest" title="Link to this heading"></a></h3>
+<p>The Coupled Routing and Excess Storage (CREST) distributed hydrological model is a hybrid strategy developed by the University of Oklahoma and the NASA SERVIR Project Team. CREST simulates the spatiotemporal variation of water and energy fluxes and storages on a user-defined grid. Its scalability is achieved through sub-grid scale representation of soil moisture storage (using a variable infiltration curve) and runoff generation (using linear reservoirs). Originally developed for global flood predictions, it is also suitable for basin-scale applications.</p>
 <p>More detailed information about CREST can be found in the publication:
 <a class="reference external" href="https://dx.doi.org/10.1080/02626667.2010.543087">Wang, J., et al. (2011)</a></p>
-<p>### SAC-SMA
-The Sacramento Soil Moisture Accounting (SAC-SMA) Model was developed by the U.S. National Weather Service. Its purpose is to parameterize soil moisture characteristics so that applied moisture is logically distributed, percolation is realistically simulated, and streamflow is effectively modeled.</p>
+</section>
+<section id="sac-sma">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">SAC-SMA</a><a class="headerlink" href="#sac-sma" title="Link to this heading"></a></h3>
+<p>The Sacramento Soil Moisture Accounting (SAC-SMA) Model was developed by the U.S. National Weather Service. Its purpose is to parameterize soil moisture characteristics so that applied moisture is logically distributed, percolation is realistically simulated, and streamflow is effectively modeled.</p>
 <p>More detailed information about SAC-SMA is available at:
 <a class="reference external" href="http://www.nws.noaa.gov/oh/hrl/nwsrfs/users_manual/part2/_pdf/23sacsma.pdf">U.S. NWS SAC-SMA algorithm description</a></p>
-<p>### HP
-The Hydrophobic (HP) water balance model assumes an entirely impervious surface where all rainfall is transformed directly into surface runoff.</p>
+</section>
+<section id="hp">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">HP</a><a class="headerlink" href="#hp" title="Link to this heading"></a></h3>
+<p>The Hydrophobic (HP) water balance model assumes an entirely impervious surface where all rainfall is transformed directly into surface runoff.</p>
+</section>
 </section>
 <section id="routing-models">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Routing Models</a><a class="headerlink" href="#routing-models" title="Link to this heading"></a></h2>
-<p>### Linear Reservoir
-Adapted from the CREST implementation, the linear reservoir routing model uses two reservoirs—one for overland (surface) runoff and one for subsurface runoff.</p>
-<p>### Kinematic Wave
-Kinematic wave routing is a simplified approximation of the Barré de Saint-Venant equations. It assumes that gravitational and friction forces cancel and neglects acceleration terms.</p>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Routing Models</a><a class="headerlink" href="#routing-models" title="Link to this heading"></a></h2>
+<section id="linear-reservoir">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Linear Reservoir</a><a class="headerlink" href="#linear-reservoir" title="Link to this heading"></a></h3>
+<p>Adapted from the CREST implementation, the linear reservoir routing model uses two reservoirs—one for overland (surface) runoff and one for subsurface runoff.</p>
+</section>
+<section id="kinematic-wave">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Kinematic Wave</a><a class="headerlink" href="#kinematic-wave" title="Link to this heading"></a></h3>
+<p>Kinematic wave routing is a simplified approximation of the Barré de Saint-Venant equations. It assumes that gravitational and friction forces cancel and neglects acceleration terms.</p>
+</section>
 </section>
 <section id="snow-melt-models">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Snow Melt Models</a><a class="headerlink" href="#snow-melt-models" title="Link to this heading"></a></h2>
-<p>### Snow-17
-Snow-17 is a temperature-index based snow melt module widely used by the U.S. NWS.</p>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Snow Melt Models</a><a class="headerlink" href="#snow-melt-models" title="Link to this heading"></a></h2>
+<section id="snow-17">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Snow-17</a><a class="headerlink" href="#snow-17" title="Link to this heading"></a></h3>
+<p>Snow-17 is a temperature-index based snow melt module widely used by the U.S. NWS.</p>
+</section>
 </section>
 <section id="inundation-models">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Inundation Models</a><a class="headerlink" href="#inundation-models" title="Link to this heading"></a></h2>
-<p>### Simple Inundation
-The Simple Inundation model provides basic inundation modeling functionality.</p>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Inundation Models</a><a class="headerlink" href="#inundation-models" title="Link to this heading"></a></h2>
+<section id="simple-inundation">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Simple Inundation</a><a class="headerlink" href="#simple-inundation" title="Link to this heading"></a></h3>
+<p>The Simple Inundation model provides basic inundation modeling functionality.</p>
+</section>
 </section>
 <section id="compiling-ef5">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Compiling EF5</a><a class="headerlink" href="#compiling-ef5" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Compiling EF5</a><a class="headerlink" href="#compiling-ef5" title="Link to this heading"></a></h2>
 <p>EF5 uses the TIFF and GEOTIFF libraries for raster formats. Compilation can be performed in three steps:</p>
 <ol class="arabic">
 <li><p><strong>(Developer Only)</strong> – If you are modifying the Makefile.am, run:</p>
@@ -160,7 +244,7 @@ The Simple Inundation model provides basic inundation modeling functionality.</p
 <p>Upon successful compilation, a binary named <code class="docutils literal notranslate"><span class="pre">ef5</span></code> will be created in the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory.</p>
 </section>
 <section id="configuration-file">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Configuration File</a><a class="headerlink" href="#configuration-file" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Configuration File</a><a class="headerlink" href="#configuration-file" title="Link to this heading"></a></h2>
 <p>The configuration file controls all user-adjustable settings for EF5, including input forcings, output options, and run methods. It is generally case <strong>insensitive</strong> (except for file paths on case-sensitive systems). Three styles of comments are supported: bash (#), C (/* <a href="#id1"><span class="problematic" id="id2">*</span></a>/), and C++ (//).</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># All variables (except file paths) are case insensitive</span>
 <span class="na">// Multiple comment types are supported</span>
@@ -169,8 +253,9 @@ The Simple Inundation model provides basic inundation modeling functionality.</p
 <span class="na">*/</span>
 </pre></div>
 </div>
-<p>### Basic Information
-Specifies file locations for the digital elevation model (DEM), drainage direction map (DDM), and flow accumulation map (FAM).</p>
+<section id="basic-information">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Basic Information</a><a class="headerlink" href="#basic-information" title="Link to this heading"></a></h3>
+<p>Specifies file locations for the digital elevation model (DEM), drainage direction map (DDM), and flow accumulation map (FAM).</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
 <span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
 <span class="na">DDM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DDM.asc</span>
@@ -180,8 +265,10 @@ Specifies file locations for the digital elevation model (DEM), drainage directi
 <span class="na">SELFFAM</span><span class="o">=</span><span class="s">true</span>
 </pre></div>
 </div>
-<p>### Precipitation Information
-Defines the properties of the precipitation forcing files.</p>
+</section>
+<section id="precipitation-information">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Precipitation Information</a><a class="headerlink" href="#precipitation-information" title="Link to this heading"></a></h3>
+<p>Defines the properties of the precipitation forcing files.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[PrecipForcing Q2Precip]</span>
 <span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
 <span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
@@ -190,8 +277,10 @@ Defines the properties of the precipitation forcing files.</p>
 <span class="na">NAME</span><span class="o">=</span><span class="s">Q2_YYYYMMDDHHUU.bif</span>
 </pre></div>
 </div>
-<p>### Potential Evapotranspiration (PET) Information
-Defines the PET forcing file details.</p>
+</section>
+<section id="potential-evapotranspiration-pet-information">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Potential Evapotranspiration (PET) Information</a><a class="headerlink" href="#potential-evapotranspiration-pet-information" title="Link to this heading"></a></h3>
+<p>Defines the PET forcing file details.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[PETForcing PET]</span>
 <span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
 <span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
@@ -200,8 +289,10 @@ Defines the PET forcing file details.</p>
 <span class="na">NAME</span><span class="o">=</span><span class="s">PET_MM.bif</span>
 </pre></div>
 </div>
-<p>### Gauge Locations
-Specifies the locations of gauges for output and parameter assignment.</p>
+</section>
+<section id="gauge-locations">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Gauge Locations</a><a class="headerlink" href="#gauge-locations" title="Link to this heading"></a></h3>
+<p>Specifies the locations of gauges for output and parameter assignment.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Gauge OKC]</span>
 <span class="na">LON</span><span class="o">=</span><span class="s">-97.01</span>
 <span class="na">LAT</span><span class="o">=</span><span class="s">35.68</span>
@@ -214,16 +305,22 @@ Specifies the locations of gauges for output and parameter assignment.</p>
 <span class="na">LAT</span><span class="o">=</span><span class="s">34.37</span>
 </pre></div>
 </div>
-<p>### Basins
-Groups gauge locations into basins.</p>
+</section>
+<section id="basins">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Basins</a><a class="headerlink" href="#basins" title="Link to this heading"></a></h3>
+<p>Groups gauge locations into basins.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basin FF]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
 </pre></div>
 </div>
-<p>### Parameter Sets
-Control the distributed model parameter settings. Parameters are specified per gauge.</p>
-<p>#### CREST Parameter Set</p>
+</section>
+<section id="parameter-sets">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Parameter Sets</a><a class="headerlink" href="#parameter-sets" title="Link to this heading"></a></h3>
+<p>Control the distributed model parameter settings. Parameters are specified per gauge.</p>
+</section>
+<section id="crest-parameter-set">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">CREST Parameter Set</a><a class="headerlink" href="#crest-parameter-set" title="Link to this heading"></a></h3>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[CrestParamSet ABRFC]</span>
 <span class="na">wm_grid</span><span class="o">=</span><span class="s">/path/to/wm.tif</span>
 <span class="na">im_grid</span><span class="o">=</span><span class="s">/path/to/im.tif</span>
@@ -238,7 +335,9 @@ Control the distributed model parameter settings. Parameters are specified per g
 <span class="na">iwu</span><span class="o">=</span><span class="s">50.0</span>
 </pre></div>
 </div>
-<p>#### SAC-SMA Parameter Set</p>
+</section>
+<section id="sac-sma-parameter-set">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">SAC-SMA Parameter Set</a><a class="headerlink" href="#sac-sma-parameter-set" title="Link to this heading"></a></h3>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[SacParamSet ABRFC]</span>
 <span class="na">UZTWM_grid</span><span class="o">=</span><span class="s">/path/to/uztwm.tif</span>
 <span class="na">UZFWM_grid</span><span class="o">=</span><span class="s">/path/to/uzfwm.tif</span>
@@ -276,9 +375,13 @@ Control the distributed model parameter settings. Parameters are specified per g
 <span class="na">LZFPC</span><span class="o">=</span><span class="s">0.46</span>
 </pre></div>
 </div>
-<p>#### HP Parameter Set
-<em>To be completed in a future revision.</em></p>
-<p>#### Linear Reservoir Parameter Set</p>
+</section>
+<section id="hp-parameter-set">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">HP Parameter Set</a><a class="headerlink" href="#hp-parameter-set" title="Link to this heading"></a></h3>
+<p><em>To be completed in a future revision.</em></p>
+</section>
+<section id="linear-reservoir-parameter-set">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Linear Reservoir Parameter Set</a><a class="headerlink" href="#linear-reservoir-parameter-set" title="Link to this heading"></a></h3>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[lrparamset rundu]</span>
 <span class="na">gauge</span><span class="o">=</span><span class="s">rundu</span>
 <span class="na">coem</span><span class="o">=</span><span class="s">1611.115479</span>
@@ -291,7 +394,9 @@ Control the distributed model parameter settings. Parameters are specified per g
 <span class="na">isu</span><span class="o">=</span><span class="s">0.000073</span>
 </pre></div>
 </div>
-<p>#### Kinematic Wave Parameter Set</p>
+</section>
+<section id="kinematic-wave-parameter-set">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Kinematic Wave Parameter Set</a><a class="headerlink" href="#kinematic-wave-parameter-set" title="Link to this heading"></a></h3>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[KWParamSet rundu]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">rundu</span>
 <span class="na">UNDER</span><span class="o">=</span><span class="s">1.673110</span>
@@ -303,7 +408,9 @@ Control the distributed model parameter settings. Parameters are specified per g
 <span class="na">ALPHA0</span><span class="o">=</span><span class="s">4.603945</span>
 </pre></div>
 </div>
-<p>#### Snow-17 Parameter Set</p>
+</section>
+<section id="snow-17-parameter-set">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Snow-17 Parameter Set</a><a class="headerlink" href="#snow-17-parameter-set" title="Link to this heading"></a></h3>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[snow17paramset tarbela]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">tarbela</span>
 <span class="na">UADJ</span><span class="o">=</span><span class="s">0.184653</span>
@@ -316,7 +423,9 @@ Control the distributed model parameter settings. Parameters are specified per g
 <span class="na">SCF</span><span class="o">=</span><span class="s">2.219492</span>
 </pre></div>
 </div>
-<p>#### Simple Inundation Parameter Set</p>
+</section>
+<section id="simple-inundation-parameter-set">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Simple Inundation Parameter Set</a><a class="headerlink" href="#simple-inundation-parameter-set" title="Link to this heading"></a></h3>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[simpleinundationparamset rundu]</span>
 <span class="na">gauge</span><span class="o">=</span><span class="s">rundu</span>
 <span class="na">alpha</span><span class="o">=</span><span class="s">2.991570</span>
@@ -324,8 +433,9 @@ Control the distributed model parameter settings. Parameters are specified per g
 </pre></div>
 </div>
 </section>
+</section>
 <section id="tasks">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Tasks</a><a class="headerlink" href="#tasks" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">Tasks</a><a class="headerlink" href="#tasks" title="Link to this heading"></a></h2>
 <p>Tasks define which model to run, the simulation period, timestep, and related settings.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Task RunFF]</span>
 <span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span>
@@ -350,7 +460,7 @@ Control the distributed model parameter settings. Parameters are specified per g
 </ul>
 </section>
 <section id="execute-block">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">Execute Block</a><a class="headerlink" href="#execute-block" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Execute Block</a><a class="headerlink" href="#execute-block" title="Link to this heading"></a></h2>
 <p>Specifies which task to execute when EF5 runs.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Execute]</span>
 <span class="na">TASK</span><span class="o">=</span><span class="s">RunFF</span>
@@ -358,19 +468,17 @@ Control the distributed model parameter settings. Parameters are specified per g
 </div>
 </section>
 <section id="running-ef5">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Running EF5</a><a class="headerlink" href="#running-ef5" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Running EF5</a><a class="headerlink" href="#running-ef5" title="Link to this heading"></a></h2>
 <p>To run EF5, execute the binary with an optional control file argument:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ef5<span class="w"> </span><span class="o">[</span>controlfile<span class="o">]</span>
 </pre></div>
 </div>
 </section>
 <section id="calibrating-the-models">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Calibrating the Models</a><a class="headerlink" href="#calibrating-the-models" title="Link to this heading"></a></h2>
-<p>This section will be completed once calibration methods are implemented.</p>
-</section>
-<section id="appendix">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Appendix</a><a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
-<p>### Complete Sample Configuration File</p>
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">Calibrating the Models</a><a class="headerlink" href="#calibrating-the-models" title="Link to this heading"></a></h2>
+<p>Parameters’ influence in the simulated time series</p>
+<section id="complete-sample-configuration-file-for-calibrating">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Complete Sample Configuration File for Calibrating</a><a class="headerlink" href="#complete-sample-configuration-file-for-calibrating" title="Link to this heading"></a></h3>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">/*</span>
 <span class="w"> </span><span class="na">* This is an example configuration file for EF5</span>
 <span class="w"> </span><span class="na">*/</span>
@@ -446,6 +554,7 @@ Control the distributed model parameter settings. Parameters are specified per g
 documentation for details.</p>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 </section>
 

@@ -1,10 +1,5 @@
-.. EF5Manual documentation master file, created by
-   sphinx-quickstart on Thu Feb 20 14:26:00 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 EF5 User Manual
-=======================
+===============
 
 Version 1.0 (July, 2016)
 
@@ -18,37 +13,44 @@ EF5 is designed to facilitate creation of ensemble forecasts for flash flood pre
 
 Hydrologic Water Balance Models
 -------------------------------
-### CREST
+CREST
+~~~~~
 The Coupled Routing and Excess Storage (CREST) distributed hydrological model is a hybrid strategy developed by the University of Oklahoma and the NASA SERVIR Project Team. CREST simulates the spatiotemporal variation of water and energy fluxes and storages on a user-defined grid. Its scalability is achieved through sub-grid scale representation of soil moisture storage (using a variable infiltration curve) and runoff generation (using linear reservoirs). Originally developed for global flood predictions, it is also suitable for basin-scale applications.
 
 More detailed information about CREST can be found in the publication:  
 `Wang, J., et al. (2011) <https://dx.doi.org/10.1080/02626667.2010.543087>`_
 
-### SAC-SMA
+SAC-SMA
+~~~~~~~
 The Sacramento Soil Moisture Accounting (SAC-SMA) Model was developed by the U.S. National Weather Service. Its purpose is to parameterize soil moisture characteristics so that applied moisture is logically distributed, percolation is realistically simulated, and streamflow is effectively modeled.
 
 More detailed information about SAC-SMA is available at:  
 `U.S. NWS SAC-SMA algorithm description <http://www.nws.noaa.gov/oh/hrl/nwsrfs/users_manual/part2/_pdf/23sacsma.pdf>`_
 
-### HP
+HP
+~~
 The Hydrophobic (HP) water balance model assumes an entirely impervious surface where all rainfall is transformed directly into surface runoff.
 
 Routing Models
 --------------
-### Linear Reservoir
+Linear Reservoir
+~~~~~~~~~~~~~~~~
 Adapted from the CREST implementation, the linear reservoir routing model uses two reservoirs—one for overland (surface) runoff and one for subsurface runoff.
 
-### Kinematic Wave
+Kinematic Wave
+~~~~~~~~~~~~~~
 Kinematic wave routing is a simplified approximation of the Barré de Saint-Venant equations. It assumes that gravitational and friction forces cancel and neglects acceleration terms.
 
 Snow Melt Models
 ----------------
-### Snow-17
+Snow-17
+~~~~~~~
 Snow-17 is a temperature-index based snow melt module widely used by the U.S. NWS.
 
 Inundation Models
 -----------------
-### Simple Inundation
+Simple Inundation
+~~~~~~~~~~~~~~~~~
 The Simple Inundation model provides basic inundation modeling functionality.
 
 Compiling EF5
@@ -87,7 +89,8 @@ The configuration file controls all user-adjustable settings for EF5, including 
       Including multi-line C-style comments
    */
 
-### Basic Information
+Basic Information
+~~~~~~~~~~~~~~~~~
 Specifies file locations for the digital elevation model (DEM), drainage direction map (DDM), and flow accumulation map (FAM).
 
 .. code-block:: ini
@@ -100,7 +103,8 @@ Specifies file locations for the digital elevation model (DEM), drainage directi
    ESRIDDM=true
    SELFFAM=true
 
-### Precipitation Information
+Precipitation Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 Defines the properties of the precipitation forcing files.
 
 .. code-block:: ini
@@ -112,7 +116,8 @@ Defines the properties of the precipitation forcing files.
    LOC=/EF5Demo/FF/precip
    NAME=Q2_YYYYMMDDHHUU.bif
 
-### Potential Evapotranspiration (PET) Information
+Potential Evapotranspiration (PET) Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Defines the PET forcing file details.
 
 .. code-block:: ini
@@ -124,7 +129,8 @@ Defines the PET forcing file details.
    LOC=/EF5Demo/FF/pet
    NAME=PET_MM.bif
 
-### Gauge Locations
+Gauge Locations
+~~~~~~~~~~~~~~~
 Specifies the locations of gauges for output and parameter assignment.
 
 .. code-block:: ini
@@ -140,7 +146,8 @@ Specifies the locations of gauges for output and parameter assignment.
    LON=-93.62
    LAT=34.37
 
-### Basins
+Basins
+~~~~~~
 Groups gauge locations into basins.
 
 .. code-block:: ini
@@ -149,11 +156,12 @@ Groups gauge locations into basins.
    GAUGE=OKC
    GAUGE=AR
 
-### Parameter Sets
+Parameter Sets
+~~~~~~~~~~~~~~
 Control the distributed model parameter settings. Parameters are specified per gauge.
 
-#### CREST Parameter Set
-
+CREST Parameter Set
+~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [CrestParamSet ABRFC]
@@ -169,8 +177,8 @@ Control the distributed model parameter settings. Parameters are specified per g
    fc=1.00
    iwu=50.0
 
-#### SAC-SMA Parameter Set
-
+SAC-SMA Parameter Set
+~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [SacParamSet ABRFC]
@@ -209,11 +217,12 @@ Control the distributed model parameter settings. Parameters are specified per g
    LZFSC=0.11
    LZFPC=0.46
 
-#### HP Parameter Set
+HP Parameter Set
+~~~~~~~~~~~~~~~~
 *To be completed in a future revision.*
 
-#### Linear Reservoir Parameter Set
-
+Linear Reservoir Parameter Set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [lrparamset rundu]
@@ -227,8 +236,8 @@ Control the distributed model parameter settings. Parameters are specified per g
    iso=0.000040
    isu=0.000073
 
-#### Kinematic Wave Parameter Set
-
+Kinematic Wave Parameter Set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [KWParamSet rundu]
@@ -241,8 +250,8 @@ Control the distributed model parameter settings. Parameters are specified per g
    BETA=0.932080
    ALPHA0=4.603945
 
-#### Snow-17 Parameter Set
-
+Snow-17 Parameter Set
+~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [snow17paramset tarbela]
@@ -256,8 +265,8 @@ Control the distributed model parameter settings. Parameters are specified per g
    PLWHC=0.093812
    SCF=2.219492
 
-#### Simple Inundation Parameter Set
-
+Simple Inundation Parameter Set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [simpleinundationparamset rundu]
@@ -309,12 +318,15 @@ To run EF5, execute the binary with an optional control file argument:
 
 Calibrating the Models
 ----------------------
-This section will be completed once calibration methods are implemented.
+Parameters' influence in the simulated time series
 
-Appendix
---------
-### Complete Sample Configuration File
+.. dropdown:: Parameters influence in the simulated time series
 
+   .. image:: _static/Parameters_Sensitivity.png
+      :width: 400
+
+Complete Sample Configuration File for Calibrating
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    /*

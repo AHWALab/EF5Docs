@@ -1,10 +1,5 @@
-.. EF5Manual documentation master file, created by
-   sphinx-quickstart on Thu Feb 20 14:26:00 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 EF5 User Manual
-=======================
+===============
 
 Version 1.0 (July, 2016)
 
@@ -18,37 +13,44 @@ EF5 is designed to facilitate creation of ensemble forecasts for flash flood pre
 
 Hydrologic Water Balance Models
 -------------------------------
-### CREST
+CREST
+~~~~~
 The Coupled Routing and Excess Storage (CREST) distributed hydrological model is a hybrid strategy developed by the University of Oklahoma and the NASA SERVIR Project Team. CREST simulates the spatiotemporal variation of water and energy fluxes and storages on a user-defined grid. Its scalability is achieved through sub-grid scale representation of soil moisture storage (using a variable infiltration curve) and runoff generation (using linear reservoirs). Originally developed for global flood predictions, it is also suitable for basin-scale applications.
 
 More detailed information about CREST can be found in the publication:  
 `Wang, J., et al. (2011) <https://dx.doi.org/10.1080/02626667.2010.543087>`_
 
-### SAC-SMA
+SAC-SMA
+~~~~~~~
 The Sacramento Soil Moisture Accounting (SAC-SMA) Model was developed by the U.S. National Weather Service. Its purpose is to parameterize soil moisture characteristics so that applied moisture is logically distributed, percolation is realistically simulated, and streamflow is effectively modeled.
 
 More detailed information about SAC-SMA is available at:  
 `U.S. NWS SAC-SMA algorithm description <http://www.nws.noaa.gov/oh/hrl/nwsrfs/users_manual/part2/_pdf/23sacsma.pdf>`_
 
-### HP
+HP
+~~
 The Hydrophobic (HP) water balance model assumes an entirely impervious surface where all rainfall is transformed directly into surface runoff.
 
 Routing Models
 --------------
-### Linear Reservoir
+Linear Reservoir
+~~~~~~~~~~~~~~~~
 Adapted from the CREST implementation, the linear reservoir routing model uses two reservoirs—one for overland (surface) runoff and one for subsurface runoff.
 
-### Kinematic Wave
+Kinematic Wave
+~~~~~~~~~~~~~~
 Kinematic wave routing is a simplified approximation of the Barré de Saint-Venant equations. It assumes that gravitational and friction forces cancel and neglects acceleration terms.
 
 Snow Melt Models
 ----------------
-### Snow-17
+Snow-17
+~~~~~~~
 Snow-17 is a temperature-index based snow melt module widely used by the U.S. NWS.
 
 Inundation Models
 -----------------
-### Simple Inundation
+Simple Inundation
+~~~~~~~~~~~~~~~~~
 The Simple Inundation model provides basic inundation modeling functionality.
 
 Compiling EF5
@@ -87,7 +89,8 @@ The configuration file controls all user-adjustable settings for EF5, including 
       Including multi-line C-style comments
    */
 
-### Basic Information
+Basic Information
+~~~~~~~~~~~~~~~~~
 Specifies file locations for the digital elevation model (DEM), drainage direction map (DDM), and flow accumulation map (FAM).
 
 .. code-block:: ini
@@ -100,7 +103,8 @@ Specifies file locations for the digital elevation model (DEM), drainage directi
    ESRIDDM=true
    SELFFAM=true
 
-### Precipitation Information
+Precipitation Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 Defines the properties of the precipitation forcing files.
 
 .. code-block:: ini
@@ -112,7 +116,8 @@ Defines the properties of the precipitation forcing files.
    LOC=/EF5Demo/FF/precip
    NAME=Q2_YYYYMMDDHHUU.bif
 
-### Potential Evapotranspiration (PET) Information
+Potential Evapotranspiration (PET) Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Defines the PET forcing file details.
 
 .. code-block:: ini
@@ -124,7 +129,8 @@ Defines the PET forcing file details.
    LOC=/EF5Demo/FF/pet
    NAME=PET_MM.bif
 
-### Gauge Locations
+Gauge Locations
+~~~~~~~~~~~~~~~
 Specifies the locations of gauges for output and parameter assignment.
 
 .. code-block:: ini
@@ -140,7 +146,8 @@ Specifies the locations of gauges for output and parameter assignment.
    LON=-93.62
    LAT=34.37
 
-### Basins
+Basins
+~~~~~~
 Groups gauge locations into basins.
 
 .. code-block:: ini
@@ -149,11 +156,12 @@ Groups gauge locations into basins.
    GAUGE=OKC
    GAUGE=AR
 
-### Parameter Sets
+Parameter Sets
+~~~~~~~~~~~~~~
 Control the distributed model parameter settings. Parameters are specified per gauge.
 
-#### CREST Parameter Set
-
+CREST Parameter Set
+~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [CrestParamSet ABRFC]
@@ -169,8 +177,8 @@ Control the distributed model parameter settings. Parameters are specified per g
    fc=1.00
    iwu=50.0
 
-#### SAC-SMA Parameter Set
-
+SAC-SMA Parameter Set
+~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [SacParamSet ABRFC]
@@ -209,11 +217,12 @@ Control the distributed model parameter settings. Parameters are specified per g
    LZFSC=0.11
    LZFPC=0.46
 
-#### HP Parameter Set
+HP Parameter Set
+~~~~~~~~~~~~~~~~
 *To be completed in a future revision.*
 
-#### Linear Reservoir Parameter Set
-
+Linear Reservoir Parameter Set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [lrparamset rundu]
@@ -227,8 +236,8 @@ Control the distributed model parameter settings. Parameters are specified per g
    iso=0.000040
    isu=0.000073
 
-#### Kinematic Wave Parameter Set
-
+Kinematic Wave Parameter Set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [KWParamSet rundu]
@@ -241,8 +250,8 @@ Control the distributed model parameter settings. Parameters are specified per g
    BETA=0.932080
    ALPHA0=4.603945
 
-#### Snow-17 Parameter Set
-
+Snow-17 Parameter Set
+~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [snow17paramset tarbela]
@@ -256,8 +265,8 @@ Control the distributed model parameter settings. Parameters are specified per g
    PLWHC=0.093812
    SCF=2.219492
 
-#### Simple Inundation Parameter Set
-
+Simple Inundation Parameter Set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    [simpleinundationparamset rundu]
@@ -309,191 +318,15 @@ To run EF5, execute the binary with an optional control file argument:
 
 Calibrating the Models
 ----------------------
-
 Parameters' influence in the simulated time series
-
 
 .. dropdown:: Parameters influence in the simulated time series
 
    .. image:: _static/Parameters_Sensitivity.png
-   :width: 400
+      :width: 400
 
-
-### Complete Sample Configuration File for Calibrating
-
-.. code-block:: ini
-
-   /*
-    * This is an example configuration file for EF5
-    */
-
-
-   [Basic]
-   DEM=data/basic/dem_KY.tif
-   DDM=data/basic/ddm_KY.tif
-   FAM=data/basic/fam_KY.tif
-   PROJ=geographic
-   ESRIDDM=true
-   SelfFAM=false
-
-   [PETForcing CLIMO]
-   LOC=data/pet/
-   FREQ=1m
-   UNIT=mm/d
-   NAME=PET_MM_KY.tif
-   TYPE=TIF
-
-   [PrecipForcing MRMS]
-   TYPE=TIF
-   UNIT=mm/h
-   FREQ=2u
-   LOC=data/precip/
-   NAME=PrecipRate_00.00_YYYYMMDD-HHUU00.tif
-
-   [Gauge 0]
-   lat=36.9883
-   lon=-89.1326
-   outputts=true
-   basinarea=421966.3
-
-   [Gauge 03404900]
-   lon=-84.093599999999995
-   lat=36.951400000000000
-   basinarea=139.341000000000008
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03404900.csv
-
-   [Gauge 03282040]
-   lon=-83.810299999999998
-   lat=37.500599999999999
-   basinarea=200.205999999999989
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03282040.csv
-
-   [Gauge 03250190]
-   lon=-83.831699999999998
-   lat=38.023899999999998
-   basinarea=218.854000000000013
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03250190.csv
-
-   [Gauge 03208950]
-   lon=-82.438900000000004
-   lat=37.123899999999999
-   basinarea=172.234000000000009
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03208950.csv
-
-   [Gauge 03208500]
-   lon=-82.295800000000000
-   lat=37.206899999999997
-   basinarea=740.736999999999966
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03208500.csv
-
-   [Gauge 03206600]
-   lon=-82.296099999999996
-   lat=38.017200000000003
-   basinarea=99.714500000000001
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03206600.csv
-
-   [Gauge 03284525]
-   lon=-84.411100000000005
-   lat=37.988300000000002
-   basinarea=2.486400000000000
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03284525.csv
-
-   [Gauge 03478400]
-   lon=-82.133899999999997
-   lat=36.631700000000002
-   basinarea=69.670699999999997
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03478400.csv
-
-   [Basin 0]
-   gauge=0
-   gauge=03404900
-   gauge=03282040
-   gauge=03250190
-   gauge=03208950
-   gauge=03208500
-   gauge=03206600
-   gauge=03284525
-   gauge=03478400
-
-   [CrestParamSet EF5KY]
-   wm_grid=data/parameters/CREST/wm_KY.tif
-   im_grid=data/parameters/CREST/im_KY.tif
-   fc_grid=data/parameters/CREST/ksat_KY.tif
-   b_grid=data/parameters/CREST/b_KY.tif
-   gauge=03282040
-   wm=1.0
-   b=1.0
-   im=0.01
-   ke=1.0
-   fc=1.00
-   iwu=75.0
-
-   [KWParamSet EF5KY]
-   under_grid=data/parameters/KW/ksat_KY.tif
-   leaki_grid=data/parameters/KW/leaki_KY.tif
-   alpha_grid=data/parameters/KW/alpha_KY.tif
-   beta_grid=data/parameters/KW/beta_KY.tif
-   alpha0_grid=data/parameters/KW/alpha0_KY.tif
-   gauge=03282040
-   alpha0=1.0
-   alpha=1.0
-   beta=1.0
-   under=0.0001
-   leaki=1.0
-   th=10.0
-   isu=00.0
-
-   # The below is a block specific for CREST optimization
-   [CrestCaliParams 0CRESTCALI]
-   # Optimization for the location defined above
-   gauge=03282040
-   objective=CC        # options: CC, NSCE, BIAS
-   dream_ndraw=20000   # Number of iterations, recomended: 10000
-   wm=0.05,10
-   b=0.05,10
-   im=0.005,1
-   ke=0.001,1
-   fc=0.0,150.0
-   iwu=0.0,300.0
-
-   # The below is a block specific for KW optimization
-   [kwcaliparams 0KWCALI]
-   # Optimization for the location defined above
-   gauge=03282040
-   under=0.0001,0.00010001
-   leaki=0.02,10.0
-   th=10,10.00001
-   isu=0.0,0.000001
-   alpha=0.05,10
-   beta=0.05,10
-   alpha0=0.05,10
-
-   [Task CREST_Simulation]
-   STYLE=CALI_DREAM
-   MODEL=crest
-   ROUTING=KW
-   BASIN=0
-   PRECIP=MRMS
-   PET=CLIMO
-   OUTPUT=results
-   STATES=data/states
-   defaultparamsgauge=03282040
-   PARAM_SET=EF5KY
-   ROUTING_PARAM_Set=EF5KY
-   CALI_PARAM=0CRESTCALI
-   ROUTING_CALI_PARAM=0KWCALI
-   TIMESTEP=30u
-   TIME_BEGIN=20220727120000
-   TIME_END=20220730120000
-
-   [Execute]
-   task=CREST_Simulation
-
-
-Appendix
---------
-### Complete Sample Configuration File
-
+Complete Sample Configuration File for Calibrating
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: ini
 
    /*
