@@ -3,15 +3,15 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>Hydrologic Water Balance Models &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
 
   
-    
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=8d563738"></script>
@@ -24,11 +24,11 @@
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Routing Models" href="routing_models.html" />
+    <link rel="prev" title="About EF5" href="about.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,16 +44,21 @@
               <img src="_static/EF5-01.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="water_balance_models.html">Hydrologic Water Balance Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hydrologic Water Balance Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#crest">CREST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sac-sma">SAC-SMA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hp">HP</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="routing_models.html">Routing Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snow_melt_models.html">Snow Melt Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inundation_models.html">Inundation Models</a></li>
@@ -79,8 +84,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Search</li>
+      <li class="breadcrumb-item active">Hydrologic Water Balance Models</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/water_balance_models.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -88,22 +94,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <section id="hydrologic-water-balance-models">
+<h1>Hydrologic Water Balance Models<a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h1>
+<section id="crest">
+<h2>CREST<a class="headerlink" href="#crest" title="Link to this heading"></a></h2>
+<p>The Coupled Routing and Excess Storage (CREST) distributed hydrological model is a hybrid strategy developed by the University of Oklahoma and the NASA SERVIR Project Team. CREST simulates the spatiotemporal variation of water and energy fluxes and storages on a user-defined grid. Its scalability is achieved through sub-grid scale representation of soil moisture storage (using a variable infiltration curve) and runoff generation (using linear reservoirs). Originally developed for global flood predictions, it is also suitable for basin-scale applications.</p>
+<p>More detailed information about CREST can be found in the publication:
+<a class="reference external" href="https://dx.doi.org/10.1080/02626667.2010.543087">Wang, J., et al. (2011)</a></p>
+</section>
+<section id="sac-sma">
+<h2>SAC-SMA<a class="headerlink" href="#sac-sma" title="Link to this heading"></a></h2>
+<p>The Sacramento Soil Moisture Accounting (SAC-SMA) Model was developed by the U.S. National Weather Service. Its purpose is to parameterize soil moisture characteristics so that applied moisture is logically distributed, percolation is realistically simulated, and streamflow is effectively modeled.</p>
+<p>More detailed information about SAC-SMA is available at:
+<a class="reference external" href="http://www.nws.noaa.gov/oh/hrl/nwsrfs/users_manual/part2/_pdf/23sacsma.pdf">U.S. NWS SAC-SMA algorithm description</a></p>
+</section>
+<section id="hp">
+<h2>HP<a class="headerlink" href="#hp" title="Link to this heading"></a></h2>
+<p>The Hydrophobic (HP) water balance model assumes an entirely impervious surface where all rainfall is transformed directly into surface runoff.</p>
+</section>
+</section>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="About EF5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="routing_models.html" class="btn btn-neutral float-right" title="Routing Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
@@ -125,14 +142,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-  <script>
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>

@@ -1,0 +1,3 @@
+About EF5
+---------
+EF5 is designed to facilitate creation of ensemble forecasts for flash flood prediction. It incorporates multi-model support while maintaining a single set of input data. Currently, the only supported model is the Coupled Routing and Excess Storage (CREST) hydrologic model. Additionally, EF5 is optimized for parallel computing—portions of CREST use OpenMP for multi-core processing.
