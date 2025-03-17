@@ -6,11 +6,6 @@ Parameters' influence in the simulated time series
    Example
 
 
-
-
-.. image:: _static/Parameters_Sensitivity.png
-   :width: 400
-
 Complete Sample Configuration File for Calibrating
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -200,4 +195,9 @@ Complete Sample Configuration File for Calibrating
 
    [Execute]
    task=TaskCalibration
-   #task=CREST_Simulation             # Comment this line, and then, after the calibration, un-comment it and to run the simulation   
+   #task=CREST_Simulation             # Comment this line, and then, after the calibration, un-comment it and to run the simulation
+
+
+The following image shows the parameters' sensitivity in the simulated time series.
+.. image:: _static/Parameters_Sensitivity.png
+   :width: 400
