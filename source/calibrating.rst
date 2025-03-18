@@ -1,8 +1,8 @@
 Model calibration
 ----------------------
 
-To calibrate a specific model (CREST, SAC-SMA), you need to set up the calibration parameters in the configuration file. The calibration process will optimize the parameters to minimize the difference between observed and simulated streamflow.
-The calibration process uses the DREAM algorithm for optimization. You can specify the objective function (CC, NSCE, SSE), which are statistic metrics to evaluate the model performance. The parameter ranges for calibration are also defined in the configuration file.
+To calibrate a specific model, CREST or SAC-SMA, you need to set up the calibration parameters range in the control file. The calibration process will optimize the parameters to minimize the difference between observed and simulated streamflow.
+EF5 uses the DREAM method for optimization. You can specify the objective function -CC, NSCE, SSE-, which are statistic metrics to evaluate the model performance. The possible parameter ranges for calibration are also defined in the configuration file.
 The following is an example of how to set up the calibration parameters in the configuration file:
 
 .. dropdown:: Parameters influence in the simulated time series
@@ -22,8 +22,6 @@ Control file example for Calibration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: ini
-
-   # This is an example configuration file for EF5
 
    [Basic]
    DEM=data/basic/dem_KY.tif
@@ -210,31 +208,61 @@ Control file example for Calibration
 
    [Execute]
    task=TaskCalibration
-   #task=CREST_Simulation             # Comment this line, and then, after the calibration, un-comment it to run the simulation
+   #task=CREST_Simulation              # Comment this line, and then, after the calibration, update the parameters
+                                       # with the optimized values and un-comment it to run the simulation
 
+
+Calibration output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The calibration process will generate an output file, "cali_dream.gauge_name.crest.csv", that contains the optimized parameters, at the end of the .csv file, and the objective function value. The output will be saved in the specified directory.
+
+The optimized parameters will be saved in the following format:
+
+.. code-block:: ini
+
+   wm,b,im,ke,fc,iwu,under,leaki,th,isu,alpha,beta,alpha0,nsce,nsce/2
+   1.243439,1.027347,0.028567,2.212074,0.690118,232.437332,0.002938,0.339752,12.009190,13.275298,1.238962,0.246814,2.164778,-8814420.000000,-4407210.000000
+   ...
+   ...
+   ...
+   [WaterBalance]
+   wm=2.861236
+   b=1.986400
+   im=0.016121
+   ke=2.344525
+   fc=1.774454
+   iwu=281.206879
+   [Routing]
+   under=0.002960
+   leaki=0.707585
+   th=12.006120
+   isu=19.988890
+   alpha=2.894948
+   beta=2.375221
+   alpha0=2.960580
 
 .. admonition:: Common EF5 warning message in this step.
    
-      ''WARNING: Failed to load preload file outputs/califorcings.bin''
+      WARNING: Failed to load preload file outputs/califorcings.bin
    
-   It does not affect the calibration process.
-   It is related about a file created during the calibration process, which could be used in the future to re-run a calibration.
+   It does not affect the process, it is related about a file created during the calibration task, which could be used in the future to re-run it.
 
 .. admonition:: Common EF5 warning message in this step.
    
-      ''ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style "7"''
+      ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style "7"
    
    It does not affect the calibration process.
 
 .. WARNING::
    
-   This is a common EF5 error message in this step:
-      ''INFO:src/BasicGrids.cpp(625): Max gauge search distance is 217
+   Common EF5 error message in this step:
+      INFO:src/BasicGrids.cpp(625): Max gauge search distance is 217
       INFO:src/BasicGrids.cpp(735): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1
       INFO:src/BasicGrids.cpp(954): Walked 48852383 (out of 48893469) nodes for 0!
       terminate called after throwing an instance of 'std::bad_alloc'
          what():  std::bad_alloc
-      Aborted.''
+      Aborted.
    
    It could be related to the gage basin area verification, but it could be caused by a memory overload. Adding more RAM memory to your computer could solve this problem.
 
