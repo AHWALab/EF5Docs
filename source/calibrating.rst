@@ -12,13 +12,7 @@ The following is an example of how to set up the calibration parameters in the c
 
 
 
-.. admonition:: Common EF5 warning message in this step.
 
-   When you run the calibration, you may see the following warning message:   
-   "WARNING: Failed to load preload file outputs/califorcings.bin".
-   
-   It does not affect the calibration process.
-   It is related about a file created during the calibration process, which could be used in the future to re-run a calibration.
 
 
 
@@ -219,10 +213,17 @@ Control file example for Calibration
    #task=CREST_Simulation             # Comment this line, and then, after the calibration, un-comment it to run the simulation
 
 
+.. admonition:: Common EF5 warning message in this step.
+
+   When you run the calibration, you may see the following warning message:   
+   "WARNING: Failed to load preload file outputs/califorcings.bin".
+   
+   It does not affect the calibration process.
+   It is related about a file created during the calibration process, which could be used in the future to re-run a calibration.
+
 
 The following image shows the parameters' sensitivity in the simulated time series.
 
-
-
 .. image:: _static/Parameters_Sensitivity.png
    :width: 400
+   :align: center
