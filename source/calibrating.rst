@@ -1,19 +1,29 @@
-Calibrating the Models
+Model calibration
 ----------------------
-Parameters' influence in the simulated time series
+
+To calibrate the selected model (CREST,SAC-SMA).
 
 .. dropdown:: Parameters influence in the simulated time series
    Example
+   Example of dropdown
+// ~~~~~~~~~~~~~~~~~~
 
 
-Complete Sample Configuration File for Calibrating
+.. WARNING:: Common EF5 warning message in this step:
+   "WARNING: Failed to load preload file outputs/califorcings.bin".
+   
+   It does not affect the calibration process.
+   It is related about a file created during the calibration process, which could be used in the future to run a calibration without the need to re-run the related process.
+// ~~~~~~~~~~~~~~~~~~
+
+
+
+
+Control file example for Calibration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: ini
-
-   /*
-    * This is an example configuration file for EF5
-    */
+.. code-block:: ini   
+   # This is an example configuration file for EF5
 
    [Basic]
    DEM=data/basic/dem_KY.tif
@@ -102,11 +112,13 @@ Complete Sample Configuration File for Calibrating
    #gauge=03284525
    #gauge=03478400
 
-   [CrestParamSet EF5KY]
+   [CrestParamSet EF5KY] 
    wm_grid=data/parameters/CREST/wm_KY.tif
    im_grid=data/parameters/CREST/im_KY.tif
    fc_grid=data/parameters/CREST/ksat_KY.tif
    b_grid=data/parameters/CREST/b_KY.tif
+   # The following code is used for the simulation process.
+   # It is kept here to replace the optimized parameters later and run the simulation.  
    gauge=03282040
    wm=9.883508
    b=6.204447
@@ -115,12 +127,15 @@ Complete Sample Configuration File for Calibrating
    fc=79.819237
    iwu=42.181957
 
+
    [KWParamSet EF5KY]
    under_grid=data/parameters/KW/ksat_KY.tif
    leaki_grid=data/parameters/KW/leaki_KY.tif
    alpha_grid=data/parameters/KW/alpha_KY.tif
    beta_grid=data/parameters/KW/beta_KY.tif
    alpha0_grid=data/parameters/KW/alpha0_KY.tif
+   # The following code is used for the simulation process.
+   # It is kept here to replace the optimized parameters later and run the simulation.  
    gauge=03282040
    under=0.000100
    leaki=5.144720
@@ -195,9 +210,13 @@ Complete Sample Configuration File for Calibrating
 
    [Execute]
    task=TaskCalibration
-   #task=CREST_Simulation             # Comment this line, and then, after the calibration, un-comment it and to run the simulation
+   #task=CREST_Simulation             # Comment this line, and then, after the calibration, un-comment it to run the simulation
+// ~~~~~~~~~~~~~~~~~~
 
 
 The following image shows the parameters' sensitivity in the simulated time series.
+
+
+
 .. image:: _static/Parameters_Sensitivity.png
    :width: 400
