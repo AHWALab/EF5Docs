@@ -12,7 +12,7 @@ The following is an example of how to set up the calibration parameters in the c
 
 
 
-.. WARNING:: Common EF5 warning message in this step.
+.. admonition:: Common EF5 warning message in this step.
 
    When you run the calibration, you may see the following warning message:   
    "WARNING: Failed to load preload file outputs/califorcings.bin".
