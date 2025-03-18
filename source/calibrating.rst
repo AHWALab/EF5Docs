@@ -214,12 +214,26 @@ Control file example for Calibration
 
 
 .. admonition:: Common EF5 warning message in this step.
-
-   When you run the calibration, you may see the following warning message:   
    "WARNING: Failed to load preload file outputs/califorcings.bin".
    
    It does not affect the calibration process.
    It is related about a file created during the calibration process, which could be used in the future to re-run a calibration.
+
+.. admonition:: Common EF5 warning message in this step.
+   "ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style "7"".
+   
+   It does not affect the calibration process.
+
+.. WARNING::
+   This is a common EF5 error message in this step.
+   "INFO:src/BasicGrids.cpp(625): Max gauge search distance is 217
+   INFO:src/BasicGrids.cpp(735): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1
+   INFO:src/BasicGrids.cpp(954): Walked 48852383 (out of 48893469) nodes for 0!
+   terminate called after throwing an instance of 'std::bad_alloc'
+      what():  std::bad_alloc
+   Aborted".
+   
+   It could be related to the gage basin area verification, but it could be caused by a memory overload. Adding more RAM memory to your computer could solve this problem.
 
 
 The following image shows the parameters' sensitivity in the simulated time series.
