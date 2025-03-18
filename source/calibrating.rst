@@ -1,7 +1,9 @@
 Model calibration
 ----------------------
 
-To calibrate the selected model (CREST,SAC-SMA).
+To calibrate a specific model (CREST, SAC-SMA), you need to set up the calibration parameters in the configuration file. The calibration process will optimize the parameters to minimize the difference between observed and simulated streamflow.
+The calibration process uses the DREAM algorithm for optimization. You can specify the objective function (CC, NSCE, SSE), which are statistic metrics to evaluate the model performance. The parameter ranges for calibration are also defined in the configuration file.
+The following is an example of how to set up the calibration parameters in the configuration file:
 
 .. dropdown:: Parameters influence in the simulated time series
    
@@ -10,8 +12,9 @@ To calibrate the selected model (CREST,SAC-SMA).
 
 
 
-.. WARNING:: Common EF5 warning message in this step:
-   
+.. WARNING:: Common EF5 warning message in this step.
+
+   When you run the calibration, you may see the following warning message:   
    "WARNING: Failed to load preload file outputs/califorcings.bin".
    
    It does not affect the calibration process.
