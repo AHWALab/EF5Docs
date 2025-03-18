@@ -4,17 +4,19 @@ Model calibration
 To calibrate the selected model (CREST,SAC-SMA).
 
 .. dropdown:: Parameters influence in the simulated time series
+   
    Example
    Example of dropdown
-// ~~~~~~~~~~~~~~~~~~
+
 
 
 .. WARNING:: Common EF5 warning message in this step:
+   
    "WARNING: Failed to load preload file outputs/califorcings.bin".
    
    It does not affect the calibration process.
-   It is related about a file created during the calibration process, which could be used in the future to run a calibration without the need to re-run the related process.
-// ~~~~~~~~~~~~~~~~~~
+   It is related about a file created during the calibration process, which could be used in the future to re-run a calibration.
+
 
 
 
@@ -22,7 +24,8 @@ To calibrate the selected model (CREST,SAC-SMA).
 Control file example for Calibration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: ini   
+.. code-block:: ini
+
    # This is an example configuration file for EF5
 
    [Basic]
@@ -211,7 +214,7 @@ Control file example for Calibration
    [Execute]
    task=TaskCalibration
    #task=CREST_Simulation             # Comment this line, and then, after the calibration, un-comment it to run the simulation
-// ~~~~~~~~~~~~~~~~~~
+
 
 
 The following image shows the parameters' sensitivity in the simulated time series.
