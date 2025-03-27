@@ -15,6 +15,7 @@ The following is an example of how to set up the calibration parameters in the c
 
 
 Table: Parameters definition and possible ranges for calibration.
+
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+--+--+--+--+--+--+
 | Parameter | Definition                                                                     | Ref min val | Ref max val  |  |  |  |  |  |  |
 +===========+================================================================================+=============+==============+==+==+==+==+==+==+
