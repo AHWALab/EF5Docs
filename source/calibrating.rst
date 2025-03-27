@@ -16,29 +16,28 @@ The following is an example of how to set up the calibration parameters in the c
 
 Table: Parameters definition and possible ranges for calibration.
 
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+--+--+--+--+--+--+
-| Parameter | Definition                                                                     | Ref min val | Ref max val  |  |  |  |  |  |  |
-+===========+================================================================================+=============+==============+==+==+==+==+==+==+
-| alpha0    | The alpha value used for overland, not channel, routing                        | 0.01        | 5            |  |  |  |  |  |  |
-| alpha     | Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta    | 0.01        | 3            |  |  |  |  |  |  |
-| beta      | Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta    | 0.0001      | 1            |  |  |  |  |  |  |
-| under     | The interflow flow speed multiplier                                            | 0.0001      | 3            |  |  |  |  |  |  |
-| leaki     | Amount of water leaked from interflow reservoir in each time step              | 0.0001      | 1            |  |  |  |  |  |  |
-| th        | Number of grid cells needed to flow into a cell for it to be part of a channel | 30          | 300          |  |  |  |  |  |  |
-| isu       | Initial value of the interflow reservoir                                       | 0           | 0.0001       |  |  |  |  |  |  |
-| wm        | Maximum soil water capacity                                                    | 5           | 600          |  |  |  |  |  |  |
-| b         | The exponent of the VIC                                                        | 0.1         | 20           |  |  |  |  |  |  |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+--+--+--+--+--+--+
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| Parameter | Definition                                                                     | Ref min val | Ref max val  |
++===========+================================================================================+=============+==============+
+| alpha0    | The alpha value used for overland, not channel, routing                        | 0.01        | 5            |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| alpha     | Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta    | 0.01        | 3            |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| beta      | Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta    | 0.0001      | 1            |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| under     | The interflow flow speed multiplier                                            | 0.0001      | 3            |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| leaki     | Amount of water leaked from interflow reservoir in each time step              | 0.0001      | 1            |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| th        | Number of grid cells needed to flow into a cell for it to be part of a channel | 30          | 300          |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| isu       | Initial value of the interflow reservoir                                       | 0           | 0.0001       |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| wm        | Maximum soil water capacity                                                    | 5           | 600          |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
+| b         | The exponent of the VIC                                                        | 0.1         | 20           |
++-----------+--------------------------------------------------------------------------------+-------------+--------------+
 
-
-
-+------------------------+------------+----------+
-| Header row, column 1   | Header 2   | Header 3 |
-+========================+============+==========+
-| body row 1, column 1   | column 2   | column 3 |
-+------------------------+------------+----------+
-| body row 2             | Cells may span        |
-+------------------------+-----------------------+
 
 
 Control file example for Calibration
