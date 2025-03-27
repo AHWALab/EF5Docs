@@ -5,13 +5,6 @@ To calibrate a specific model, CREST or SAC-SMA, you need to set up the calibrat
 EF5 uses the DREAM method for optimization. You can specify the objective function -CC, NSCE, SSE-, which are statistic metrics to evaluate the model performance. The possible parameter ranges for calibration are also defined in the configuration file.
 The following is an example of how to set up the calibration parameters in the configuration file:
 
-.. dropdown:: Parameters influence in the simulated time series
-   
-   Example
-   Example of dropdown
-
-
-
 
 
 Table: Parameters definition and possible ranges for calibration.
@@ -295,3 +288,14 @@ The following image shows the parameters' sensitivity in the simulated time seri
 .. image:: _static/Parameters_Sensitivity.png
    :width: 400
    :align: center
+
+
+.. dropdown:: Parameters influence in the simulated time series
+   
+   Example
+   Example of dropdown
+
+
+.. dropdown:: Dropdown title
+
+    Dropdown content
