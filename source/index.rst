@@ -19,6 +19,7 @@ This is the user manual for EF5, a tool for ensemble flood forecasting. See the 
    execute_block
    running
    calibrating
+   changelog
 
 Add your content using ``reStructuredText`` syntax. See the
 `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
