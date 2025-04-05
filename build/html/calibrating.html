@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calibrating the Models &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>Model calibration &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
@@ -22,11 +22,11 @@
       <script>let toggleOpenOnPrint = 'true';</script>
       <script src="_static/togglebutton.js?v=4a39c7ea"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
     <link rel="prev" title="Running EF5" href="running.html" /> 
 </head>
 
@@ -61,10 +61,13 @@
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Calibrating the Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#complete-sample-configuration-file-for-calibrating">Complete Sample Configuration File for Calibrating</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model calibration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#control-file-example-for-calibration">Control file example for Calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calibration-output">Calibration output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-sensitivity">Parameters’ sensitivity</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -81,7 +84,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Calibrating the Models</li>
+      <li class="breadcrumb-item active">Model calibration</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/calibrating.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,81 +94,321 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="calibrating-the-models">
-<h1>Calibrating the Models<a class="headerlink" href="#calibrating-the-models" title="Link to this heading"></a></h1>
-<p>Parameters’ influence in the simulated time series</p>
-<section id="complete-sample-configuration-file-for-calibrating">
-<h2>Complete Sample Configuration File for Calibrating<a class="headerlink" href="#complete-sample-configuration-file-for-calibrating" title="Link to this heading"></a></h2>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">/*</span>
-<span class="w"> </span><span class="na">* This is an example configuration file for EF5</span>
-<span class="w"> </span><span class="na">*/</span>
-
-<span class="k">[Basic]</span>
-<span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
-<span class="na">DDM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DDM.asc</span>
-<span class="na">FAM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/FAM.asc</span>
-<span class="na">PROJ</span><span class="o">=</span><span class="s">laea</span>
+  <section id="model-calibration">
+<h1>Model calibration<a class="headerlink" href="#model-calibration" title="Link to this heading"></a></h1>
+<p>To calibrate a specific model, CREST or SAC-SMA, you need to set up the calibration parameters range in the control file. The calibration process will optimize the parameters to minimize the difference between observed and simulated streamflow.
+EF5 uses the DREAM method for optimization. You can specify the objective function -CC, NSCE, SSE-, which are statistic metrics to evaluate the model performance. The possible parameter ranges for calibration are also defined in the configuration file.
+The following is an example of how to set up the calibration parameters in the configuration file:</p>
+<p>Table: Parameters definition and possible ranges for calibration.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Ref min val</p></th>
+<th class="head"><p>Ref max val</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>alpha0</p></td>
+<td><p>The alpha value used for overland, not channel, routing</p></td>
+<td><p>0.01</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>alpha</p></td>
+<td><p>Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta</p></td>
+<td><p>0.01</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>beta</p></td>
+<td><p>Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta</p></td>
+<td><p>0.0001</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>under</p></td>
+<td><p>The interflow flow speed multiplier</p></td>
+<td><p>0.0001</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>leaki</p></td>
+<td><p>Amount of water leaked from interflow reservoir in each time step</p></td>
+<td><p>0.0001</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>th</p></td>
+<td><p>Number of grid cells needed to flow into a cell for it to be part of a channel</p></td>
+<td><p>30</p></td>
+<td><p>300</p></td>
+</tr>
+<tr class="row-even"><td><p>isu</p></td>
+<td><p>Initial value of the interflow reservoir</p></td>
+<td><p>0</p></td>
+<td><p>0.0001</p></td>
+</tr>
+<tr class="row-odd"><td><p>wm</p></td>
+<td><p>Maximum soil water capacity</p></td>
+<td><p>5</p></td>
+<td><p>600</p></td>
+</tr>
+<tr class="row-even"><td><p>b</p></td>
+<td><p>The exponent of the VIC</p></td>
+<td><p>0.1</p></td>
+<td><p>20</p></td>
+</tr>
+</tbody>
+</table>
+<section id="control-file-example-for-calibration">
+<h2>Control file example for Calibration<a class="headerlink" href="#control-file-example-for-calibration" title="Link to this heading"></a></h2>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
+<span class="na">DEM</span><span class="o">=</span><span class="s">data/basic/dem_KY.tif</span>
+<span class="na">DDM</span><span class="o">=</span><span class="s">data/basic/ddm_KY.tif</span>
+<span class="na">FAM</span><span class="o">=</span><span class="s">data/basic/fam_KY.tif</span>
+<span class="na">PROJ</span><span class="o">=</span><span class="s">geographic</span>
 <span class="na">ESRIDDM</span><span class="o">=</span><span class="s">true</span>
+<span class="na">SelfFAM</span><span class="o">=</span><span class="s">false</span>
 
-<span class="k">[PrecipForcing Q2Precip]</span>
-<span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
+<span class="k">[PETForcing CLIMO]</span>
+<span class="na">LOC</span><span class="o">=</span><span class="s">data/pet/</span>
+<span class="na">FREQ</span><span class="o">=</span><span class="s">1m</span>
+<span class="na">UNIT</span><span class="o">=</span><span class="s">mm/d</span>
+<span class="na">NAME</span><span class="o">=</span><span class="s">PET_MM_KY.tif</span>
+<span class="na">TYPE</span><span class="o">=</span><span class="s">TIF</span>
+
+<span class="k">[PrecipForcing MRMS]</span>
+<span class="na">TYPE</span><span class="o">=</span><span class="s">TIF</span>
 <span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
-<span class="na">FREQ</span><span class="o">=</span><span class="s">5u</span>
-<span class="na">LOC</span><span class="o">=</span><span class="s">/EF5Demo/FF/precip</span>
-<span class="na">NAME</span><span class="o">=</span><span class="s">Q2_YYYYMMDDHHUU.bif</span>
+<span class="na">FREQ</span><span class="o">=</span><span class="s">2u</span>
+<span class="na">LOC</span><span class="o">=</span><span class="s">data/precip/</span>
+<span class="na">NAME</span><span class="o">=</span><span class="s">PrecipRate_00.00_YYYYMMDD-HHUU00.tif</span>
 
-<span class="k">[PETForcing PET]</span>
-<span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
-<span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
-<span class="na">FREQ</span><span class="o">=</span><span class="s">m</span>
-<span class="na">LOC</span><span class="o">=</span><span class="s">/EF5Demo/FF/pet</span>
-<span class="na">NAME</span><span class="o">=</span><span class="s">PET_MM.bif</span>
+<span class="k">[Gauge 0]</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">36.9883</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-89.1326</span>
+<span class="na">outputts</span><span class="o">=</span><span class="s">true</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">421966.3</span>
 
-<span class="k">[Gauge OKC]</span>
-<span class="na">LON</span><span class="o">=</span><span class="s">-97.01</span>
-<span class="na">LAT</span><span class="o">=</span><span class="s">35.68</span>
-<span class="na">OBS</span><span class="o">=</span><span class="s">/EF5Demo/obs/okc.csv</span>
+<span class="k">[Gauge 03404900]</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-84.093599999999995</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">36.951400000000000</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">139.341000000000008</span>
+<span class="na">obs</span><span class="o">=</span><span class="s">data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03404900.csv</span>
 
-<span class="k">[Gauge AR]</span>
-<span class="na">LON</span><span class="o">=</span><span class="s">-93.62</span>
-<span class="na">LAT</span><span class="o">=</span><span class="s">34.37</span>
+<span class="k">[Gauge 03282040]</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-83.810299999999998</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">37.500599999999999</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">200.205999999999989</span>
+<span class="na">obs</span><span class="o">=</span><span class="s">data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03282040.csv</span>
 
-<span class="k">[Basin FF]</span>
-<span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
-<span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
+<span class="k">[Gauge 03250190]</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-83.831699999999998</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">38.023899999999998</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">218.854000000000013</span>
+<span class="na">obs</span><span class="o">=</span><span class="s">data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03250190.csv</span>
 
-<span class="k">[CrestParamSet FF]</span>
-<span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
-<span class="na">COEM</span><span class="o">=</span><span class="s">24.230076 EXPM=0.502391 RIVER=1.73056</span>
-<span class="na">UNDER</span><span class="o">=</span><span class="s">0.291339 LEAKO=0.56668 LEAKI=0.251648</span>
-<span class="na">TH</span><span class="o">=</span><span class="s">63.20205 GM=1.364364 PWM=71.96465</span>
-<span class="na">PB</span><span class="o">=</span><span class="s">0.964355 PIM=6.508687 PKE=0.19952</span>
-<span class="na">PFC</span><span class="o">=</span><span class="s">2.578529 IWU=53.52593 ISO=5.899539</span>
-<span class="na">ISU</span><span class="o">=</span><span class="s">17.31128</span>
-<span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
-<span class="na">COEM</span><span class="o">=</span><span class="s">24.230076 EXPM=0.502391 RIVER=1.73056</span>
-<span class="na">UNDER</span><span class="o">=</span><span class="s">0.291339 LEAKO=0.56668 LEAKI=0.251648</span>
-<span class="na">TH</span><span class="o">=</span><span class="s">63.20205 GM=1.364364 PWM=71.96465</span>
-<span class="na">PB</span><span class="o">=</span><span class="s">0.964355 PIM=6.508687 PKE=0.19952</span>
-<span class="na">PFC</span><span class="o">=</span><span class="s">2.578529 IWU=53.52593 ISO=5.899539</span>
-<span class="na">ISU</span><span class="o">=</span><span class="s">17.31128</span>
+<span class="k">[Gauge 03208950]</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-82.438900000000004</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">37.123899999999999</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">172.234000000000009</span>
+<span class="na">obs</span><span class="o">=</span><span class="s">data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03208950.csv</span>
 
-<span class="k">[Task RunFF]</span>
-<span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span>
-<span class="na">MODEL</span><span class="o">=</span><span class="s">CREST</span>
-<span class="na">BASIN</span><span class="o">=</span><span class="s">FF</span>
-<span class="na">PRECIP</span><span class="o">=</span><span class="s">Q2_PRECIP</span>
-<span class="na">PET</span><span class="o">=</span><span class="s">PET</span>
-<span class="na">OUTPUT</span><span class="o">=</span><span class="s">/EF5Demo/FF/output/</span>
-<span class="na">PARAM_SET</span><span class="o">=</span><span class="s">FF</span>
-<span class="na">TIMESTEP</span><span class="o">=</span><span class="s">5u</span>
-<span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">201006010000</span>
-<span class="na">TIME_END</span><span class="o">=</span><span class="s">201006010030</span>
+<span class="k">[Gauge 03208500]</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-82.295800000000000</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">37.206899999999997</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">740.736999999999966</span>
+<span class="na">obs</span><span class="o">=</span><span class="s">data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03208500.csv</span>
+
+<span class="k">[Gauge 03206600]</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-82.296099999999996</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">38.017200000000003</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">99.714500000000001</span>
+<span class="na">obs</span><span class="o">=</span><span class="s">data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03206600.csv</span>
+
+<span class="k">[Gauge 03284525]</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-84.411100000000005</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">37.988300000000002</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">2.486400000000000</span>
+<span class="na">obs</span><span class="o">=</span><span class="s">data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03284525.csv</span>
+
+<span class="k">[Gauge 03478400]</span>
+<span class="na">lon</span><span class="o">=</span><span class="s">-82.133899999999997</span>
+<span class="na">lat</span><span class="o">=</span><span class="s">36.631700000000002</span>
+<span class="na">basinarea</span><span class="o">=</span><span class="s">69.670699999999997</span>
+<span class="na">obs</span><span class="o">=</span><span class="s">data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03478400.csv</span>
+
+<span class="k">[Basin 0]</span>
+<span class="c1">#gauge=0</span>
+<span class="c1">#gauge=03404900</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">03282040</span>
+<span class="c1">#gauge=03250190</span>
+<span class="c1">#gauge=03208950</span>
+<span class="c1">#gauge=03208500</span>
+<span class="c1">#gauge=03206600</span>
+<span class="c1">#gauge=03284525</span>
+<span class="c1">#gauge=03478400</span>
+
+<span class="k">[CrestParamSet EF5KY]</span>
+<span class="na">wm_grid</span><span class="o">=</span><span class="s">data/parameters/CREST/wm_KY.tif</span>
+<span class="na">im_grid</span><span class="o">=</span><span class="s">data/parameters/CREST/im_KY.tif</span>
+<span class="na">fc_grid</span><span class="o">=</span><span class="s">data/parameters/CREST/ksat_KY.tif</span>
+<span class="na">b_grid</span><span class="o">=</span><span class="s">data/parameters/CREST/b_KY.tif</span>
+<span class="c1"># The following code is used for the simulation process.</span>
+<span class="c1"># It is kept here to replace the optimized parameters later and run the simulation.</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">03282040</span>
+<span class="na">wm</span><span class="o">=</span><span class="s">9.883508</span>
+<span class="na">b</span><span class="o">=</span><span class="s">6.204447</span>
+<span class="na">im</span><span class="o">=</span><span class="s">0.048939</span>
+<span class="na">ke</span><span class="o">=</span><span class="s">0.832682</span>
+<span class="na">fc</span><span class="o">=</span><span class="s">79.819237</span>
+<span class="na">iwu</span><span class="o">=</span><span class="s">42.181957</span>
+
+
+<span class="k">[KWParamSet EF5KY]</span>
+<span class="na">under_grid</span><span class="o">=</span><span class="s">data/parameters/KW/ksat_KY.tif</span>
+<span class="na">leaki_grid</span><span class="o">=</span><span class="s">data/parameters/KW/leaki_KY.tif</span>
+<span class="na">alpha_grid</span><span class="o">=</span><span class="s">data/parameters/KW/alpha_KY.tif</span>
+<span class="na">beta_grid</span><span class="o">=</span><span class="s">data/parameters/KW/beta_KY.tif</span>
+<span class="na">alpha0_grid</span><span class="o">=</span><span class="s">data/parameters/KW/alpha0_KY.tif</span>
+<span class="c1"># The following code is used for the simulation process.</span>
+<span class="c1"># It is kept here to replace the optimized parameters later and run the simulation.</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">03282040</span>
+<span class="na">under</span><span class="o">=</span><span class="s">0.000100</span>
+<span class="na">leaki</span><span class="o">=</span><span class="s">5.144720</span>
+<span class="na">th</span><span class="o">=</span><span class="s">10.00000</span>
+<span class="na">isu</span><span class="o">=</span><span class="s">0.000000</span>
+<span class="na">alpha</span><span class="o">=</span><span class="s">9.645860</span>
+<span class="na">beta</span><span class="o">=</span><span class="s">0.361487</span>
+<span class="na">alpha0</span><span class="o">=</span><span class="s">1.168505</span>
+
+<span class="k">[CrestCaliParams 0CRESTCALI]</span>
+<span class="c1"># To set up the following ranges, please refer to the above table</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">03282040</span>
+<span class="na">objective</span><span class="o">=</span><span class="s">CC</span><span class="w">                       </span><span class="c1"># Possible options: CC, NSCE, SSE</span>
+<span class="na">dream_ndraw</span><span class="o">=</span><span class="s">20000</span>
+<span class="na">wm</span><span class="o">=</span><span class="s">0.05,10</span>
+<span class="na">b</span><span class="o">=</span><span class="s">0.05,10</span>
+<span class="na">im</span><span class="o">=</span><span class="s">0.005,1</span>
+<span class="na">ke</span><span class="o">=</span><span class="s">0.001,1</span>
+<span class="na">fc</span><span class="o">=</span><span class="s">0.0,150.0</span>
+<span class="na">iwu</span><span class="o">=</span><span class="s">0.0,300.0</span>
+
+<span class="k">[kwcaliparams 0KWCALI]</span>
+<span class="c1"># To set up the following ranges, please refer to the above table</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">03282040</span>
+<span class="na">under</span><span class="o">=</span><span class="s">0.0001,0.00010001</span>
+<span class="na">leaki</span><span class="o">=</span><span class="s">0.02,10.0</span>
+<span class="na">th</span><span class="o">=</span><span class="s">10,10.00001</span>
+<span class="na">isu</span><span class="o">=</span><span class="s">0.0,0.000001</span>
+<span class="na">alpha</span><span class="o">=</span><span class="s">0.05,10</span>
+<span class="na">beta</span><span class="o">=</span><span class="s">0.05,10</span>
+<span class="na">alpha0</span><span class="o">=</span><span class="s">0.05,10</span>
+
+<span class="k">[Task TaskCalibration]</span>
+<span class="na">STYLE</span><span class="o">=</span><span class="s">CALI_DREAM</span>
+<span class="na">MODEL</span><span class="o">=</span><span class="s">crest</span>
+<span class="na">ROUTING</span><span class="o">=</span><span class="s">KW</span>
+<span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
+<span class="na">PRECIP</span><span class="o">=</span><span class="s">MRMS</span>
+<span class="na">PET</span><span class="o">=</span><span class="s">CLIMO</span>
+<span class="na">OUTPUT</span><span class="o">=</span><span class="s">outputs</span>
+<span class="na">STATES</span><span class="o">=</span><span class="s">data/states</span>
+<span class="na">defaultparamsgauge</span><span class="o">=</span><span class="s">03282040</span>
+<span class="na">PARAM_SET</span><span class="o">=</span><span class="s">EF5KY</span>
+<span class="na">ROUTING_PARAM_Set</span><span class="o">=</span><span class="s">EF5KY</span>
+<span class="na">CALI_PARAM</span><span class="o">=</span><span class="s">0CRESTCALI</span>
+<span class="na">ROUTING_CALI_PARAM</span><span class="o">=</span><span class="s">0KWCALI</span>
+<span class="c1">#output_grids=MAXUNITSTREAMFLOW|MAXSTREAMFLOW</span>
+<span class="na">TIMESTEP</span><span class="o">=</span><span class="s">2u</span>
+<span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">20220727120000</span>
+<span class="c1">#TIME_WARMEND=20220727120000</span>
+<span class="c1">#TIME_STATE=20220730120000</span>
+<span class="na">TIME_END</span><span class="o">=</span><span class="s">20220730120000</span>
+
+<span class="k">[Task CREST_Simulation]</span>
+<span class="na">STYLE</span><span class="o">=</span><span class="s">simu</span>
+<span class="na">MODEL</span><span class="o">=</span><span class="s">crest</span>
+<span class="na">ROUTING</span><span class="o">=</span><span class="s">KW</span>
+<span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
+<span class="na">PRECIP</span><span class="o">=</span><span class="s">MRMS</span>
+<span class="na">PET</span><span class="o">=</span><span class="s">CLIMO</span>
+<span class="na">OUTPUT</span><span class="o">=</span><span class="s">outputs</span>
+<span class="na">STATES</span><span class="o">=</span><span class="s">data/states</span>
+<span class="na">defaultparamsgauge</span><span class="o">=</span><span class="s">03282040</span>
+<span class="na">PARAM_SET</span><span class="o">=</span><span class="s">EF5KY</span>
+<span class="na">ROUTING_PARAM_Set</span><span class="o">=</span><span class="s">EF5KY</span>
+<span class="na">output_grids</span><span class="o">=</span><span class="s">MAXUNITSTREAMFLOW|MAXSTREAMFLOW</span>
+<span class="na">TIMESTEP</span><span class="o">=</span><span class="s">15u</span>
+<span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">20220727120000</span>
+<span class="c1">#TIME_WARMEND=20220727120000</span>
+<span class="c1">#TIME_STATE=20220730120000</span>
+<span class="na">TIME_END</span><span class="o">=</span><span class="s">20220730120000</span>
 
 <span class="k">[Execute]</span>
-<span class="na">TASK</span><span class="o">=</span><span class="s">RunFF</span>
+<span class="na">task</span><span class="o">=</span><span class="s">TaskCalibration</span>
+<span class="c1">#task=CREST_Simulation              # Comment this line, and then, after the calibration, update the parameters</span>
+<span class="w">                                    </span><span class="c1"># with the optimized values and un-comment it to run the simulation</span>
 </pre></div>
 </div>
+</section>
+<section id="calibration-output">
+<h2>Calibration output<a class="headerlink" href="#calibration-output" title="Link to this heading"></a></h2>
+<p>The calibration process will generate an output file, “cali_dream.gauge_name.crest.csv”, that contains the optimized parameters, at the end of the .csv file, and the objective function value. The output will be saved in the specified directory.</p>
+<p>The optimized parameters will be saved in the following format:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">wm,b,im,ke,fc,iwu,under,leaki,th,isu,alpha,beta,alpha0,nsce,nsce/2</span>
+<span class="na">1.243439,1.027347,0.028567,2.212074,0.690118,232.437332,0.002938,0.339752,12.009190,13.275298,1.238962,0.246814,2.164778,-8814420.000000,-4407210.000000</span>
+<span class="na">...</span>
+<span class="na">...</span>
+<span class="na">...</span>
+<span class="k">[WaterBalance]</span>
+<span class="na">wm</span><span class="o">=</span><span class="s">2.861236</span>
+<span class="na">b</span><span class="o">=</span><span class="s">1.986400</span>
+<span class="na">im</span><span class="o">=</span><span class="s">0.016121</span>
+<span class="na">ke</span><span class="o">=</span><span class="s">2.344525</span>
+<span class="na">fc</span><span class="o">=</span><span class="s">1.774454</span>
+<span class="na">iwu</span><span class="o">=</span><span class="s">281.206879</span>
+<span class="k">[Routing]</span>
+<span class="na">under</span><span class="o">=</span><span class="s">0.002960</span>
+<span class="na">leaki</span><span class="o">=</span><span class="s">0.707585</span>
+<span class="na">th</span><span class="o">=</span><span class="s">12.006120</span>
+<span class="na">isu</span><span class="o">=</span><span class="s">19.988890</span>
+<span class="na">alpha</span><span class="o">=</span><span class="s">2.894948</span>
+<span class="na">beta</span><span class="o">=</span><span class="s">2.375221</span>
+<span class="na">alpha0</span><span class="o">=</span><span class="s">2.960580</span>
+</pre></div>
+</div>
+<div class="admonition-common-ef5-warning-message-in-this-step admonition">
+<p class="admonition-title">Common EF5 warning message in this step.</p>
+<blockquote>
+<div><p>WARNING: Failed to load preload file outputs/califorcings.bin</p>
+</div></blockquote>
+<p>It does not affect the process, it is related about a file created during the calibration task, which could be used in the future to re-run it.</p>
+</div>
+<div class="admonition-common-ef5-warning-message-in-this-step admonition">
+<p class="admonition-title">Common EF5 warning message in this step.</p>
+<blockquote>
+<div><p>ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style “7”</p>
+</div></blockquote>
+<p>It does not affect the calibration process.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<dl>
+<dt>Common EF5 error message in this step:</dt><dd><p><a class="reference external" href="INFO:src/BasicGrids.cpp(625">INFO:src/BasicGrids.cpp(625</a>): Max gauge search distance is 217
+<a class="reference external" href="INFO:src/BasicGrids.cpp(735">INFO:src/BasicGrids.cpp(735</a>): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1
+<a class="reference external" href="INFO:src/BasicGrids.cpp(954">INFO:src/BasicGrids.cpp(954</a>): Walked 48852383 (out of 48893469) nodes for 0!
+terminate called after throwing an instance of ‘std::bad_alloc’</p>
+<blockquote>
+<div><p>what():  std::bad_alloc</p>
+</div></blockquote>
+<p>Aborted.</p>
+</dd>
+</dl>
+<p>It could be related to the gage basin area verification, but it could be caused by a memory overload. Adding more RAM memory to your computer could solve this problem.</p>
+</div>
+</section>
+<section id="parameters-sensitivity">
+<h2>Parameters’ sensitivity<a class="headerlink" href="#parameters-sensitivity" title="Link to this heading"></a></h2>
+<p>The following image shows the parameters’ sensitivity in the simulated time series. Each parameter is varied while the others are kept constant. The sensitivity analysis helps to understand how each parameter influences the model output.</p>
+<a class="reference internal image-reference" href="_images/Parameters_Sensitivity.png"><img alt="_images/Parameters_Sensitivity.png" class="align-center" src="_images/Parameters_Sensitivity.png" style="width: 400px;" />
+</a>
 </section>
 </section>
 
@@ -174,12 +417,13 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="running.html" class="btn btn-neutral float-left" title="Running EF5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Humberto Vergara.</p>
+    <p>&#169; Copyright 2025, AHWA Laboratory, IIHR - Hydroscience &amp; Engineering, University of Iowa.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

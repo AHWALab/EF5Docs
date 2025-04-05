@@ -22,7 +22,6 @@
       <script>let toggleOpenOnPrint = 'true';</script>
       <script src="_static/togglebutton.js?v=4a39c7ea"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="#" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -52,7 +51,12 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">About EF5</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About EF5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-modeling-tool-for-large-scale-hydrologic-forecasting">A modeling tool for large scale hydrologic forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flexible-architecture-for-multiple-physics-representations">Flexible architecture for multiple physics representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="water_balance_models.html">Hydrologic Water Balance Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="routing_models.html">Routing Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snow_melt_models.html">Snow Melt Models</a></li>
@@ -62,7 +66,8 @@
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibrating.html">Calibrating the Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -91,7 +96,59 @@
              
   <section id="about-ef5">
 <h1>About EF5<a class="headerlink" href="#about-ef5" title="Link to this heading"></a></h1>
-<p>EF5 is designed to facilitate creation of ensemble forecasts for flash flood prediction. It incorporates multi-model support while maintaining a single set of input data. Currently, the only supported model is the Coupled Routing and Excess Storage (CREST) hydrologic model. Additionally, EF5 is optimized for parallel computing—portions of CREST use OpenMP for multi-core processing.</p>
+<section id="a-modeling-tool-for-large-scale-hydrologic-forecasting">
+<h2>A modeling tool for large scale hydrologic forecasting<a class="headerlink" href="#a-modeling-tool-for-large-scale-hydrologic-forecasting" title="Link to this heading"></a></h2>
+<p>The Ensemble Framework For Flash Flood Forecasting (EF5) is a hydrologic modeling
+platform, originally developed with the goal of simulating surface water
+flows at continental and global scales for early warning
+applications.</p>
+<p>EF5 is the primary modeling core in the Flooded Locations And Simulated Hydrographs
+(<a class="reference external" href="https://inside.nssl.noaa.gov/flash/">FLASH</a>) system, an operational system for flash flood warning operations in the United States
+the National Weather Service (NWS) of the National Oceanic and Atmospheric Administration (NOAA). The main target of EF5 in FLASH has been the
+representation of physical processes describing rapid terrain responses to
+rainfall, typical of flash floods.</p>
+<figure class="align-default" id="id6">
+<img alt="_images/FLASH.png" src="_images/FLASH.png" />
+<figcaption>
+<p><span class="caption-text">Schematic of the Continental United States FLASH system developed at The University of Oklahoma and NOAA’s National Severe Storms Laboratory.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="flexible-architecture-for-multiple-physics-representations">
+<h2>Flexible architecture for multiple physics representations<a class="headerlink" href="#flexible-architecture-for-multiple-physics-representations" title="Link to this heading"></a></h2>
+<p>EF5 features multiple representations of the macro-physical processes of the water
+cycle. In its current version, it includes physics from the following three surface
+water balance modules handling the vertical fluxes of water in the soils and surface
+runoff generation: Coupled Routing and Excess Storage (CREST),
+Sacramento Soil Moisture Accounting (SAC-SMA), and
+Hydrophobic (HP). It also includes two options for flow routing of water across
+the landscape and into the drainages following flow paths defined by a digital
+elevation model: linear reservoirs, and the kinematic wave approximation of the
+1-D Saint-Venant Equations of open channel flow.</p>
+<figure class="align-default" id="id7">
+<img alt="_images/ef5_gmd_flamig2020_schematic.png" src="_images/ef5_gmd_flamig2020_schematic.png" />
+<figcaption>
+<p><span class="caption-text">Flowchart of EF5 main modules as presented in <a class="reference external" href="https://gmd.copernicus.org/articles/13/4943/2020/">Flamig et al. (2020)</a></span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Additionally, EF5 features a snowmelt module based on the SNOW-17 model and
+a heuristic algorithm for inundation mapping are included. EF5 has been designed
+as a modular architecture, which facilitates the addition of new physical
+representations as well as pre- and post-processing routines.</p>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading"></a></h2>
+<p>Initial support for the
+development of EF5 was provided by NOAA and the National
+Aeronautics and Space Administration (NASA)
+to researchers at The University of Oklahoma and National Severe Storms Laboratory.</p>
+<p><strong>Original Developers</strong></p>
+<p>Zac Flamig [<a class="reference external" href="https://scholar.google.com/citations?user=AYUjs0YAAAAJ&amp;hl=en&amp;oi=ao">Scholar</a> | <a class="reference external" href="https://github.com/zflamig">GitHub</a>]</p>
+<p>Humberto Vergara [<a class="reference external" href="https://scholar.google.com/citations?user=v-irprAAAAAJ&amp;hl=en&amp;oi=ao">Scholar</a> | <a class="reference external" href="https://github.com/humberva">GitHub</a>]</p>
+<p>Jonathan Gourley [<a class="reference external" href="https://scholar.google.com/citations?user=ez7FKEsAAAAJ&amp;hl=en">Scholar</a>]</p>
+<p><em>Other contributors</em></p>
+<p>Jorge Duarte [<a class="reference external" href="https://scholar.google.com/citations?hl=en&amp;user=8GC5yRgAAAAJ">Scholar</a> | <a class="reference external" href="https://github.com/babetoduarte">GitHub</a>]</p>
+</section>
 </section>
 
 
@@ -105,7 +162,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Humberto Vergara.</p>
+    <p>&#169; Copyright 2025, AHWA Laboratory, IIHR - Hydroscience &amp; Engineering, University of Iowa.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

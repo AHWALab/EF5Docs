@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'EF5Manual'
-copyright = '2025, Humberto Vergara'
+copyright = '2025, AHWA Laboratory, IIHR - Hydroscience & Engineering, University of Iowa'
 author = 'Humberto Vergara, Santiago Henao, Naman Mehta'
 release = '1.0.0'
 

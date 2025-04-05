@@ -22,7 +22,6 @@
       <script>let toggleOpenOnPrint = 'true';</script>
       <script src="_static/togglebutton.js?v=4a39c7ea"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -77,7 +76,8 @@
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibrating.html">Calibrating the Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -293,6 +293,76 @@
 <span class="na">beta</span><span class="o">=</span><span class="s">0.932080</span>
 </pre></div>
 </div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">/*</span>
+<span class="w"> </span><span class="na">* This is an example configuration file for EF5</span>
+<span class="w"> </span><span class="na">*/</span>
+
+<span class="k">[Basic]</span>
+<span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
+<span class="na">DDM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DDM.asc</span>
+<span class="na">FAM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/FAM.asc</span>
+<span class="na">PROJ</span><span class="o">=</span><span class="s">laea</span>
+<span class="na">ESRIDDM</span><span class="o">=</span><span class="s">true</span>
+
+<span class="k">[PrecipForcing Q2Precip]</span>
+<span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
+<span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
+<span class="na">FREQ</span><span class="o">=</span><span class="s">5u</span>
+<span class="na">LOC</span><span class="o">=</span><span class="s">/EF5Demo/FF/precip</span>
+<span class="na">NAME</span><span class="o">=</span><span class="s">Q2_YYYYMMDDHHUU.bif</span>
+
+<span class="k">[PETForcing PET]</span>
+<span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
+<span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
+<span class="na">FREQ</span><span class="o">=</span><span class="s">m</span>
+<span class="na">LOC</span><span class="o">=</span><span class="s">/EF5Demo/FF/pet</span>
+<span class="na">NAME</span><span class="o">=</span><span class="s">PET_MM.bif</span>
+
+<span class="k">[Gauge OKC]</span>
+<span class="na">LON</span><span class="o">=</span><span class="s">-97.01</span>
+<span class="na">LAT</span><span class="o">=</span><span class="s">35.68</span>
+<span class="na">OBS</span><span class="o">=</span><span class="s">/EF5Demo/obs/okc.csv</span>
+
+<span class="k">[Gauge AR]</span>
+<span class="na">LON</span><span class="o">=</span><span class="s">-93.62</span>
+<span class="na">LAT</span><span class="o">=</span><span class="s">34.37</span>
+
+<span class="k">[Basin FF]</span>
+<span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
+<span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
+
+<span class="k">[CrestParamSet FF]</span>
+<span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
+<span class="na">COEM</span><span class="o">=</span><span class="s">24.230076 EXPM=0.502391 RIVER=1.73056</span>
+<span class="na">UNDER</span><span class="o">=</span><span class="s">0.291339 LEAKO=0.56668 LEAKI=0.251648</span>
+<span class="na">TH</span><span class="o">=</span><span class="s">63.20205 GM=1.364364 PWM=71.96465</span>
+<span class="na">PB</span><span class="o">=</span><span class="s">0.964355 PIM=6.508687 PKE=0.19952</span>
+<span class="na">PFC</span><span class="o">=</span><span class="s">2.578529 IWU=53.52593 ISO=5.899539</span>
+<span class="na">ISU</span><span class="o">=</span><span class="s">17.31128</span>
+<span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
+<span class="na">COEM</span><span class="o">=</span><span class="s">24.230076 EXPM=0.502391 RIVER=1.73056</span>
+<span class="na">UNDER</span><span class="o">=</span><span class="s">0.291339 LEAKO=0.56668 LEAKI=0.251648</span>
+<span class="na">TH</span><span class="o">=</span><span class="s">63.20205 GM=1.364364 PWM=71.96465</span>
+<span class="na">PB</span><span class="o">=</span><span class="s">0.964355 PIM=6.508687 PKE=0.19952</span>
+<span class="na">PFC</span><span class="o">=</span><span class="s">2.578529 IWU=53.52593 ISO=5.899539</span>
+<span class="na">ISU</span><span class="o">=</span><span class="s">17.31128</span>
+
+<span class="k">[Task RunFF]</span>
+<span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span>
+<span class="na">MODEL</span><span class="o">=</span><span class="s">CREST</span>
+<span class="na">BASIN</span><span class="o">=</span><span class="s">FF</span>
+<span class="na">PRECIP</span><span class="o">=</span><span class="s">Q2_PRECIP</span>
+<span class="na">PET</span><span class="o">=</span><span class="s">PET</span>
+<span class="na">OUTPUT</span><span class="o">=</span><span class="s">/EF5Demo/FF/output/</span>
+<span class="na">PARAM_SET</span><span class="o">=</span><span class="s">FF</span>
+<span class="na">TIMESTEP</span><span class="o">=</span><span class="s">5u</span>
+<span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">201006010000</span>
+<span class="na">TIME_END</span><span class="o">=</span><span class="s">201006010030</span>
+
+<span class="k">[Execute]</span>
+<span class="na">TASK</span><span class="o">=</span><span class="s">RunFF</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -307,7 +377,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Humberto Vergara.</p>
+    <p>&#169; Copyright 2025, AHWA Laboratory, IIHR - Hydroscience &amp; Engineering, University of Iowa.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
