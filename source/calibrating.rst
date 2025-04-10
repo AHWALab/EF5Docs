@@ -7,18 +7,18 @@ The following is an example of how to set up the calibration parameters in the c
 
 
 
-Table: Parameters definition and possible ranges for calibration.
+Table: Kinematic wave **lumped** parameters definition and possible ranges for calibration.
 
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
 | Parameter | Definition                                                                     | Ref min val | Ref max val  |
 +===========+================================================================================+=============+==============+
-| alpha0    | The alpha value used for overland, not channel, routing                        | 0.01        | 5            |
+| alpha0    | Used for overland, not channel, routing                                        | 0.01        | 5            |
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
 | alpha     | Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta    | 0.01        | 3            |
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
 | beta      | Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta    | 0.0001      | 1            |
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| under     | The interflow flow speed multiplier                                            | 0.0001      | 3            |
+| under     | Interflow flow speed multiplier                                                | 0.0001      | 3            |
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
 | leaki     | Amount of water leaked from interflow reservoir in each time step              | 0.0001      | 1            |
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
@@ -26,11 +26,24 @@ Table: Parameters definition and possible ranges for calibration.
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
 | isu       | Initial value of the interflow reservoir                                       | 0           | 0.0001       |
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| wm        | Maximum soil water capacity                                                    | 5           | 600          |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| b         | The exponent of the VIC                                                        | 0.1         | 20           |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
 
+
+Table: CREST **lumped** parameters definition and possible ranges for calibration.
++-----------+-------------------------------------------------------+-------------+--------------+
+| Parameter | Definition                                            | Ref min val | Ref max val  |
++===========+=======================================================+=============+==============+
+| wm        | Maximum soil water capacity                           | 5           | 600          |
++-----------+-------------------------------------------------------+-------------+--------------+
+| b         | Exponent of the variable infiltration curve (VIC)     | 0.1         | 20           |
++-----------+-------------------------------------------------------+-------------+--------------+
+| im        | Impervious area ratio                                 | 0.01        | 0.5          |
++-----------+-------------------------------------------------------+-------------+--------------+
+| ke        | Multiplier to convert between input PET and local PET | 0.001       | 1            |
++-----------+-------------------------------------------------------+-------------+--------------+
+| fc        | Soil saturated hydraulic conductivity (Ksat) in mm/hr | 0           | 150          |
++-----------+-------------------------------------------------------+-------------+--------------+
+| iwu       | Initial value of soil water                           | 2.5         | 250          |
++-----------+-------------------------------------------------------+-------------+--------------+
 
 
 Control file example for Calibration
@@ -60,70 +73,14 @@ Control file example for Calibration
    LOC=data/precip/
    NAME=PrecipRate_00.00_YYYYMMDD-HHUU00.tif
 
-   [Gauge 0]
-   lat=36.9883
-   lon=-89.1326
-   outputts=true
-   basinarea=421966.3
-
    [Gauge 03404900]
    lon=-84.093599999999995
    lat=36.951400000000000
    basinarea=139.341000000000008
    obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03404900.csv
 
-   [Gauge 03282040]
-   lon=-83.810299999999998
-   lat=37.500599999999999
-   basinarea=200.205999999999989
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03282040.csv
-
-   [Gauge 03250190]
-   lon=-83.831699999999998
-   lat=38.023899999999998
-   basinarea=218.854000000000013
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03250190.csv
-
-   [Gauge 03208950]
-   lon=-82.438900000000004
-   lat=37.123899999999999
-   basinarea=172.234000000000009
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03208950.csv
-
-   [Gauge 03208500]
-   lon=-82.295800000000000
-   lat=37.206899999999997
-   basinarea=740.736999999999966
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03208500.csv
-
-   [Gauge 03206600]
-   lon=-82.296099999999996
-   lat=38.017200000000003
-   basinarea=99.714500000000001
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03206600.csv
-
-   [Gauge 03284525]
-   lon=-84.411100000000005
-   lat=37.988300000000002
-   basinarea=2.486400000000000
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03284525.csv
-
-   [Gauge 03478400]
-   lon=-82.133899999999997
-   lat=36.631700000000002
-   basinarea=69.670699999999997
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03478400.csv
-
    [Basin 0]
-   #gauge=0
-   #gauge=03404900
-   gauge=03282040
-   #gauge=03250190
-   #gauge=03208950
-   #gauge=03208500
-   #gauge=03206600
-   #gauge=03284525
-   #gauge=03478400
+   gauge=03404900
 
    [CrestParamSet EF5KY] 
    wm_grid=data/parameters/CREST/wm_KY.tif
@@ -132,14 +89,13 @@ Control file example for Calibration
    b_grid=data/parameters/CREST/b_KY.tif
    # The following code is used for the simulation process.
    # It is kept here to replace the optimized parameters later and run the simulation.  
-   gauge=03282040
+   gauge=03404900
    wm=9.883508
    b=6.204447
    im=0.048939
    ke=0.832682
    fc=79.819237
    iwu=42.181957
-
 
    [KWParamSet EF5KY]
    under_grid=data/parameters/KW/ksat_KY.tif
@@ -149,7 +105,7 @@ Control file example for Calibration
    alpha0_grid=data/parameters/KW/alpha0_KY.tif
    # The following code is used for the simulation process.
    # It is kept here to replace the optimized parameters later and run the simulation.  
-   gauge=03282040
+   gauge=03404900
    under=0.000100
    leaki=5.144720
    th=10.00000
@@ -160,7 +116,7 @@ Control file example for Calibration
 
    [CrestCaliParams 0CRESTCALI]
    # To set up the following ranges, please refer to the above table
-   gauge=03282040
+   gauge=03404900
    objective=CC                       # Possible options: CC, NSCE, SSE
    dream_ndraw=20000 
    wm=0.05,10
@@ -172,7 +128,7 @@ Control file example for Calibration
 
    [kwcaliparams 0KWCALI]
    # To set up the following ranges, please refer to the above table
-   gauge=03282040
+   gauge=03404900
    under=0.0001,0.00010001
    leaki=0.02,10.0
    th=10,10.00001
@@ -190,16 +146,13 @@ Control file example for Calibration
    PET=CLIMO
    OUTPUT=outputs
    STATES=data/states
-   defaultparamsgauge=03282040
+   defaultparamsgauge=03404900
    PARAM_SET=EF5KY
    ROUTING_PARAM_Set=EF5KY
    CALI_PARAM=0CRESTCALI
    ROUTING_CALI_PARAM=0KWCALI
-   #output_grids=MAXUNITSTREAMFLOW|MAXSTREAMFLOW
    TIMESTEP=2u
    TIME_BEGIN=20220727120000
-   #TIME_WARMEND=20220727120000
-   #TIME_STATE=20220730120000
    TIME_END=20220730120000
 
    [Task CREST_Simulation]
@@ -217,8 +170,6 @@ Control file example for Calibration
    output_grids=MAXUNITSTREAMFLOW|MAXSTREAMFLOW
    TIMESTEP=15u
    TIME_BEGIN=20220727120000
-   #TIME_WARMEND=20220727120000
-   #TIME_STATE=20220730120000
    TIME_END=20220730120000
 
    [Execute]

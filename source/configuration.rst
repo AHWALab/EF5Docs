@@ -1,6 +1,8 @@
-Configuration File
+Configuration File (Configuration File)
 ------------------
 The configuration file controls all user-adjustable settings for EF5, including input forcings, output options, and run methods. It is generally case **insensitive** (except for file paths on case-sensitive systems). Three styles of comments are supported: bash (#), C (/* */), and C++ (//).
+
+
 
 .. code-block:: ini
 
@@ -258,6 +260,7 @@ Simple Inundation Parameter Set
    PRECIP=Q2_PRECIP
    PET=PET
    OUTPUT=/EF5Demo/FF/output/
+   OUTPUT_GRIDS=MAXUNITSTREAMFLOW|MAXSTREAMFLOW|PRECIPACCUM|INUNDATION|MAXINUNDATION # Refer to 
    PARAM_SET=FF
    TIMESTEP=5u
    TIME_BEGIN=201006010000
