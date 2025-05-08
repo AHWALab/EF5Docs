@@ -231,7 +231,7 @@ The optimized parameters will be saved in the following format:
          what():  std::bad_alloc
       Aborted.
    
-   It could be related to the gage basin area verification, but it could be caused by a memory overload. Adding more RAM memory to your computer could solve this problem.
+   It could be related to the guage basin area verification, but it is also caused by a memory overload. Adding more RAM to your configuration would solve this problem.
 
 Parameters' sensitivity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
