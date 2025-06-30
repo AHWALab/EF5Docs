@@ -7,7 +7,7 @@ The following is an example of how to set up the calibration parameters in the c
 
 
 
-Table: Kinematic wave **lumped** parameters definition and possible ranges for calibration.
+**Table:** Kinematic wave **lumped** parameters definition and possible ranges for calibration.
 
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
 | Parameter | Definition                                                                     | Ref min val | Ref max val  |
@@ -28,7 +28,7 @@ Table: Kinematic wave **lumped** parameters definition and possible ranges for c
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
 
 
-Table: CREST **lumped** parameters definition and possible ranges for calibration.
+**Table:** CREST **lumped** parameters definition and possible ranges for calibration.
 
 +-----------+-------------------------------------------------------+-------------+--------------+
 | Parameter | Definition                                            | Ref min val | Ref max val  |
@@ -46,6 +46,18 @@ Table: CREST **lumped** parameters definition and possible ranges for calibratio
 | iwu       | Initial value of soil water                           | 2.5         | 250          |
 +-----------+-------------------------------------------------------+-------------+--------------+
 
+.. admonition:: There are two ways to define parameters for a basin:
+   
+   #. **Lumped (agregated) parameter sets:** Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.
+   #. **Distributed (grided) parameter sets:** Parameters are defined in a grid format, where each parameter corresponds to a grid file. Grided parameters could be identified by `_grid` suffix in the parameter name. After the grided files are defined, the user must specify the parameters multiplier values for each grid, using the lumped parameter name without the `_grid` suffix.
+   
+   Additional information about the parameters definition and units could be found in the `calibration` section.
+
+**Figure:** How to handle lumped and distributed parameters.
+
+.. image:: _static/Parameters_definition.png
+   :width: 400
+   :align: center
 
 Control file example for Calibration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,67 +65,36 @@ Control file example for Calibration
 .. code-block:: ini
 
    [Basic]
-   DEM=data/basic/dem_KY.tif
-   DDM=data/basic/ddm_KY.tif
-   FAM=data/basic/fam_KY.tif
-   PROJ=geographic
-   ESRIDDM=true
-   SelfFAM=false
+   ...
 
    [PETForcing CLIMO]
-   LOC=data/pet/
-   FREQ=1m
-   UNIT=mm/d
-   NAME=PET_MM_KY.tif
-   TYPE=TIF
+   ...
 
    [PrecipForcing MRMS]
-   TYPE=TIF
-   UNIT=mm/h
-   FREQ=2u
-   LOC=data/precip/
-   NAME=PrecipRate_00.00_YYYYMMDD-HHUU00.tif
+   ...
 
    [Gauge 03404900]
    lon=-84.093599999999995
    lat=36.951400000000000
-   basinarea=139.341000000000008
-   obs=data/observations/usgs/Streamflow_Time_Series_CMS_UTC_USGS_03404900.csv
+   obs=data/observations/usgs/Q_03404900.csv
 
    [Basin 0]
    gauge=03404900
 
-   [CrestParamSet EF5KY] 
-   wm_grid=data/parameters/CREST/wm_KY.tif
-   im_grid=data/parameters/CREST/im_KY.tif
-   fc_grid=data/parameters/CREST/ksat_KY.tif
-   b_grid=data/parameters/CREST/b_KY.tif
    # The following code is used for the simulation process.
    # It is kept here to replace the optimized parameters later and run the simulation.  
+   [CrestParamSet EF5KY] 
    gauge=03404900
    wm=9.883508
-   b=6.204447
-   im=0.048939
-   ke=0.832682
-   fc=79.819237
-   iwu=42.181957
+   ...
 
-   [KWParamSet EF5KY]
-   under_grid=data/parameters/KW/ksat_KY.tif
-   leaki_grid=data/parameters/KW/leaki_KY.tif
-   alpha_grid=data/parameters/KW/alpha_KY.tif
-   beta_grid=data/parameters/KW/beta_KY.tif
-   alpha0_grid=data/parameters/KW/alpha0_KY.tif
    # The following code is used for the simulation process.
    # It is kept here to replace the optimized parameters later and run the simulation.  
+   [KWParamSet EF5KY]
    gauge=03404900
    under=0.000100
    leaki=5.144720
-   th=10.00000
-   isu=0.000000
-   alpha=9.645860
-   beta=0.361487
-   alpha0=1.168505
+   ...
 
    [CrestCaliParams 0CRESTCALI]
    # To set up the following ranges, please refer to the above table
@@ -156,22 +137,10 @@ Control file example for Calibration
    TIME_BEGIN=20220727120000
    TIME_END=20220730120000
 
+   # The following code is used for the simulation process.
+   # It is kept here to replace the optimized parameters later and run the simulation.  
    [Task CREST_Simulation]
-   STYLE=simu
-   MODEL=crest
-   ROUTING=KW
-   BASIN=0
-   PRECIP=MRMS
-   PET=CLIMO
-   OUTPUT=outputs
-   STATES=data/states
-   defaultparamsgauge=03282040
-   PARAM_SET=EF5KY
-   ROUTING_PARAM_Set=EF5KY
-   output_grids=MAXUNITSTREAMFLOW|MAXSTREAMFLOW
-   TIMESTEP=15u
-   TIME_BEGIN=20220727120000
-   TIME_END=20220730120000
+   ...
 
    [Execute]
    task=TaskCalibration
@@ -208,6 +177,7 @@ The optimized parameters will be saved in the following format:
    alpha=2.894948
    beta=2.375221
    alpha0=2.960580
+
 
 .. admonition:: Common EF5 warning message in this step.
    

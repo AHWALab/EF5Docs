@@ -16,7 +16,10 @@ release = '1.0.0'
 
 extensions = [
     'sphinx_togglebutton',
+    'sphinx.ext.autosectionlabel'
 ]
+
+autosectionlabel_prefix_document = True
 
 templates_path = ['_templates']
 exclude_patterns = []

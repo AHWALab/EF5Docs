@@ -1,8 +1,10 @@
+**************
 Control file (Configuration file)
-------------------
+**************
 The configuration file controls all user-adjustable settings for EF5, including input forcings, output options, and run methods. It is generally case **insensitive** (except for file paths on case-sensitive systems). Three styles of comments are supported: bash (#), C (/* */), and C++ (//).
 
 
+This is an example of comments in the control file:
 
 .. code-block:: ini
 
@@ -12,8 +14,37 @@ The configuration file controls all user-adjustable settings for EF5, including 
       Including multi-line C-style comments
    */
 
-Basic Information
-~~~~~~~~~~~~~~~~~
+Format and taxonomy information
+=====
+Tiff files requirements:
+
+#. -9999 as nodata value.
+#. No TILED format.
+#. `float32` data type.
+#. The ESRI flow direction convention must be restricted to the following values: **1, 2, 4, 8, 16, 32, 64, and 128**.
+
+About time taxonomy
+----------------
+
+EF5 uses a time taxonomy to define the simulation period and timestep. The time format is specified in the configuration file, allowing for flexible simulation periods. This time taxonomy is also used in the precipitation and PET forcing files names.
+
+.. confval:: TIMESTEP, TIME_BEGIN, TIME_END and tiff-file names
+
+      Simulation timing parameters. The timestep is the time interval for the simulation, and the begin and end times define the simulation period.
+      
+      The time format is YYYYMMDDHHUU, where ``YYYY`` is the year, ``MM`` is the month, ``DD`` is the day, ``HH`` is the hour, and ``UU`` is the minute.
+      
+      For time step, where ``d`` is for day step, ``h`` is for hour step, and ``u`` is for minute step.
+
+
+Blocks
+=====
+
+The control file is structured into blocks, each containing key-value pairs. Each block is defined by a header in square brackets, and the key-value pairs are separated by an equals sign (`=`).
+
+Basic block
+----------------
+
 Specifies file locations for the digital elevation model (DEM), drainage direction map (DDM), and flow accumulation map (FAM).
 
 .. code-block:: ini
@@ -26,9 +57,9 @@ Specifies file locations for the digital elevation model (DEM), drainage directi
    ESRIDDM=true
    SELFFAM=true
 
-Precipitation Information
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-Defines the properties of the precipitation forcing files.
+Precipitation block
+----------------
+Defines the properties of the precipitation forcing files. EF5 considers the indicated layer unitis to be consistent with the simulation timestep.
 
 .. code-block:: ini
 
@@ -39,9 +70,9 @@ Defines the properties of the precipitation forcing files.
    LOC=/EF5Demo/FF/precip
    NAME=Q2_YYYYMMDDHHUU.bif
 
-Potential Evapotranspiration (PET) Information
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Defines the PET forcing file details.
+Potential Evapotranspiration (PET) block
+----------------
+Defines the PET forcing file details. EF5 considers the indicated layer unitis to be consistent with the simulation timestep.
 
 .. code-block:: ini
 
@@ -52,9 +83,12 @@ Defines the PET forcing file details.
    LOC=/EF5Demo/FF/pet
    NAME=PET_MM.bif
 
-Gauge Locations
-~~~~~~~~~~~~~~~
-Specifies the locations of gauges for output and parameter assignment.
+Gauge locations blocks
+----------------
+Each gauge information is defined in a separate block, with the block name being the gauge identifier. The gauge identifier is used to reference the gauge in other blocks, such as the basin block.
+The gauge location block specifies the locations of gauges for output and parameter assignment. ``OUTPUTTS`` is an optional parameter that, when set to `TRUE`, indicates that the gauge will output time series data. ``OBS`` is an optional parameter that specifies the path to the observed data file for the gauge. ``OBS`` is requiered if the gauge will be used for calibration task. The ``BASINAREA`` parameter is also optional and indicates the area of the basin in square kilometers. When ``BASINAREA`` is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a treshold. If no match is found, EF5 will raise a warning.
+
+.. indicate the other option for gauge area and lat and lon
 
 .. code-block:: ini
 
@@ -69,9 +103,9 @@ Specifies the locations of gauges for output and parameter assignment.
    LON=-93.62
    LAT=34.37
 
-Basins
-~~~~~~
-Groups gauge locations into basins.
+Basin block
+----------------
+Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn't follow the clasic basin definition, but rather groups gauges that are requiered by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.
 
 .. code-block:: ini
 
@@ -80,11 +114,27 @@ Groups gauge locations into basins.
    GAUGE=AR
 
 Parameter Sets
-~~~~~~~~~~~~~~
-Control the distributed model parameter settings. Parameters are specified per gauge.
+=====
 
-CREST Parameter Set
-~~~~~~~~~~~~~~~~~~~
+The `gauge` parameter specifies the gauge identifier for which the parameters are defined. The user must specify at least the set of parameters for one gauge and use them for the entire domain, or can specify parameters for multiple gauges in the same block.
+
+.. admonition:: There are two ways to define parameters for a basin:
+   
+   #. **Lumped (agregated) parameter sets:** Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.
+   #. **Distributed (grided) parameter sets:** Parameters are defined in a grid format, where each parameter corresponds to a grid file. Grided parameters could be identified by `_grid` suffix in the parameter name. After the grided files are defined, the user must specify the parameters multiplier values for each grid, using the lumped parameter name without the `_grid` suffix.
+   
+   Additional information about the parameters definition and units could be found in the `calibration` section.
+
+Figure: How to handle lumped and distributed parameters.
+
+.. image:: _static/Parameters_definition.png
+   :width: 400
+   :align: center
+
+CREST Parameter Set block
+----------------
+Defines the parameters for the CREST model.
+
 .. code-block:: ini
 
    [CrestParamSet ABRFC]
@@ -101,7 +151,9 @@ CREST Parameter Set
    iwu=50.0
 
 SAC-SMA Parameter Set
-~~~~~~~~~~~~~~~~~~~~~
+----------------
+Defines the parameters for the SAC-SMA model.
+
 .. code-block:: ini
 
    [SacParamSet ABRFC]
@@ -140,12 +192,32 @@ SAC-SMA Parameter Set
    LZFSC=0.11
    LZFPC=0.46
 
-HP Parameter Set
-~~~~~~~~~~~~~~~~
-*To be completed in a future revision.*
+.. HP Parameter Set
+   *To be completed in a future revision.*
+
+
+
+Kinematic Wave Parameter Set
+----------------
+
+Defines the parameters for the kinematic wave model.
+
+.. code-block:: ini
+
+   [KWParamSet rundu]
+   GAUGE=rundu
+   UNDER=1.673110
+   LEAKI=0.043105
+   TH=6.658569
+   ISU=0.000000
+   ALPHA=2.991570
+   BETA=0.932080
+   ALPHA0=4.603945
 
 Linear Reservoir Parameter Set
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------
+Defines the parameters for the linear reservoir model.
+
 .. code-block:: ini
 
    [lrparamset rundu]
@@ -159,22 +231,11 @@ Linear Reservoir Parameter Set
    iso=0.000040
    isu=0.000073
 
-Kinematic Wave Parameter Set
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. code-block:: ini
-
-   [KWParamSet rundu]
-   GAUGE=rundu
-   UNDER=1.673110
-   LEAKI=0.043105
-   TH=6.658569
-   ISU=0.000000
-   ALPHA=2.991570
-   BETA=0.932080
-   ALPHA0=4.603945
-
 Snow-17 Parameter Set
-~~~~~~~~~~~~~~~~~~~~~
+----------------
+
+Defines the parameters for the Snow-17 model.
+
 .. code-block:: ini
 
    [snow17paramset tarbela]
@@ -189,7 +250,10 @@ Snow-17 Parameter Set
    SCF=2.219492
 
 Simple Inundation Parameter Set
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------
+
+Defines the parameters for the simple inundation model. The parameters `alpha` and `beta` are used to define the coefficients for the raiting curve power function, which is used to calculate the flow depth from the simulated flow rate.
+
 .. code-block:: ini
 
    [simpleinundationparamset rundu]
@@ -197,11 +261,9 @@ Simple Inundation Parameter Set
    alpha=2.991570
    beta=0.932080
 
-.. code-block:: ini
+This is a full EF5 control file example for a basic simulation using the CREST model. It includes the basic block, precipitation forcing, PET forcing, gauge locations, basin definition, parameter set for CREST, and a task to run the simulation.
 
-   /*
-    * This is an example configuration file for EF5
-    */
+.. code-block:: ini
 
    [Basic]
    DEM=/EF5Demo/FF/basic/DEM.asc

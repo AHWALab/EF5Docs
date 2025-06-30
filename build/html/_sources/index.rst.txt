@@ -13,6 +13,7 @@ This is the user manual for EF5, a tool for ensemble flood forecasting. See the 
    :maxdepth: 2
 
    about
+   models
    water_balance_models
    routing_models
    snow_melt_models

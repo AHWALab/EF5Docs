@@ -51,13 +51,15 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">MODELS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="water_balance_models.html">Hydrologic Water Balance Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="routing_models.html">Routing Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snow_melt_models.html">Snow Melt Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inundation_models.html">Inundation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Control file (Configuration file)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a></li>
@@ -102,6 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="about.html#acknowledgements">Acknowledgements</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">MODELS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="water_balance_models.html">Hydrologic Water Balance Models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="water_balance_models.html#crest">CREST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="water_balance_models.html#sac-sma">SAC-SMA</a></li>
@@ -122,23 +125,24 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration File</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#basic-information">Basic Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#precipitation-information">Precipitation Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#potential-evapotranspiration-pet-information">Potential Evapotranspiration (PET) Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#gauge-locations">Gauge Locations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#basins">Basins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Control file (Configuration file)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#format-and-taxonomy-information">Format and taxonomy information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#blocks">Blocks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html#parameter-sets">Parameter Sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#crest-parameter-set">CREST Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#sac-sma-parameter-set">SAC-SMA Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#hp-parameter-set">HP Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#linear-reservoir-parameter-set">Linear Reservoir Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#kinematic-wave-parameter-set">Kinematic Wave Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#snow-17-parameter-set">Snow-17 Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#simple-inundation-parameter-set">Simple Inundation Parameter Set</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-STYLE"><code class="docutils literal notranslate"><span class="pre">STYLE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-MODEL"><code class="docutils literal notranslate"><span class="pre">MODEL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-BASIN"><code class="docutils literal notranslate"><span class="pre">BASIN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-PRECIP"><code class="docutils literal notranslate"><span class="pre">PRECIP</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-PET"><code class="docutils literal notranslate"><span class="pre">PET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-PARAM_SET"><code class="docutils literal notranslate"><span class="pre">PARAM_SET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-TIMESTEP-TIME_BEGIN-TIME_END"><code class="docutils literal notranslate"><span class="pre">TIMESTEP,</span> <span class="pre">TIME_BEGIN,</span> <span class="pre">TIME_END</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-OUTPUT_GRIDS"><code class="docutils literal notranslate"><span class="pre">OUTPUT_GRIDS</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a><ul>

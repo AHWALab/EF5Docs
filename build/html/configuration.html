@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration File &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>Control file (Configuration file) &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
@@ -57,23 +57,35 @@
 <li class="toctree-l1"><a class="reference internal" href="snow_melt_models.html">Snow Melt Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inundation_models.html">Inundation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling EF5</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration File</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basic-information">Basic Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#precipitation-information">Precipitation Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#potential-evapotranspiration-pet-information">Potential Evapotranspiration (PET) Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gauge-locations">Gauge Locations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basins">Basins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#parameter-sets">Parameter Sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#crest-parameter-set">CREST Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sac-sma-parameter-set">SAC-SMA Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hp-parameter-set">HP Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linear-reservoir-parameter-set">Linear Reservoir Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kinematic-wave-parameter-set">Kinematic Wave Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#snow-17-parameter-set">Snow-17 Parameter Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#simple-inundation-parameter-set">Simple Inundation Parameter Set</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Control file (Configuration file)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#format-and-taxonomy-information">Format and taxonomy information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#about-time-taxonomy">About time taxonomy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#confval-TIMESTEP-TIME_BEGIN-TIME_END-and-tiff-file-names"><code class="docutils literal notranslate"><span class="pre">TIMESTEP,</span> <span class="pre">TIME_BEGIN,</span> <span class="pre">TIME_END</span> <span class="pre">and</span> <span class="pre">tiff-file</span> <span class="pre">names</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#blocks">Blocks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-block">Basic block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#precipitation-block">Precipitation block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#potential-evapotranspiration-pet-block">Potential Evapotranspiration (PET) block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gauge-locations-blocks">Gauge locations blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basin-block">Basin block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parameter-sets">Parameter Sets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#crest-parameter-set-block">CREST Parameter Set block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sac-sma-parameter-set">SAC-SMA Parameter Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kinematic-wave-parameter-set">Kinematic Wave Parameter Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-reservoir-parameter-set">Linear Reservoir Parameter Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#snow-17-parameter-set">Snow-17 Parameter Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-inundation-parameter-set">Simple Inundation Parameter Set</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a></li>
@@ -94,7 +106,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Configuration File</li>
+      <li class="breadcrumb-item active">Control file (Configuration file)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/configuration.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -104,9 +116,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="configuration-file">
-<h1>Configuration File<a class="headerlink" href="#configuration-file" title="Link to this heading"></a></h1>
+  <section id="control-file-configuration-file">
+<h1>Control file (Configuration file)<a class="headerlink" href="#control-file-configuration-file" title="Link to this heading"></a></h1>
 <p>The configuration file controls all user-adjustable settings for EF5, including input forcings, output options, and run methods. It is generally case <strong>insensitive</strong> (except for file paths on case-sensitive systems). Three styles of comments are supported: bash (#), C (/* <a href="#id1"><span class="problematic" id="id2">*</span></a>/), and C++ (//).</p>
+<p>This is an example of comments in the control file:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># All variables (except file paths) are case insensitive</span>
 <span class="na">// Multiple comment types are supported</span>
 <span class="na">/*</span>
@@ -114,8 +127,33 @@
 <span class="na">*/</span>
 </pre></div>
 </div>
-<section id="basic-information">
-<h2>Basic Information<a class="headerlink" href="#basic-information" title="Link to this heading"></a></h2>
+<section id="format-and-taxonomy-information">
+<h2>Format and taxonomy information<a class="headerlink" href="#format-and-taxonomy-information" title="Link to this heading"></a></h2>
+<p>Tiff files requirements:</p>
+<ol class="arabic simple">
+<li><p>-9999 as nodata value.</p></li>
+<li><p>No TILED format.</p></li>
+<li><p><cite>float32</cite> data type.</p></li>
+<li><p>The ESRI flow direction convention must be restricted to the following values: <strong>1, 2, 4, 8, 16, 32, 64, and 128</strong>.</p></li>
+</ol>
+<section id="about-time-taxonomy">
+<h3>About time taxonomy<a class="headerlink" href="#about-time-taxonomy" title="Link to this heading"></a></h3>
+<p>EF5 uses a time taxonomy to define the simulation period and timestep. The time format is specified in the configuration file, allowing for flexible simulation periods. This time taxonomy is also used in the precipitation and PET forcing files names.</p>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-TIMESTEP-TIME_BEGIN-TIME_END-and-tiff-file-names">
+<span class="sig-name descname"><span class="pre">TIMESTEP,</span> <span class="pre">TIME_BEGIN,</span> <span class="pre">TIME_END</span> <span class="pre">and</span> <span class="pre">tiff-file</span> <span class="pre">names</span></span><a class="headerlink" href="#confval-TIMESTEP-TIME_BEGIN-TIME_END-and-tiff-file-names" title="Link to this definition"></a></dt>
+<dd><p>Simulation timing parameters. The timestep is the time interval for the simulation, and the begin and end times define the simulation period.</p>
+<p>The time format is YYYYMMDDHHUU, where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">HH</span></code> is the hour, and <code class="docutils literal notranslate"><span class="pre">UU</span></code> is the minute.</p>
+<p>For time step, where <code class="docutils literal notranslate"><span class="pre">d</span></code> is for day step, <code class="docutils literal notranslate"><span class="pre">h</span></code> is for hour step, and <code class="docutils literal notranslate"><span class="pre">u</span></code> is for minute step.</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="blocks">
+<h2>Blocks<a class="headerlink" href="#blocks" title="Link to this heading"></a></h2>
+<p>The control file is structured into blocks, each containing key-value pairs. Each block is defined by a header in square brackets, and the key-value pairs are separated by an equals sign (<cite>=</cite>).</p>
+<section id="basic-block">
+<h3>Basic block<a class="headerlink" href="#basic-block" title="Link to this heading"></a></h3>
 <p>Specifies file locations for the digital elevation model (DEM), drainage direction map (DDM), and flow accumulation map (FAM).</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
 <span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
@@ -127,9 +165,9 @@
 </pre></div>
 </div>
 </section>
-<section id="precipitation-information">
-<h2>Precipitation Information<a class="headerlink" href="#precipitation-information" title="Link to this heading"></a></h2>
-<p>Defines the properties of the precipitation forcing files.</p>
+<section id="precipitation-block">
+<h3>Precipitation block<a class="headerlink" href="#precipitation-block" title="Link to this heading"></a></h3>
+<p>Defines the properties of the precipitation forcing files. EF5 considers the indicated layer unitis to be consistent with the simulation timestep.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[PrecipForcing Q2Precip]</span>
 <span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
 <span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
@@ -139,9 +177,9 @@
 </pre></div>
 </div>
 </section>
-<section id="potential-evapotranspiration-pet-information">
-<h2>Potential Evapotranspiration (PET) Information<a class="headerlink" href="#potential-evapotranspiration-pet-information" title="Link to this heading"></a></h2>
-<p>Defines the PET forcing file details.</p>
+<section id="potential-evapotranspiration-pet-block">
+<h3>Potential Evapotranspiration (PET) block<a class="headerlink" href="#potential-evapotranspiration-pet-block" title="Link to this heading"></a></h3>
+<p>Defines the PET forcing file details. EF5 considers the indicated layer unitis to be consistent with the simulation timestep.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[PETForcing PET]</span>
 <span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
 <span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
@@ -151,9 +189,10 @@
 </pre></div>
 </div>
 </section>
-<section id="gauge-locations">
-<h2>Gauge Locations<a class="headerlink" href="#gauge-locations" title="Link to this heading"></a></h2>
-<p>Specifies the locations of gauges for output and parameter assignment.</p>
+<section id="gauge-locations-blocks">
+<h3>Gauge locations blocks<a class="headerlink" href="#gauge-locations-blocks" title="Link to this heading"></a></h3>
+<p>Each gauge information is defined in a separate block, with the block name being the gauge identifier. The gauge identifier is used to reference the gauge in other blocks, such as the basin block.
+The gauge location block specifies the locations of gauges for output and parameter assignment. <code class="docutils literal notranslate"><span class="pre">OUTPUTTS</span></code> is an optional parameter that, when set to <cite>TRUE</cite>, indicates that the gauge will output time series data. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is an optional parameter that specifies the path to the observed data file for the gauge. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is requiered if the gauge will be used for calibration task. The <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> parameter is also optional and indicates the area of the basin in square kilometers. When <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a treshold. If no match is found, EF5 will raise a warning.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Gauge OKC]</span>
 <span class="na">LON</span><span class="o">=</span><span class="s">-97.01</span>
 <span class="na">LAT</span><span class="o">=</span><span class="s">35.68</span>
@@ -167,21 +206,33 @@
 </pre></div>
 </div>
 </section>
-<section id="basins">
-<h2>Basins<a class="headerlink" href="#basins" title="Link to this heading"></a></h2>
-<p>Groups gauge locations into basins.</p>
+<section id="basin-block">
+<h3>Basin block<a class="headerlink" href="#basin-block" title="Link to this heading"></a></h3>
+<p>Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn’t follow the clasic basin definition, but rather groups gauges that are requiered by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basin FF]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
 </pre></div>
 </div>
 </section>
+</section>
 <section id="parameter-sets">
 <h2>Parameter Sets<a class="headerlink" href="#parameter-sets" title="Link to this heading"></a></h2>
-<p>Control the distributed model parameter settings. Parameters are specified per gauge.</p>
-</section>
-<section id="crest-parameter-set">
-<h2>CREST Parameter Set<a class="headerlink" href="#crest-parameter-set" title="Link to this heading"></a></h2>
+<p>The <cite>gauge</cite> parameter specifies the gauge identifier for which the parameters are defined. The user must specify at least the set of parameters for one gauge and use them for the entire domain, or can specify parameters for multiple gauges in the same block.</p>
+<div class="admonition-there-are-two-ways-to-define-parameters-for-a-basin admonition">
+<p class="admonition-title">There are two ways to define parameters for a basin:</p>
+<ol class="arabic simple">
+<li><p><strong>Lumped (agregated) parameter sets:</strong> Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.</p></li>
+<li><p><strong>Distributed (grided) parameter sets:</strong> Parameters are defined in a grid format, where each parameter corresponds to a grid file. Grided parameters could be identified by <cite>_grid</cite> suffix in the parameter name. After the grided files are defined, the user must specify the parameters multiplier values for each grid, using the lumped parameter name without the <cite>_grid</cite> suffix.</p></li>
+</ol>
+<p>Additional information about the parameters definition and units could be found in the <cite>calibration</cite> section.</p>
+</div>
+<p>Figure: How to handle lumped and distributed parameters.</p>
+<a class="reference internal image-reference" href="_images/Parameters_definition.png"><img alt="_images/Parameters_definition.png" class="align-center" src="_images/Parameters_definition.png" style="width: 400px;" />
+</a>
+<section id="crest-parameter-set-block">
+<h3>CREST Parameter Set block<a class="headerlink" href="#crest-parameter-set-block" title="Link to this heading"></a></h3>
+<p>Defines the parameters for the CREST model.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[CrestParamSet ABRFC]</span>
 <span class="na">wm_grid</span><span class="o">=</span><span class="s">/path/to/wm.tif</span>
 <span class="na">im_grid</span><span class="o">=</span><span class="s">/path/to/im.tif</span>
@@ -198,7 +249,8 @@
 </div>
 </section>
 <section id="sac-sma-parameter-set">
-<h2>SAC-SMA Parameter Set<a class="headerlink" href="#sac-sma-parameter-set" title="Link to this heading"></a></h2>
+<h3>SAC-SMA Parameter Set<a class="headerlink" href="#sac-sma-parameter-set" title="Link to this heading"></a></h3>
+<p>Defines the parameters for the SAC-SMA model.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[SacParamSet ABRFC]</span>
 <span class="na">UZTWM_grid</span><span class="o">=</span><span class="s">/path/to/uztwm.tif</span>
 <span class="na">UZFWM_grid</span><span class="o">=</span><span class="s">/path/to/uzfwm.tif</span>
@@ -237,12 +289,24 @@
 </pre></div>
 </div>
 </section>
-<section id="hp-parameter-set">
-<h2>HP Parameter Set<a class="headerlink" href="#hp-parameter-set" title="Link to this heading"></a></h2>
-<p><em>To be completed in a future revision.</em></p>
+<section id="kinematic-wave-parameter-set">
+<h3>Kinematic Wave Parameter Set<a class="headerlink" href="#kinematic-wave-parameter-set" title="Link to this heading"></a></h3>
+<p>Defines the parameters for the kinematic wave model.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[KWParamSet rundu]</span>
+<span class="na">GAUGE</span><span class="o">=</span><span class="s">rundu</span>
+<span class="na">UNDER</span><span class="o">=</span><span class="s">1.673110</span>
+<span class="na">LEAKI</span><span class="o">=</span><span class="s">0.043105</span>
+<span class="na">TH</span><span class="o">=</span><span class="s">6.658569</span>
+<span class="na">ISU</span><span class="o">=</span><span class="s">0.000000</span>
+<span class="na">ALPHA</span><span class="o">=</span><span class="s">2.991570</span>
+<span class="na">BETA</span><span class="o">=</span><span class="s">0.932080</span>
+<span class="na">ALPHA0</span><span class="o">=</span><span class="s">4.603945</span>
+</pre></div>
+</div>
 </section>
 <section id="linear-reservoir-parameter-set">
-<h2>Linear Reservoir Parameter Set<a class="headerlink" href="#linear-reservoir-parameter-set" title="Link to this heading"></a></h2>
+<h3>Linear Reservoir Parameter Set<a class="headerlink" href="#linear-reservoir-parameter-set" title="Link to this heading"></a></h3>
+<p>Defines the parameters for the linear reservoir model.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[lrparamset rundu]</span>
 <span class="na">gauge</span><span class="o">=</span><span class="s">rundu</span>
 <span class="na">coem</span><span class="o">=</span><span class="s">1611.115479</span>
@@ -256,22 +320,9 @@
 </pre></div>
 </div>
 </section>
-<section id="kinematic-wave-parameter-set">
-<h2>Kinematic Wave Parameter Set<a class="headerlink" href="#kinematic-wave-parameter-set" title="Link to this heading"></a></h2>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[KWParamSet rundu]</span>
-<span class="na">GAUGE</span><span class="o">=</span><span class="s">rundu</span>
-<span class="na">UNDER</span><span class="o">=</span><span class="s">1.673110</span>
-<span class="na">LEAKI</span><span class="o">=</span><span class="s">0.043105</span>
-<span class="na">TH</span><span class="o">=</span><span class="s">6.658569</span>
-<span class="na">ISU</span><span class="o">=</span><span class="s">0.000000</span>
-<span class="na">ALPHA</span><span class="o">=</span><span class="s">2.991570</span>
-<span class="na">BETA</span><span class="o">=</span><span class="s">0.932080</span>
-<span class="na">ALPHA0</span><span class="o">=</span><span class="s">4.603945</span>
-</pre></div>
-</div>
-</section>
 <section id="snow-17-parameter-set">
-<h2>Snow-17 Parameter Set<a class="headerlink" href="#snow-17-parameter-set" title="Link to this heading"></a></h2>
+<h3>Snow-17 Parameter Set<a class="headerlink" href="#snow-17-parameter-set" title="Link to this heading"></a></h3>
+<p>Defines the parameters for the Snow-17 model.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[snow17paramset tarbela]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">tarbela</span>
 <span class="na">UADJ</span><span class="o">=</span><span class="s">0.184653</span>
@@ -286,18 +337,16 @@
 </div>
 </section>
 <section id="simple-inundation-parameter-set">
-<h2>Simple Inundation Parameter Set<a class="headerlink" href="#simple-inundation-parameter-set" title="Link to this heading"></a></h2>
+<h3>Simple Inundation Parameter Set<a class="headerlink" href="#simple-inundation-parameter-set" title="Link to this heading"></a></h3>
+<p>Defines the parameters for the simple inundation model. The parameters <cite>alpha</cite> and <cite>beta</cite> are used to define the coefficients for the raiting curve power function, which is used to calculate the flow depth from the simulated flow rate.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[simpleinundationparamset rundu]</span>
 <span class="na">gauge</span><span class="o">=</span><span class="s">rundu</span>
 <span class="na">alpha</span><span class="o">=</span><span class="s">2.991570</span>
 <span class="na">beta</span><span class="o">=</span><span class="s">0.932080</span>
 </pre></div>
 </div>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">/*</span>
-<span class="w"> </span><span class="na">* This is an example configuration file for EF5</span>
-<span class="w"> </span><span class="na">*/</span>
-
-<span class="k">[Basic]</span>
+<p>This is a full EF5 control file example for a basic simulation using the CREST model. It includes the basic block, precipitation forcing, PET forcing, gauge locations, basin definition, parameter set for CREST, and a task to run the simulation.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
 <span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
 <span class="na">DDM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DDM.asc</span>
 <span class="na">FAM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/FAM.asc</span>
@@ -354,6 +403,7 @@
 <span class="na">PRECIP</span><span class="o">=</span><span class="s">Q2_PRECIP</span>
 <span class="na">PET</span><span class="o">=</span><span class="s">PET</span>
 <span class="na">OUTPUT</span><span class="o">=</span><span class="s">/EF5Demo/FF/output/</span>
+<span class="na">OUTPUT_GRIDS</span><span class="o">=</span><span class="s">MAXUNITSTREAMFLOW|MAXSTREAMFLOW|PRECIPACCUM|INUNDATION|MAXINUNDATION</span><span class="w"> </span><span class="c1"># Refer to</span>
 <span class="na">PARAM_SET</span><span class="o">=</span><span class="s">FF</span>
 <span class="na">TIMESTEP</span><span class="o">=</span><span class="s">5u</span>
 <span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">201006010000</span>
@@ -363,6 +413,7 @@
 <span class="na">TASK</span><span class="o">=</span><span class="s">RunFF</span>
 </pre></div>
 </div>
+</section>
 </section>
 </section>
 

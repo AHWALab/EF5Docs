@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Execute Block" href="execute_block.html" />
-    <link rel="prev" title="Configuration File" href="configuration.html" /> 
+    <link rel="prev" title="Control file (Configuration file)" href="configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,8 +57,19 @@
 <li class="toctree-l1"><a class="reference internal" href="snow_melt_models.html">Snow Melt Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inundation_models.html">Inundation Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Control file (Configuration file)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#confval-STYLE"><code class="docutils literal notranslate"><span class="pre">STYLE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-MODEL"><code class="docutils literal notranslate"><span class="pre">MODEL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-BASIN"><code class="docutils literal notranslate"><span class="pre">BASIN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-PRECIP"><code class="docutils literal notranslate"><span class="pre">PRECIP</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-PET"><code class="docutils literal notranslate"><span class="pre">PET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-PARAM_SET"><code class="docutils literal notranslate"><span class="pre">PARAM_SET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-TIMESTEP-TIME_BEGIN-TIME_END"><code class="docutils literal notranslate"><span class="pre">TIMESTEP,</span> <span class="pre">TIME_BEGIN,</span> <span class="pre">TIME_END</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-OUTPUT_GRIDS"><code class="docutils literal notranslate"><span class="pre">OUTPUT_GRIDS</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a></li>
@@ -105,21 +116,78 @@
 <span class="na">TIME_END</span><span class="o">=</span><span class="s">201006010030</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><strong>STYLE</strong>: Task style (e.g., SIMU, SIMU_RP, CALI_DREAM, etc.)</p></li>
-<li><p><strong>MODEL</strong>: Water balance model (e.g., CREST, SAC, HyMOD)</p></li>
-<li><p><strong>BASIN</strong>: Basin block name</p></li>
-<li><p><strong>PRECIP/PET</strong>: Forcing file blocks</p></li>
-<li><p><strong>PARAM_SET</strong>: Parameter set block name</p></li>
-<li><p><strong>TIMESTEP, TIME_BEGIN, TIME_END</strong>: Simulation timing parameters</p></li>
-</ul>
+</section>
+<section id="parameters">
+<h1>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h1>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-STYLE">
+<span class="sig-name descname"><span class="pre">STYLE</span></span><a class="headerlink" href="#confval-STYLE" title="Link to this definition"></a></dt>
+<dd><p>Task style. The available styles are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">SIMU</span></code>: Simulation</p>
+<p><code class="docutils literal notranslate"><span class="pre">SIMU_RP</span></code>: Simulation with return period</p>
+<p><code class="docutils literal notranslate"><span class="pre">CALI_DREAM</span></code>: Calibration using DREAM algorithm</p>
+<p><code class="docutils literal notranslate"><span class="pre">CALI_SCE</span></code>: Calibration using SCE algorithm</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-MODEL">
+<span class="sig-name descname"><span class="pre">MODEL</span></span><a class="headerlink" href="#confval-MODEL" title="Link to this definition"></a></dt>
+<dd><p>Water balance model. The available models are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CREST</span></code>: CREST model</p>
+<p><code class="docutils literal notranslate"><span class="pre">SAC</span></code>: SAC model</p>
+<p><code class="docutils literal notranslate"><span class="pre">HyMOD</span></code>: HyMOD model</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-BASIN">
+<span class="sig-name descname"><span class="pre">BASIN</span></span><a class="headerlink" href="#confval-BASIN" title="Link to this definition"></a></dt>
+<dd><p>Basin block name. This is the name of the basin block defined in the configuration file.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-PRECIP">
+<span class="sig-name descname"><span class="pre">PRECIP</span></span><a class="headerlink" href="#confval-PRECIP" title="Link to this definition"></a></dt>
+<dd><p>Forcing file block name for precipitation. This is the name of the precipitation forcing block defined in the configuration file.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-PET">
+<span class="sig-name descname"><span class="pre">PET</span></span><a class="headerlink" href="#confval-PET" title="Link to this definition"></a></dt>
+<dd><p>Forcing file block name for potential evapotranspiration. This is the name of the PET forcing block defined in the configuration file.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-PARAM_SET">
+<span class="sig-name descname"><span class="pre">PARAM_SET</span></span><a class="headerlink" href="#confval-PARAM_SET" title="Link to this definition"></a></dt>
+<dd><p>Parameter set block name. This is the name of the parameter set block defined in the configuration file.</p>
+</dd></dl>
+
+<dl class="std confval" id="time-taxonomy">
+<dt class="sig sig-object std" id="confval-TIMESTEP-TIME_BEGIN-TIME_END">
+<span class="sig-name descname"><span class="pre">TIMESTEP,</span> <span class="pre">TIME_BEGIN,</span> <span class="pre">TIME_END</span></span><a class="headerlink" href="#confval-TIMESTEP-TIME_BEGIN-TIME_END" title="Link to this definition"></a></dt>
+<dd><p>Simulation timing parameters. The timestep is the time interval for the simulation, and the begin and end times define the simulation period.</p>
+<p>The time format is YYYYMMDDHHUU, where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">HH</span></code> is the hour, and <code class="docutils literal notranslate"><span class="pre">UU</span></code> is the minute.</p>
+<p>For time step, where <code class="docutils literal notranslate"><span class="pre">d</span></code> is for day step, <code class="docutils literal notranslate"><span class="pre">h</span></code> is for hour step, and <code class="docutils literal notranslate"><span class="pre">u</span></code> is for minute step.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-OUTPUT_GRIDS">
+<span class="sig-name descname"><span class="pre">OUTPUT_GRIDS</span></span><a class="headerlink" href="#confval-OUTPUT_GRIDS" title="Link to this definition"></a></dt>
+<dd><p>Output grids to be generated, separated by “|”. The available grids are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXUNITSTREAMFLOW</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXSTREAMFLOW</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">PRECIPACCUM</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">INUNDATION</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXINUNDATION</span></code>:</p>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configuration.html" class="btn btn-neutral float-left" title="Control file (Configuration file)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="execute_block.html" class="btn btn-neutral float-right" title="Execute Block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
