@@ -6,10 +6,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tasks &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>5. Tasks &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c2edda77" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -22,12 +23,13 @@
       <script>let toggleOpenOnPrint = 'true';</script>
       <script src="_static/togglebutton.js?v=4a39c7ea"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Execute Block" href="execute_block.html" />
-    <link rel="prev" title="Control file (Configuration file)" href="configuration.html" /> 
+    <link rel="next" title="7. Execute Block" href="execute_block.html" />
+    <link rel="prev" title="4. Control file (Configuration file)" href="configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,15 +53,12 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="about.html">About EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="water_balance_models.html">Hydrologic Water Balance Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="routing_models.html">Routing Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="snow_melt_models.html">Snow Melt Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inundation_models.html">Inundation Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Control file (Configuration file)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#parameters">6. Parameters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#confval-STYLE"><code class="docutils literal notranslate"><span class="pre">STYLE</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-MODEL"><code class="docutils literal notranslate"><span class="pre">MODEL</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-BASIN"><code class="docutils literal notranslate"><span class="pre">BASIN</span></code></a></li>
@@ -70,10 +69,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#confval-OUTPUT_GRIDS"><code class="docutils literal notranslate"><span class="pre">OUTPUT_GRIDS</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating.html">9. Model calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a></li>
 </ul>
 
         </div>
@@ -90,7 +89,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Tasks</li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Tasks</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tasks.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,7 +100,7 @@
            <div itemprop="articleBody">
              
   <section id="tasks">
-<h1>Tasks<a class="headerlink" href="#tasks" title="Link to this heading"></a></h1>
+<h1><span class="section-number">5. </span>Tasks<a class="headerlink" href="#tasks" title="Link to this heading"></a></h1>
 <p>Tasks define which model to run, the simulation period, timestep, and related settings.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Task RunFF]</span>
 <span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span>
@@ -118,7 +117,7 @@
 </div>
 </section>
 <section id="parameters">
-<h1>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h1>
+<h1><span class="section-number">6. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h1>
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-STYLE">
 <span class="sig-name descname"><span class="pre">STYLE</span></span><a class="headerlink" href="#confval-STYLE" title="Link to this definition"></a></dt>
@@ -187,8 +186,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="configuration.html" class="btn btn-neutral float-left" title="Control file (Configuration file)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="execute_block.html" class="btn btn-neutral float-right" title="Execute Block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="configuration.html" class="btn btn-neutral float-left" title="4. Control file (Configuration file)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="execute_block.html" class="btn btn-neutral float-right" title="7. Execute Block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -10,14 +10,11 @@ Based on Version 1.0 (July, 2016)
 This is the user manual for EF5, a tool for ensemble flood forecasting. See the sections below for detailed information.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :numbered:
 
    about
    models
-   water_balance_models
-   routing_models
-   snow_melt_models
-   inundation_models
    compiling
    configuration
    tasks

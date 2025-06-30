@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c2edda77" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -22,11 +23,12 @@
       <script>let toggleOpenOnPrint = 'true';</script>
       <script src="_static/togglebutton.js?v=4a39c7ea"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="About EF5" href="about.html" /> 
+    <link rel="next" title="1. About EF5" href="about.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,20 +52,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">MODELS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="water_balance_models.html">Hydrologic Water Balance Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="routing_models.html">Routing Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="snow_melt_models.html">Snow Melt Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inundation_models.html">Inundation Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Control file (Configuration file)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">6. Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating.html">9. Model calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a></li>
 </ul>
 
         </div>
@@ -98,65 +96,16 @@
 <p>This is the user manual for EF5, a tool for ensemble flood forecasting. See the sections below for detailed information.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About EF5</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="about.html#a-modeling-tool-for-large-scale-hydrologic-forecasting">A modeling tool for large scale hydrologic forecasting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#flexible-architecture-for-multiple-physics-representations">Flexible architecture for multiple physics representations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#acknowledgements">Acknowledgements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">MODELS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="water_balance_models.html">Hydrologic Water Balance Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="water_balance_models.html#crest">CREST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="water_balance_models.html#sac-sma">SAC-SMA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="water_balance_models.html#hp">HP</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="routing_models.html">Routing Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="routing_models.html#linear-reservoir">Linear Reservoir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="routing_models.html#kinematic-wave">Kinematic Wave</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="snow_melt_models.html">Snow Melt Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="snow_melt_models.html#snow-17">Snow-17</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="inundation_models.html">Inundation Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="inundation_models.html#simple-inundation">Simple Inundation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="compiling.html">Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Control file (Configuration file)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#format-and-taxonomy-information">Format and taxonomy information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#blocks">Blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#parameter-sets">Parameter Sets</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">Parameters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-STYLE"><code class="docutils literal notranslate"><span class="pre">STYLE</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-MODEL"><code class="docutils literal notranslate"><span class="pre">MODEL</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-BASIN"><code class="docutils literal notranslate"><span class="pre">BASIN</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-PRECIP"><code class="docutils literal notranslate"><span class="pre">PRECIP</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-PET"><code class="docutils literal notranslate"><span class="pre">PET</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-PARAM_SET"><code class="docutils literal notranslate"><span class="pre">PARAM_SET</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-TIMESTEP-TIME_BEGIN-TIME_END"><code class="docutils literal notranslate"><span class="pre">TIMESTEP,</span> <span class="pre">TIME_BEGIN,</span> <span class="pre">TIME_END</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html#confval-OUTPUT_GRIDS"><code class="docutils literal notranslate"><span class="pre">OUTPUT_GRIDS</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="execute_block.html">Execute Block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="running.html">Running EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibrating.html">Model calibration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="calibrating.html#control-file-example-for-calibration">Control file example for Calibration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="calibrating.html#calibration-output">Calibration output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="calibrating.html#parameters-sensitivity">Parameters’ sensitivity</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#v1-0">V1.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#v1-2-4">V1.2.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#v1-2-5">V1.2.5</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">6. Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating.html">9. Model calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a></li>
 </ul>
 </div>
 <p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
@@ -168,7 +117,7 @@ documentation for details.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="about.html" class="btn btn-neutral float-right" title="About EF5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="about.html" class="btn btn-neutral float-right" title="1. About EF5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

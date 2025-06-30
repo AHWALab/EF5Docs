@@ -131,7 +131,6 @@ Figure: How to handle lumped and distributed parameters.
    :width: 400
    :align: center
 
-
 CREST Parameter Set block
 ----------------
 Defines the parameters for the CREST model.
