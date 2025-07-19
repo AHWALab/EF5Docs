@@ -1,4 +1,4 @@
-Tasks
+Task block
 -----
 Tasks define which model to run, the simulation period, timestep, and related settings.
 
@@ -72,12 +72,12 @@ Parameters
 
       Output grids to be generated, separated by "|". The available grids are:
 
-      ``MAXUNITSTREAMFLOW``:
+      ``MAXUNITSTREAMFLOW``: tif output of maximum unit streamflow, for each time step in the simulation period.  
 
-      ``MAXSTREAMFLOW``:
+      ``MAXSTREAMFLOW``: tif output of maximum streamflow, one summary file for the entire simulation period.      
 
-      ``PRECIPACCUM``:
+      ``PRECIPACCUM``: tif output of accumulated precipitation, for each time step in the simulation period.     
 
-      ``INUNDATION``:
+      ``INUNDATION``: tif output of inundation area, for each time step in the simulation period.
 
-      ``MAXINUNDATION``:
+      ``MAXINUNDATION``: tif output of maximum inundation area, one summary file for the entire simulation period.
