@@ -23,7 +23,6 @@
       <script>let toggleOpenOnPrint = 'true';</script>
       <script src="_static/togglebutton.js?v=4a39c7ea"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -59,7 +58,7 @@
 <li class="toctree-l2"><a class="reference internal" href="routing_models.html">2.2. Routing Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="snow_melt_models.html">2.3. Snow Melt Models</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. Inundation Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#simple-inundation">2.4.1. Simple Inundation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-inundation-using-hand">2.4.1. Simple Inundation using HAND</a></li>
 </ul>
 </li>
 </ul>
@@ -101,9 +100,19 @@
              
   <section id="inundation-models">
 <h1><span class="section-number">2.4. </span>Inundation Models<a class="headerlink" href="#inundation-models" title="Link to this heading"></a></h1>
-<section id="simple-inundation">
-<h2><span class="section-number">2.4.1. </span>Simple Inundation<a class="headerlink" href="#simple-inundation" title="Link to this heading"></a></h2>
-<p>The Simple Inundation model provides basic inundation modeling functionality.</p>
+<section id="simple-inundation-using-hand">
+<h2><span class="section-number">2.4.1. </span>Simple Inundation using HAND<a class="headerlink" href="#simple-inundation-using-hand" title="Link to this heading"></a></h2>
+<p>Height Above Nearest Drainage (HAND) method proposed by Rennó et al. (2008), considers relative flow deep to fill a hydro-conditioned DEM. The methodology could be used to obtain quick results, but has some limitations as the listed ones (Aristizabal et al., 2023):</p>
+<ul class="simple">
+<li><p>Doesn’t consider pluvial, coastal, ground water, and dam break components among other possible.</p></li>
+<li><p>Inundation proxy or no physics model.</p></li>
+<li><p>Requires all areas eligible for inundation to drain to the designated drainage network (Hydro-conditioning).</p></li>
+<li><p>Higher resolutions can lack sufficient representation of fine grain features such as embankments, flood walls, and closure structures.</p></li>
+</ul>
+<p>The folloing Figure briefly shows the HAND methodological procedure.</p>
+<a class="reference internal image-reference" href="_images/HAND.png"><img alt="_images/HAND.png" class="align-center" src="_images/HAND.png" style="width: 800px;" />
+</a>
+<p>Figure. HAND methodology implementation, from (Li et al., 2022).</p>
 </section>
 </section>
 
