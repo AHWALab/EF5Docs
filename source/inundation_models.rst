@@ -4,7 +4,7 @@ Inundation Models
 Simple Inundation using HAND
 ~~~~~~~~~~~~~~~~~
 
-Height Above Nearest Drainage (HAND) method proposed by Rennó et al. (2008), considers relative flow deep to fill a hydro-conditioned DEM. The methodology could be used to obtain quick results, but has some limitations as the listed ones (Aristizabal et al., 2023):
+Height Above Nearest Drainage (HAND) method proposed by Rennó et al. (2008), considers relative flow depth to fill a hydro-conditioned DEM. The methodology could be used to obtain quick results, but has some limitations as the listed ones (Aristizabal et al., 2023):
 
 •	Doesn’t consider pluvial, coastal, ground water, and dam break components among other possible.
 •	Inundation proxy or no physics model.
