@@ -1,34 +1,42 @@
 Task block
 -----
-Tasks define which model to run, the simulation period, timestep, and related settings.
+The Task block specifies key information needed for running EF5. It defines the type of modeling task to be executed, the time period for the simulation, the time step, and the forcing data to be used.
+
+A simple example of a Task block might look like this:
 
 .. code-block:: ini
 
    [Task RunFF]
    STYLE=SIMU
    MODEL=CREST
+   ROUTING=KW
    BASIN=FF
    PRECIP=Q2_PRECIP
    PET=PET
    OUTPUT=/EF5Demo/FF/output/
-   PARAM_SET=FF
+   PARAM_SET=MyCrest_params
+   ROUTING_PARAM=MyKW_params
    TIMESTEP=5u
    TIME_BEGIN=201006010000
    TIME_END=201006010030
 
 
-Parameters
+Task Block Parameters
 -----
 
 .. confval:: STYLE
       
-      Task style. The available styles are:
+      Defines the type of task EF5 will execute. See Section 4.1 for the full list of supported task types. The available styles are:
 
-      ``SIMU``: Simulation
+      ``SIMU``: Runs a standard simulation using the defined model, forcings, and parameters.
       
-      ``SIMU_RP``: Simulation with return period
+      ``SIMU_RP``: Similar to SIMU, but also generates grids for standard deviation, mean, and skewness to support return period estimation using the Log-Pearson Type III distribution.
+
+      ``CLIP_GAUGE``: Automatically identifies all outlets and creates necessary configuration files for distributed modeling. Useful when setting up models with many gauges.
+
+      ``BASIN_AVG``: Calculates basin-wide averages from gridded data (e.g., average precipitation). Usefull in parameter estimation, such as for kinematic wave routing.
       
-      ``CALI_DREAM``: Calibration using DREAM algorithm
+      ``CALI_DREAM``: Performs model calibration using the DREAM algorithm. Requires additional parameter blocks specific to calibration.
       
       ``CALI_SCE``: Calibration using SCE algorithm
 
