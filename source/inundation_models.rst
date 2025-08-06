@@ -11,7 +11,7 @@ Height Above Nearest Drainage (HAND) method proposed by Rennó et al. (2008), co
 •	Requires all areas eligible for inundation to drain to the designated drainage network (Hydro-conditioning).
 •	Higher resolutions can lack sufficient representation of fine grain features such as embankments, flood walls, and closure structures.
 
-The folloing Figure briefly shows the HAND methodological procedure.
+The following Figure briefly shows the HAND methodological procedure.
 
 .. image:: _static/HAND.png
    :width: 800

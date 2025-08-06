@@ -1,0 +1,21 @@
+# Custom Dictionary Words
+NOAA
+
+streamflow
+leaki
+Ksat
+nsce
+MRMS
+GEOTIFF
+forcings
+
+AHWA
+SERVIR
+Vergara
+Henao
+Gomez
+EF5
+Duarte
+Flamig
+Naman
+Flamig
