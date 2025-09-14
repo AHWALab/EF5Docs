@@ -59,7 +59,7 @@ Specifies file locations for the digital elevation model (DEM), drainage directi
 
 Precipitation block
 ----------------
-Defines the properties of the precipitation forcing files. EF5 considers the indicated layer unitis to be consistent with the simulation timestep.
+Defines the properties of the precipitation forcing files. EF5 considers the indicated layer units to be consistent with the simulation timestep.
 
 .. code-block:: ini
 
@@ -72,7 +72,7 @@ Defines the properties of the precipitation forcing files. EF5 considers the ind
 
 Potential Evapotranspiration (PET) block
 ----------------
-Defines the PET forcing file details. EF5 considers the indicated layer unitis to be consistent with the simulation timestep.
+Defines the PET forcing file details. EF5 considers the indicated layer units to be consistent with the simulation timestep.
 
 .. code-block:: ini
 
@@ -86,7 +86,7 @@ Defines the PET forcing file details. EF5 considers the indicated layer unitis t
 Gauge locations blocks
 ----------------
 Each gauge information is defined in a separate block, with the block name being the gauge identifier. The gauge identifier is used to reference the gauge in other blocks, such as the basin block.
-The gauge location block specifies the locations of gauges for output and parameter assignment. ``OUTPUTTS`` is an optional parameter that, when set to `TRUE`, indicates that the gauge will output time series data. ``OBS`` is an optional parameter that specifies the path to the observed data file for the gauge. ``OBS`` is requiered if the gauge will be used for calibration task. The ``BASINAREA`` parameter is also optional and indicates the area of the basin in square kilometers. When ``BASINAREA`` is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a treshold. If no match is found, EF5 will raise a warning.
+The gauge location block specifies the locations of gauges for output and parameter assignment. ``OUTPUTTS`` is an optional parameter that, when set to `TRUE`, indicates that the gauge will output time series data. ``OBS`` is an optional parameter that specifies the path to the observed data file for the gauge. ``OBS`` is required if the gauge will be used for calibration task. The ``BASINAREA`` parameter is also optional and indicates the area of the basin in square kilometers. When ``BASINAREA`` is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a threshold. If no match is found, EF5 will raise a warning.
 
 .. indicate the other option for gauge area and lat and lon
 
@@ -105,7 +105,7 @@ The gauge location block specifies the locations of gauges for output and parame
 
 Basin block
 ----------------
-Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn't follow the clasic basin definition, but rather groups gauges that are requiered by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.
+Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn't follow the classic basin definition, but rather groups gauges that are required by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.
 
 .. code-block:: ini
 
@@ -120,7 +120,7 @@ The `gauge` parameter specifies the gauge identifier for which the parameters ar
 
 .. admonition:: There are two ways to define parameters for a basin:
    
-   #. **Lumped (agregated) parameter sets:** Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.
+   #. **Lumped (aggregated) parameter sets:** Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.
    #. **Distributed (grided) parameter sets:** Parameters are defined in a grid format, where each parameter corresponds to a grid file. Grided parameters could be identified by `_grid` suffix in the parameter name. After the grided files are defined, the user must specify the parameters multiplier values for each grid, using the lumped parameter name without the `_grid` suffix.
    
    Additional information about the parameters definition and units could be found in the `calibration` section.
@@ -252,7 +252,7 @@ Defines the parameters for the Snow-17 model.
 Simple Inundation Parameter Set
 ----------------
 
-Defines the parameters for the simple inundation model. The parameters `alpha` and `beta` are used to define the coefficients for the raiting curve power function, which is used to calculate the flow depth from the simulated flow rate.
+Defines the parameters for the simple inundation model. The parameters `alpha` and `beta` are used to define the coefficients for the rating curve power function, which is used to calculate the flow depth from the simulated flow rate.
 
 .. code-block:: ini
 

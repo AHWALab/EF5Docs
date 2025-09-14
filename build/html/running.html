@@ -56,8 +56,8 @@
 <li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">6. Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Task block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">6. Task Block Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">8. Running EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">9. Model calibration</a></li>
@@ -91,9 +91,27 @@
   <section id="running-ef5">
 <h1><span class="section-number">8. </span>Running EF5<a class="headerlink" href="#running-ef5" title="Link to this heading"></a></h1>
 <p>To run EF5, execute the binary with an optional control file argument:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ef5<span class="w"> </span>**your_controlfile_name.txt**
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ef5<span class="w"> </span>&lt;your_controlfile_name.txt&gt;
 </pre></div>
 </div>
+<p>For a detailed guide on setting up your own domain (generate files for your own study area), please refer to the <a class="reference external" href="https://github.com/AHWALab/EF5-builder-toolkit">EF5-builder-toolkit</a> GitHub repository. The toolkit provides step by step instructions for generating:</p>
+<ol class="arabic simple">
+<li><p>Basic files (DEM derived files)</p></li>
+<li><p>Prepare Precipitation Forcing Data</p></li>
+<li><p>Prepare Potential Evapotranspiration (PET) Data</p></li>
+<li><dl class="simple">
+<dt>Preparing Grids for a Distributed Model</dt><dd><ol class="loweralpha simple">
+<li><p>Prepare Soil Data</p></li>
+<li><p>Prepare impervious area</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>Automatically defining all outlets locations</p></li>
+<li><p>Calculate Basin-Integrated Variables (aggregate variables pixel by pixel for the tributary area)</p></li>
+<li><p>Generate CREST parameters</p></li>
+<li><p>Generate the Kinematic Wave (KW) Parameters</p></li>
+</ol>
 </section>
 
 

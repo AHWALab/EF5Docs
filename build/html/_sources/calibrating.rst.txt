@@ -48,7 +48,7 @@ The following is an example of how to set up the calibration parameters in the c
 
 .. admonition:: There are two ways to define parameters for a basin:
    
-   #. **Lumped (agregated) parameter sets:** Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.
+   #. **Lumped (aggregated) parameter sets:** Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.
    #. **Distributed (grided) parameter sets:** Parameters are defined in a grid format, where each parameter corresponds to a grid file. Grided parameters could be identified by `_grid` suffix in the parameter name. After the grided files are defined, the user must specify the parameters multiplier values for each grid, using the lumped parameter name without the `_grid` suffix.
    
    Additional information about the parameters definition and units could be found in the `calibration` section.
@@ -201,7 +201,7 @@ The optimized parameters will be saved in the following format:
          what():  std::bad_alloc
       Aborted.
    
-   It could be related to the guage basin area verification, but it is also caused by a memory overload. Adding more RAM to your configuration would solve this problem.
+   It could be related to the gauge basin area verification, but it is also caused by a memory overload. Adding more RAM to your configuration would solve this problem.
 
 Parameters' sensitivity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,10 +212,9 @@ The following image shows the parameters' sensitivity in the simulated time seri
    :align: center
 
 
-.. dropdown:: Parameters influence in the simulated time series
+
    
-   Example
-   Example of dropdown
+
 
 
 .. dropdown:: Dropdown title

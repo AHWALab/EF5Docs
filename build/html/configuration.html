@@ -27,7 +27,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Tasks" href="tasks.html" />
+    <link rel="next" title="5. Task block" href="tasks.html" />
     <link rel="prev" title="3. Compiling EF5" href="compiling.html" /> 
 </head>
 
@@ -82,8 +82,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">6. Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Task block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">6. Task Block Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">9. Model calibration</a></li>
@@ -165,7 +165,7 @@
 </section>
 <section id="precipitation-block">
 <h3><span class="section-number">4.2.2. </span>Precipitation block<a class="headerlink" href="#precipitation-block" title="Link to this heading"></a></h3>
-<p>Defines the properties of the precipitation forcing files. EF5 considers the indicated layer unitis to be consistent with the simulation timestep.</p>
+<p>Defines the properties of the precipitation forcing files. EF5 considers the indicated layer units to be consistent with the simulation timestep.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[PrecipForcing Q2Precip]</span>
 <span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
 <span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
@@ -177,7 +177,7 @@
 </section>
 <section id="potential-evapotranspiration-pet-block">
 <h3><span class="section-number">4.2.3. </span>Potential Evapotranspiration (PET) block<a class="headerlink" href="#potential-evapotranspiration-pet-block" title="Link to this heading"></a></h3>
-<p>Defines the PET forcing file details. EF5 considers the indicated layer unitis to be consistent with the simulation timestep.</p>
+<p>Defines the PET forcing file details. EF5 considers the indicated layer units to be consistent with the simulation timestep.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[PETForcing PET]</span>
 <span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
 <span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
@@ -190,7 +190,7 @@
 <section id="gauge-locations-blocks">
 <h3><span class="section-number">4.2.4. </span>Gauge locations blocks<a class="headerlink" href="#gauge-locations-blocks" title="Link to this heading"></a></h3>
 <p>Each gauge information is defined in a separate block, with the block name being the gauge identifier. The gauge identifier is used to reference the gauge in other blocks, such as the basin block.
-The gauge location block specifies the locations of gauges for output and parameter assignment. <code class="docutils literal notranslate"><span class="pre">OUTPUTTS</span></code> is an optional parameter that, when set to <cite>TRUE</cite>, indicates that the gauge will output time series data. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is an optional parameter that specifies the path to the observed data file for the gauge. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is requiered if the gauge will be used for calibration task. The <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> parameter is also optional and indicates the area of the basin in square kilometers. When <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a treshold. If no match is found, EF5 will raise a warning.</p>
+The gauge location block specifies the locations of gauges for output and parameter assignment. <code class="docutils literal notranslate"><span class="pre">OUTPUTTS</span></code> is an optional parameter that, when set to <cite>TRUE</cite>, indicates that the gauge will output time series data. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is an optional parameter that specifies the path to the observed data file for the gauge. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is required if the gauge will be used for calibration task. The <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> parameter is also optional and indicates the area of the basin in square kilometers. When <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a threshold. If no match is found, EF5 will raise a warning.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Gauge OKC]</span>
 <span class="na">LON</span><span class="o">=</span><span class="s">-97.01</span>
 <span class="na">LAT</span><span class="o">=</span><span class="s">35.68</span>
@@ -206,7 +206,7 @@ The gauge location block specifies the locations of gauges for output and parame
 </section>
 <section id="basin-block">
 <h3><span class="section-number">4.2.5. </span>Basin block<a class="headerlink" href="#basin-block" title="Link to this heading"></a></h3>
-<p>Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn’t follow the clasic basin definition, but rather groups gauges that are requiered by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.</p>
+<p>Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn’t follow the classic basin definition, but rather groups gauges that are required by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basin FF]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
@@ -220,7 +220,7 @@ The gauge location block specifies the locations of gauges for output and parame
 <div class="admonition-there-are-two-ways-to-define-parameters-for-a-basin admonition">
 <p class="admonition-title">There are two ways to define parameters for a basin:</p>
 <ol class="arabic simple">
-<li><p><strong>Lumped (agregated) parameter sets:</strong> Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.</p></li>
+<li><p><strong>Lumped (aggregated) parameter sets:</strong> Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.</p></li>
 <li><p><strong>Distributed (grided) parameter sets:</strong> Parameters are defined in a grid format, where each parameter corresponds to a grid file. Grided parameters could be identified by <cite>_grid</cite> suffix in the parameter name. After the grided files are defined, the user must specify the parameters multiplier values for each grid, using the lumped parameter name without the <cite>_grid</cite> suffix.</p></li>
 </ol>
 <p>Additional information about the parameters definition and units could be found in the <cite>calibration</cite> section.</p>
@@ -336,7 +336,7 @@ The gauge location block specifies the locations of gauges for output and parame
 </section>
 <section id="simple-inundation-parameter-set">
 <h3><span class="section-number">4.3.6. </span>Simple Inundation Parameter Set<a class="headerlink" href="#simple-inundation-parameter-set" title="Link to this heading"></a></h3>
-<p>Defines the parameters for the simple inundation model. The parameters <cite>alpha</cite> and <cite>beta</cite> are used to define the coefficients for the raiting curve power function, which is used to calculate the flow depth from the simulated flow rate.</p>
+<p>Defines the parameters for the simple inundation model. The parameters <cite>alpha</cite> and <cite>beta</cite> are used to define the coefficients for the rating curve power function, which is used to calculate the flow depth from the simulated flow rate.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[simpleinundationparamset rundu]</span>
 <span class="na">gauge</span><span class="o">=</span><span class="s">rundu</span>
 <span class="na">alpha</span><span class="o">=</span><span class="s">2.991570</span>
@@ -420,7 +420,7 @@ The gauge location block specifies the locations of gauges for output and parame
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="compiling.html" class="btn btn-neutral float-left" title="3. Compiling EF5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="tasks.html" class="btn btn-neutral float-right" title="5. Tasks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tasks.html" class="btn btn-neutral float-right" title="5. Task block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

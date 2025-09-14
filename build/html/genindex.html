@@ -50,11 +50,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiling.html">2. Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Control file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">4. Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">6. Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Task block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">6. Task Block Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">9. Model calibration</a></li>
@@ -90,9 +90,12 @@
 <div class="genindex-jumpbox">
  <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#I"><strong>I</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  
@@ -114,12 +117,38 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    CALI_PARAM
+
+      <ul>
+        <li><a href="tasks.html#confval-CALI_PARAM">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    CO_FILE
+
+      <ul>
+        <li><a href="tasks.html#confval-CO_FILE">configuration value</a>
+</li>
+      </ul></li>
+      <li>
     configuration value
 
       <ul>
         <li><a href="tasks.html#confval-BASIN">BASIN</a>
 </li>
+        <li><a href="tasks.html#confval-CALI_PARAM">CALI_PARAM</a>
+</li>
+        <li><a href="tasks.html#confval-CO_FILE">CO_FILE</a>
+</li>
+        <li><a href="tasks.html#confval-DA_FILE">DA_FILE</a>
+</li>
+        <li><a href="tasks.html#confval-INUNDATION_CALI_PARAM">INUNDATION_CALI_PARAM</a>
+</li>
+        <li><a href="tasks.html#confval-INUNDATION_PARAM_SET">INUNDATION_PARAM_SET</a>
+</li>
         <li><a href="tasks.html#confval-MODEL">MODEL</a>
+</li>
+        <li><a href="tasks.html#confval-OUTPUT">OUTPUT</a>
 </li>
         <li><a href="tasks.html#confval-OUTPUT_GRIDS">OUTPUT_GRIDS</a>
 </li>
@@ -129,11 +158,80 @@
 </li>
         <li><a href="tasks.html#confval-PRECIP">PRECIP</a>
 </li>
+        <li><a href="tasks.html#confval-PRECIPFORECAST">PRECIPFORECAST</a>
+</li>
+        <li><a href="tasks.html#confval-PRELOAD_FILE">PRELOAD_FILE</a>
+</li>
+        <li><a href="tasks.html#confval-ROUTING">ROUTING</a>
+</li>
+        <li><a href="tasks.html#confval-ROUTING_CALI_PARAM">ROUTING_CALI_PARAM</a>
+</li>
+        <li><a href="tasks.html#confval-ROUTING_PARAM_SET">ROUTING_PARAM_SET</a>
+</li>
+        <li><a href="tasks.html#confval-RP_AVGGRID">RP_AVGGRID</a>
+</li>
+        <li><a href="tasks.html#confval-RP_CSGRID">RP_CSGRID</a>
+</li>
+        <li><a href="tasks.html#confval-RP_STDGRID">RP_STDGRID</a>
+</li>
+        <li><a href="tasks.html#confval-SNOW_CALI_PARAM">SNOW_CALI_PARAM</a>
+</li>
+        <li><a href="tasks.html#confval-SNOW_PARAM_SET">SNOW_PARAM_SET</a>
+</li>
+        <li><a href="tasks.html#confval-STATES">STATES</a>
+</li>
         <li><a href="tasks.html#confval-STYLE">STYLE</a>
+</li>
+        <li><a href="tasks.html#confval-TEMP">TEMP</a>
+</li>
+        <li><a href="tasks.html#confval-TEMPFORECAST">TEMPFORECAST</a>
+</li>
+        <li><a href="tasks.html#confval-TIME_BEGIN">TIME_BEGIN</a>
+</li>
+        <li><a href="tasks.html#confval-TIME_END">TIME_END</a>
+</li>
+        <li><a href="tasks.html#confval-TIME_STATE">TIME_STATE</a>
+</li>
+        <li><a href="tasks.html#confval-TIME_WARMEND">TIME_WARMEND</a>
 </li>
         <li><a href="tasks.html#confval-TIMESTEP-TIME_BEGIN-TIME_END">TIMESTEP, TIME_BEGIN, TIME_END</a>
 </li>
         <li><a href="configuration.html#confval-TIMESTEP-TIME_BEGIN-TIME_END-and-tiff-file-names">TIMESTEP, TIME_BEGIN, TIME_END and tiff-file names</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    DA_FILE
+
+      <ul>
+        <li><a href="tasks.html#confval-DA_FILE">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    INUNDATION_CALI_PARAM
+
+      <ul>
+        <li><a href="tasks.html#confval-INUNDATION_CALI_PARAM">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    INUNDATION_PARAM_SET
+
+      <ul>
+        <li><a href="tasks.html#confval-INUNDATION_PARAM_SET">configuration value</a>
 </li>
       </ul></li>
   </ul></td>
@@ -154,6 +252,15 @@
 
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    OUTPUT
+
+      <ul>
+        <li><a href="tasks.html#confval-OUTPUT">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     OUTPUT_GRIDS
@@ -182,8 +289,6 @@
         <li><a href="tasks.html#confval-PET">configuration value</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     PRECIP
 
@@ -192,11 +297,100 @@
 </li>
       </ul></li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    PRECIPFORECAST
+
+      <ul>
+        <li><a href="tasks.html#confval-PRECIPFORECAST">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    PRELOAD_FILE
+
+      <ul>
+        <li><a href="tasks.html#confval-PRELOAD_FILE">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    ROUTING
+
+      <ul>
+        <li><a href="tasks.html#confval-ROUTING">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    ROUTING_CALI_PARAM
+
+      <ul>
+        <li><a href="tasks.html#confval-ROUTING_CALI_PARAM">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    ROUTING_PARAM_SET
+
+      <ul>
+        <li><a href="tasks.html#confval-ROUTING_PARAM_SET">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    RP_AVGGRID
+
+      <ul>
+        <li><a href="tasks.html#confval-RP_AVGGRID">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    RP_CSGRID
+
+      <ul>
+        <li><a href="tasks.html#confval-RP_CSGRID">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    RP_STDGRID
+
+      <ul>
+        <li><a href="tasks.html#confval-RP_STDGRID">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    SNOW_CALI_PARAM
+
+      <ul>
+        <li><a href="tasks.html#confval-SNOW_CALI_PARAM">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    SNOW_PARAM_SET
+
+      <ul>
+        <li><a href="tasks.html#confval-SNOW_PARAM_SET">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    STATES
+
+      <ul>
+        <li><a href="tasks.html#confval-STATES">configuration value</a>
+</li>
+      </ul></li>
       <li>
     STYLE
 
@@ -211,14 +405,56 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    TEMP
+
+      <ul>
+        <li><a href="tasks.html#confval-TEMP">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    TEMPFORECAST
+
+      <ul>
+        <li><a href="tasks.html#confval-TEMPFORECAST">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    TIME_BEGIN
+
+      <ul>
+        <li><a href="tasks.html#confval-TIME_BEGIN">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    TIME_END
+
+      <ul>
+        <li><a href="tasks.html#confval-TIME_END">configuration value</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    TIME_STATE
+
+      <ul>
+        <li><a href="tasks.html#confval-TIME_STATE">configuration value</a>
+</li>
+      </ul></li>
+      <li>
+    TIME_WARMEND
+
+      <ul>
+        <li><a href="tasks.html#confval-TIME_WARMEND">configuration value</a>
+</li>
+      </ul></li>
+      <li>
     TIMESTEP, TIME_BEGIN, TIME_END
 
       <ul>
         <li><a href="tasks.html#confval-TIMESTEP-TIME_BEGIN-TIME_END">configuration value</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     TIMESTEP, TIME_BEGIN, TIME_END and tiff-file names
 

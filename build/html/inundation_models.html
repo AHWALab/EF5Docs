@@ -65,8 +65,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#parameters">6. Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Task block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">6. Task Block Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">9. Model calibration</a></li>
@@ -102,14 +102,14 @@
 <h1><span class="section-number">2.4. </span>Inundation Models<a class="headerlink" href="#inundation-models" title="Link to this heading"></a></h1>
 <section id="simple-inundation-using-hand">
 <h2><span class="section-number">2.4.1. </span>Simple Inundation using HAND<a class="headerlink" href="#simple-inundation-using-hand" title="Link to this heading"></a></h2>
-<p>Height Above Nearest Drainage (HAND) method proposed by Rennó et al. (2008), considers relative flow deep to fill a hydro-conditioned DEM. The methodology could be used to obtain quick results, but has some limitations as the listed ones (Aristizabal et al., 2023):</p>
+<p>Height Above Nearest Drainage (HAND) method proposed by Rennó et al. (2008), considers relative flow depth to fill a hydro-conditioned DEM. The methodology could be used to obtain quick results, but has some limitations as the listed ones (Aristizabal et al., 2023):</p>
 <ul class="simple">
 <li><p>Doesn’t consider pluvial, coastal, ground water, and dam break components among other possible.</p></li>
 <li><p>Inundation proxy or no physics model.</p></li>
 <li><p>Requires all areas eligible for inundation to drain to the designated drainage network (Hydro-conditioning).</p></li>
 <li><p>Higher resolutions can lack sufficient representation of fine grain features such as embankments, flood walls, and closure structures.</p></li>
 </ul>
-<p>The folloing Figure briefly shows the HAND methodological procedure.</p>
+<p>The following Figure briefly shows the HAND methodological procedure.</p>
 <a class="reference internal image-reference" href="_images/HAND.png"><img alt="_images/HAND.png" class="align-center" src="_images/HAND.png" style="width: 800px;" />
 </a>
 <p>Figure. HAND methodology implementation, from (Li et al., 2022).</p>

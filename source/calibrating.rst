@@ -212,10 +212,9 @@ The following image shows the parameters' sensitivity in the simulated time seri
    :align: center
 
 
-.. dropdown:: Parameters influence in the simulated time series
+
    
-   Example
-   Example of dropdown
+
 
 
 .. dropdown:: Dropdown title

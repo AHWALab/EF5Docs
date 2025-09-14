@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5. Tasks &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>5. Task block &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
@@ -56,16 +56,39 @@
 <li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#parameters">6. Parameters</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Task block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#task-block-parameters">6. Task Block Parameters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#confval-STYLE"><code class="docutils literal notranslate"><span class="pre">STYLE</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-MODEL"><code class="docutils literal notranslate"><span class="pre">MODEL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-ROUTING"><code class="docutils literal notranslate"><span class="pre">ROUTING</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-BASIN"><code class="docutils literal notranslate"><span class="pre">BASIN</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-PRECIP"><code class="docutils literal notranslate"><span class="pre">PRECIP</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-PET"><code class="docutils literal notranslate"><span class="pre">PET</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-PARAM_SET"><code class="docutils literal notranslate"><span class="pre">PARAM_SET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-ROUTING_PARAM_SET"><code class="docutils literal notranslate"><span class="pre">ROUTING_PARAM_SET</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-TIMESTEP-TIME_BEGIN-TIME_END"><code class="docutils literal notranslate"><span class="pre">TIMESTEP,</span> <span class="pre">TIME_BEGIN,</span> <span class="pre">TIME_END</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-TIME_BEGIN"><code class="docutils literal notranslate"><span class="pre">TIME_BEGIN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-TIME_END"><code class="docutils literal notranslate"><span class="pre">TIME_END</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-TIME_WARMEND"><code class="docutils literal notranslate"><span class="pre">TIME_WARMEND</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-TIME_STATE"><code class="docutils literal notranslate"><span class="pre">TIME_STATE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-STATES"><code class="docutils literal notranslate"><span class="pre">STATES</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-OUTPUT"><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#confval-OUTPUT_GRIDS"><code class="docutils literal notranslate"><span class="pre">OUTPUT_GRIDS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-DA_FILE"><code class="docutils literal notranslate"><span class="pre">DA_FILE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-CO_FILE"><code class="docutils literal notranslate"><span class="pre">CO_FILE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-RP_STDGRID"><code class="docutils literal notranslate"><span class="pre">RP_STDGRID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-RP_AVGGRID"><code class="docutils literal notranslate"><span class="pre">RP_AVGGRID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-RP_CSGRID"><code class="docutils literal notranslate"><span class="pre">RP_CSGRID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-SNOW_PARAM_SET"><code class="docutils literal notranslate"><span class="pre">SNOW_PARAM_SET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-INUNDATION_PARAM_SET"><code class="docutils literal notranslate"><span class="pre">INUNDATION_PARAM_SET</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-CALI_PARAM"><code class="docutils literal notranslate"><span class="pre">CALI_PARAM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-ROUTING_CALI_PARAM"><code class="docutils literal notranslate"><span class="pre">ROUTING_CALI_PARAM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-SNOW_CALI_PARAM"><code class="docutils literal notranslate"><span class="pre">SNOW_CALI_PARAM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-INUNDATION_CALI_PARAM"><code class="docutils literal notranslate"><span class="pre">INUNDATION_CALI_PARAM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-PRELOAD_FILE"><code class="docutils literal notranslate"><span class="pre">PRELOAD_FILE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-PRECIPFORECAST"><code class="docutils literal notranslate"><span class="pre">PRECIPFORECAST</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-TEMP"><code class="docutils literal notranslate"><span class="pre">TEMP</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#confval-TEMPFORECAST"><code class="docutils literal notranslate"><span class="pre">TEMPFORECAST</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
@@ -88,7 +111,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">5. </span>Tasks</li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Task block</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tasks.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -98,85 +121,251 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="tasks">
-<h1><span class="section-number">5. </span>Tasks<a class="headerlink" href="#tasks" title="Link to this heading"></a></h1>
-<p>Tasks define which model to run, the simulation period, timestep, and related settings.</p>
+  <section id="task-block">
+<h1><span class="section-number">5. </span>Task block<a class="headerlink" href="#task-block" title="Link to this heading"></a></h1>
+<p>The Task block specifies key information needed for running EF5. It defines the type of modeling task to be executed, the time period for the simulation, the time step, and the forcing data to be used.</p>
+<p>A simple example of a Task block might look like this:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Task RunFF]</span>
 <span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span>
 <span class="na">MODEL</span><span class="o">=</span><span class="s">CREST</span>
+<span class="na">ROUTING</span><span class="o">=</span><span class="s">KW</span>
 <span class="na">BASIN</span><span class="o">=</span><span class="s">FF</span>
 <span class="na">PRECIP</span><span class="o">=</span><span class="s">Q2_PRECIP</span>
 <span class="na">PET</span><span class="o">=</span><span class="s">PET</span>
 <span class="na">OUTPUT</span><span class="o">=</span><span class="s">/EF5Demo/FF/output/</span>
-<span class="na">PARAM_SET</span><span class="o">=</span><span class="s">FF</span>
+<span class="na">PARAM_SET</span><span class="o">=</span><span class="s">MyCrest_params</span>
+<span class="na">ROUTING_PARAM</span><span class="o">=</span><span class="s">MyKW_params</span>
 <span class="na">TIMESTEP</span><span class="o">=</span><span class="s">5u</span>
 <span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">201006010000</span>
 <span class="na">TIME_END</span><span class="o">=</span><span class="s">201006010030</span>
 </pre></div>
 </div>
 </section>
-<section id="parameters">
-<h1><span class="section-number">6. </span>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h1>
+<section id="task-block-parameters">
+<h1><span class="section-number">6. </span>Task Block Parameters<a class="headerlink" href="#task-block-parameters" title="Link to this heading"></a></h1>
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-STYLE">
 <span class="sig-name descname"><span class="pre">STYLE</span></span><a class="headerlink" href="#confval-STYLE" title="Link to this definition"></a></dt>
-<dd><p>Task style. The available styles are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">SIMU</span></code>: Simulation</p>
-<p><code class="docutils literal notranslate"><span class="pre">SIMU_RP</span></code>: Simulation with return period</p>
-<p><code class="docutils literal notranslate"><span class="pre">CALI_DREAM</span></code>: Calibration using DREAM algorithm</p>
+<dd><p>Defines the type of task EF5 will execute. See Section 4.1 for the full list of supported task types. The available styles are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">SIMU</span></code>: Runs a standard simulation using the defined model, forcings, and parameters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SIMU_RP</span></code>: Similar to <cite>SIMU</cite>, but also generates grids for standard deviation, mean, and skewness to support return period estimation using the Log-Pearson Type III distribution.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code>: Automatically identifies all outlets and creates necessary configuration files for distributed modeling. Useful when setting up models with many gauges.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CLIP_BASIN</span></code>: Clips model inputs to the domain defined in the BASIN block.</p>
+<p><code class="docutils literal notranslate"><span class="pre">BASIN_AVG</span></code>: Calculates basin-wide averages from gridded data (e.g., average precipitation). Usefull in parameter estimation, such as for kinematic wave routing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CALI_DREAM</span></code>: Performs model calibration using the DREAM algorithm. Requires additional parameter blocks specific to calibration.</p>
 <p><code class="docutils literal notranslate"><span class="pre">CALI_SCE</span></code>: Calibration using SCE algorithm</p>
 </dd></dl>
 
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-MODEL">
 <span class="sig-name descname"><span class="pre">MODEL</span></span><a class="headerlink" href="#confval-MODEL" title="Link to this definition"></a></dt>
-<dd><p>Water balance model. The available models are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">CREST</span></code>: CREST model</p>
-<p><code class="docutils literal notranslate"><span class="pre">SAC</span></code>: SAC model</p>
-<p><code class="docutils literal notranslate"><span class="pre">HyMOD</span></code>: HyMOD model</p>
+<dd><p>Specifies the water balance model to be used. Options include:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CREST</span></code>: The Coupled Routing and Excess STorage distributed hydrological model.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SAC</span></code>: The SAC-SMA model.</p>
+<p><code class="docutils literal notranslate"><span class="pre">HyMOD</span></code>: HyMOD model.</p>
+<p>Visit section 4. Models for extended description of these options.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-ROUTING">
+<span class="sig-name descname"><span class="pre">ROUTING</span></span><a class="headerlink" href="#confval-ROUTING" title="Link to this definition"></a></dt>
+<dd><p>Indicates the routing method to apply. Options include:</p>
+<p><code class="docutils literal notranslate"><span class="pre">KW</span></code>: Kinematic Wave Routing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LR</span></code>: Linear Reservoir Routing.</p>
+<p>Visit section 4. Models for extended description of these options.</p>
 </dd></dl>
 
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-BASIN">
 <span class="sig-name descname"><span class="pre">BASIN</span></span><a class="headerlink" href="#confval-BASIN" title="Link to this definition"></a></dt>
-<dd><p>Basin block name. This is the name of the basin block defined in the configuration file.</p>
+<dd><p>The name of the Basin block, which defines the spatial extent over which the model will run.</p>
 </dd></dl>
 
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-PRECIP">
 <span class="sig-name descname"><span class="pre">PRECIP</span></span><a class="headerlink" href="#confval-PRECIP" title="Link to this definition"></a></dt>
-<dd><p>Forcing file block name for precipitation. This is the name of the precipitation forcing block defined in the configuration file.</p>
+<dd><p>The name of the Precipitation block, which defines the precipitation input data.</p>
 </dd></dl>
 
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-PET">
 <span class="sig-name descname"><span class="pre">PET</span></span><a class="headerlink" href="#confval-PET" title="Link to this definition"></a></dt>
-<dd><p>Forcing file block name for potential evapotranspiration. This is the name of the PET forcing block defined in the configuration file.</p>
+<dd><p>Forcing file block name for potential evapotranspiration input data.</p>
 </dd></dl>
 
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-PARAM_SET">
 <span class="sig-name descname"><span class="pre">PARAM_SET</span></span><a class="headerlink" href="#confval-PARAM_SET" title="Link to this definition"></a></dt>
-<dd><p>Parameter set block name. This is the name of the parameter set block defined in the configuration file.</p>
+<dd><p>The name of the Parameter Set block that contains water balance model parameters. Visit section 5. Parameters for extended description of these options.</p>
 </dd></dl>
 
-<dl class="std confval" id="time-taxonomy">
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-ROUTING_PARAM_SET">
+<span class="sig-name descname"><span class="pre">ROUTING_PARAM_SET</span></span><a class="headerlink" href="#confval-ROUTING_PARAM_SET" title="Link to this definition"></a></dt>
+<dd><p>The Parameter Set block that contains parameters for the routing model. Visit section 5. Parameters for extended description of these options.</p>
+</dd></dl>
+
+<p><strong>Simulation timing parameters:</strong></p>
+<dl class="std confval">
 <dt class="sig sig-object std" id="confval-TIMESTEP-TIME_BEGIN-TIME_END">
 <span class="sig-name descname"><span class="pre">TIMESTEP,</span> <span class="pre">TIME_BEGIN,</span> <span class="pre">TIME_END</span></span><a class="headerlink" href="#confval-TIMESTEP-TIME_BEGIN-TIME_END" title="Link to this definition"></a></dt>
-<dd><p>Simulation timing parameters. The timestep is the time interval for the simulation, and the begin and end times define the simulation period.</p>
-<p>The time format is YYYYMMDDHHUU, where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">HH</span></code> is the hour, and <code class="docutils literal notranslate"><span class="pre">UU</span></code> is the minute.</p>
-<p>For time step, where <code class="docutils literal notranslate"><span class="pre">d</span></code> is for day step, <code class="docutils literal notranslate"><span class="pre">h</span></code> is for hour step, and <code class="docutils literal notranslate"><span class="pre">u</span></code> is for minute step.</p>
+<dd><p>Sets the model time step. Supported units are <code class="docutils literal notranslate"><span class="pre">d</span></code> is for day step, <code class="docutils literal notranslate"><span class="pre">h</span></code> is for hour step, and <code class="docutils literal notranslate"><span class="pre">u</span></code> is for minute step.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-TIME_BEGIN">
+<span class="sig-name descname"><span class="pre">TIME_BEGIN</span></span><a class="headerlink" href="#confval-TIME_BEGIN" title="Link to this definition"></a></dt>
+<dd><p>Start time for the simulation, in YYYYMMDDHHMMUU format. Where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">HH</span></code> is the hour, and <code class="docutils literal notranslate"><span class="pre">UU</span></code> is the minute.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-TIME_END">
+<span class="sig-name descname"><span class="pre">TIME_END</span></span><a class="headerlink" href="#confval-TIME_END" title="Link to this definition"></a></dt>
+<dd><p>End time for the simulation, in YYYYMMDDHHMMUU format. Where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">HH</span></code> is the hour, and <code class="docutils literal notranslate"><span class="pre">UU</span></code> is the minute.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-TIME_WARMEND">
+<span class="sig-name descname"><span class="pre">TIME_WARMEND</span></span><a class="headerlink" href="#confval-TIME_WARMEND" title="Link to this definition"></a></dt>
+<dd><p>(Optional) Marks the end of the model’s warm-up period, in YYYYMMDDHHMMUU format. Where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">HH</span></code> is the hour, and <code class="docutils literal notranslate"><span class="pre">UU</span></code> is the minute.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-TIME_STATE">
+<span class="sig-name descname"><span class="pre">TIME_STATE</span></span><a class="headerlink" href="#confval-TIME_STATE" title="Link to this definition"></a></dt>
+<dd><p>(Optional) After warming up the model, users might save the states for future simulations. <cite>TIME_STATE</cite> specifies the time at which to output the model state, in YYYYMMDDHHMMUU format. Where <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> is the year, <code class="docutils literal notranslate"><span class="pre">MM</span></code> is the month, <code class="docutils literal notranslate"><span class="pre">DD</span></code> is the day, <code class="docutils literal notranslate"><span class="pre">HH</span></code> is the hour, and <code class="docutils literal notranslate"><span class="pre">UU</span></code> is the minute.</p>
+</dd></dl>
+
+<p><strong>Simulation outputs:</strong></p>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-STATES">
+<span class="sig-name descname"><span class="pre">STATES</span></span><a class="headerlink" href="#confval-STATES" title="Link to this definition"></a></dt>
+<dd><p>Path where state variable output files should be saved. If <cite>TIME_STATE</cite> is used, the model will use <cite>STATES</cite> path to look for the last states files, if available will use them in the simulation.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-OUTPUT">
+<span class="sig-name descname"><span class="pre">OUTPUT</span></span><a class="headerlink" href="#confval-OUTPUT" title="Link to this definition"></a></dt>
+<dd><p>Directory path where model output files will be written.</p>
 </dd></dl>
 
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-OUTPUT_GRIDS">
 <span class="sig-name descname"><span class="pre">OUTPUT_GRIDS</span></span><a class="headerlink" href="#confval-OUTPUT_GRIDS" title="Link to this definition"></a></dt>
-<dd><p>Output grids to be generated, separated by “|”. The available grids are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">MAXUNITSTREAMFLOW</span></code>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">MAXSTREAMFLOW</span></code>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">PRECIPACCUM</span></code>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">INUNDATION</span></code>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">MAXINUNDATION</span></code>:</p>
+<dd><p>(Optional) Output grids to be generated, separated by “|”. The available grids are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">NONE</span></code>: No gridded output will be produced.</p>
+<p><code class="docutils literal notranslate"><span class="pre">STREAMFLOW</span></code>: Streamflow at each grid cell, in cubic meters per second (m³/s)</p>
+<p><code class="docutils literal notranslate"><span class="pre">UNITSTREAMFLOW</span></code>: Unit discharge, calculated as streamflow per contributing area (e.g., m³/s per km²).</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXSTREAMFLOW</span></code>: Maximum streamflow value at each grid cell during the simulation period (m³/s).</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXUNITSTREAMFLOW</span></code>: Maximum unit discharge (streamflow per unit area) observed during the simulation (m³/s per km²).</p>
+<p><code class="docutils literal notranslate"><span class="pre">PRECIP</span></code>: Precipitaiton (mm)</p>
+<p><code class="docutils literal notranslate"><span class="pre">PRECIPACCUM</span></code>: Accumulated precipitation (mm)</p>
+<p><code class="docutils literal notranslate"><span class="pre">INUNDATION</span></code>: Simulated water depth for inundated areas, in meters (m).</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXINUNDATION</span></code>: Simulated maximum water depth for inundated areas during the simulaton period (m)</p>
+<p><code class="docutils literal notranslate"><span class="pre">SOILMOISTURE</span></code>: Volumetric soil moisture content, expressed as a percentage (%).</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXSOILMOISTURE</span></code>: Maximum soil moisture value reached during the simulation, as a percentage (%).</p>
+<p><code class="docutils literal notranslate"><span class="pre">PET</span></code>: Potential evapotranspiration, in millimeters (mm).</p>
+<p><code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code>: Air temperature, in degrees Celsius (°C).</p>
+<p><code class="docutils literal notranslate"><span class="pre">RETURNPERIOD</span></code>: Estimated return period of streamflow at each grid cell, in years.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXRETURNPERIOD</span></code>: Maximum return period value during the simulation, in years.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SNOWWATER</span></code>: Snow Water Equivalent (SWE) from the snow model, in millimeters (mm).</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXSNOWWATER</span></code>: Maximum snow water equivalent during the simulation, in millimeters (mm).</p>
+<p><code class="docutils literal notranslate"><span class="pre">RUNOFF</span></code>: Surface runoff generated from rainfall, in millimeters per hour (mm/hr).</p>
+<p><code class="docutils literal notranslate"><span class="pre">GROUNDWATER</span></code>: Conceptual representation of the groundwater table height, in millimeters (mm).</p>
+<p><code class="docutils literal notranslate"><span class="pre">SUBRUNOFF</span></code>: Subsurface runoff (interflow or baseflow), in millimeters per hour (mm/hr).</p>
+</dd></dl>
+
+<p><strong>Optional Files for Specialized Use:</strong></p>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-DA_FILE">
+<span class="sig-name descname"><span class="pre">DA_FILE</span></span><a class="headerlink" href="#confval-DA_FILE" title="Link to this definition"></a></dt>
+<dd><p>(Optional): File containing streamflow observations for use with data assimilation.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-CO_FILE">
+<span class="sig-name descname"><span class="pre">CO_FILE</span></span><a class="headerlink" href="#confval-CO_FILE" title="Link to this definition"></a></dt>
+<dd><p>(Optional): Path to a combined output file, if desired.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-RP_STDGRID">
+<span class="sig-name descname"><span class="pre">RP_STDGRID</span></span><a class="headerlink" href="#confval-RP_STDGRID" title="Link to this definition"></a></dt>
+<dd><p>(Optional): GeoTIFF file with standard deviation values for the Log-Pearson Type III return period distribution.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-RP_AVGGRID">
+<span class="sig-name descname"><span class="pre">RP_AVGGRID</span></span><a class="headerlink" href="#confval-RP_AVGGRID" title="Link to this definition"></a></dt>
+<dd><p>(Optional): GeoTIFF file with average values for the return period distribution.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-RP_CSGRID">
+<span class="sig-name descname"><span class="pre">RP_CSGRID</span></span><a class="headerlink" href="#confval-RP_CSGRID" title="Link to this definition"></a></dt>
+<dd><p>(Optional): GeoTIFF file with skew coefficient values for the return period distribution.</p>
+</dd></dl>
+
+<p><strong>Required Parameters for Specific Model Components:</strong></p>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-SNOW_PARAM_SET">
+<span class="sig-name descname"><span class="pre">SNOW_PARAM_SET</span></span><a class="headerlink" href="#confval-SNOW_PARAM_SET" title="Link to this definition"></a></dt>
+<dd><p>(Required if using SNOW) Parameter block for snow modeling.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-INUNDATION_PARAM_SET">
+<span class="sig-name descname"><span class="pre">INUNDATION_PARAM_SET</span></span><a class="headerlink" href="#confval-INUNDATION_PARAM_SET" title="Link to this definition"></a></dt>
+<dd><p>(Required if using INUNDATION): Parameter block for inundation modeling.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-CALI_PARAM">
+<span class="sig-name descname"><span class="pre">CALI_PARAM</span></span><a class="headerlink" href="#confval-CALI_PARAM" title="Link to this definition"></a></dt>
+<dd><p>(Required if using CALI_DREAM): Water balance parameter set used during calibration.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-ROUTING_CALI_PARAM">
+<span class="sig-name descname"><span class="pre">ROUTING_CALI_PARAM</span></span><a class="headerlink" href="#confval-ROUTING_CALI_PARAM" title="Link to this definition"></a></dt>
+<dd><p>(Required if using CALI_DREAM): Routing parameter set used during calibration.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-SNOW_CALI_PARAM">
+<span class="sig-name descname"><span class="pre">SNOW_CALI_PARAM</span></span><a class="headerlink" href="#confval-SNOW_CALI_PARAM" title="Link to this definition"></a></dt>
+<dd><p>(Required if using SNOW with CALI_DREAM): Snow parameter set for calibration.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-INUNDATION_CALI_PARAM">
+<span class="sig-name descname"><span class="pre">INUNDATION_CALI_PARAM</span></span><a class="headerlink" href="#confval-INUNDATION_CALI_PARAM" title="Link to this definition"></a></dt>
+<dd><p>(Required if using INUNDATION with CALI_DREAM): Inundation parameter set for calibration.</p>
+</dd></dl>
+
+<p><strong>Forecast and Preload Options:</strong></p>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-PRELOAD_FILE">
+<span class="sig-name descname"><span class="pre">PRELOAD_FILE</span></span><a class="headerlink" href="#confval-PRELOAD_FILE" title="Link to this definition"></a></dt>
+<dd><p>(Optional): Path to a preload file containing all forcings (precipitation, PET, temperature) for the current time range and basin. EF5 will generate this file if it does not already exist. Useful for speeding up runs when forcings do not change (e.g., during manual calibration).</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-PRECIPFORECAST">
+<span class="sig-name descname"><span class="pre">PRECIPFORECAST</span></span><a class="headerlink" href="#confval-PRECIPFORECAST" title="Link to this definition"></a></dt>
+<dd><p>(Optional): Forecast precipitation block used if the primary precipitation block is unavailable.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-TEMP">
+<span class="sig-name descname"><span class="pre">TEMP</span></span><a class="headerlink" href="#confval-TEMP" title="Link to this definition"></a></dt>
+<dd><p>(Required if using SNOW): Temperature block for snow processes.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-TEMPFORECAST">
+<span class="sig-name descname"><span class="pre">TEMPFORECAST</span></span><a class="headerlink" href="#confval-TEMPFORECAST" title="Link to this definition"></a></dt>
+<dd><p>(Optional if using SNOW): Forecast temperature block, used as fallback if TEMP data is missing.</p>
 </dd></dl>
 
 </section>
