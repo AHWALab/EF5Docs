@@ -20,6 +20,7 @@ extensions = [
 ]
 
 autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 1 
 
 templates_path = ['_templates']
 exclude_patterns = []

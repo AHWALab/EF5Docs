@@ -217,7 +217,7 @@ The gauge location block specifies the locations of gauges for output and parame
 <section id="parameter-sets">
 <h2><span class="section-number">4.3. </span>Parameter Sets<a class="headerlink" href="#parameter-sets" title="Link to this heading"></a></h2>
 <p>The <cite>gauge</cite> parameter specifies the gauge identifier for which the parameters are defined. The user must specify at least the set of parameters for one gauge and use them for the entire domain, or can specify parameters for multiple gauges in the same block.</p>
-<div class="admonition-there-are-two-ways-to-define-parameters-for-a-basin admonition">
+<div class="admonition-there-are-two-ways-to-define-parameters-for-a-basin admonition" id="lumped-distributed">
 <p class="admonition-title">There are two ways to define parameters for a basin:</p>
 <ol class="arabic simple">
 <li><p><strong>Lumped (aggregated) parameter sets:</strong> Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.</p></li>
@@ -225,9 +225,13 @@ The gauge location block specifies the locations of gauges for output and parame
 </ol>
 <p>Additional information about the parameters definition and units could be found in the <cite>calibration</cite> section.</p>
 </div>
-<p>Figure: How to handle lumped and distributed parameters.</p>
-<a class="reference internal image-reference" href="_images/Parameters_definition.png"><img alt="_images/Parameters_definition.png" class="align-center" src="_images/Parameters_definition.png" style="width: 400px;" />
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/Parameters_definition.png"><img alt="_images/Parameters_definition.png" src="_images/Parameters_definition.png" style="width: 400px;" />
 </a>
+<figcaption>
+<p><span class="caption-text">How to interpret lumped and distributed parameters.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 <section id="crest-parameter-set-block">
 <h3><span class="section-number">4.3.1. </span>CREST Parameter Set block<a class="headerlink" href="#crest-parameter-set-block" title="Link to this heading"></a></h3>
 <p>Defines the parameters for the CREST model.</p>

@@ -98,6 +98,10 @@
 <p>To calibrate a specific model, CREST or SAC-SMA, you need to set up the calibration parameters range in the control file. The calibration process will optimize the parameters to minimize the difference between observed and simulated streamflow.
 EF5 uses the DREAM method for optimization. You can specify the objective function -CC, NSCE, SSE-, which are statistic metrics to evaluate the model performance. The possible parameter ranges for calibration are also defined in the configuration file.
 The following is an example of how to set up the calibration parameters in the configuration file:</p>
+<div class="admonition-lumped-aggregated-vs-distributed-grided-parameters admonition">
+<p class="admonition-title">Lumped (aggregated) vs distributed (grided) parameters.</p>
+<p>Take a look at the <a class="reference internal" href="configuration.html#lumped-distributed"><span class="std std-ref">lumped and distributed description</span></a> in the Coltrolfile section for more details about the difference between lumped and distributed parameters.</p>
+</div>
 <p><strong>Table:</strong> Kinematic wave <strong>lumped</strong> parameters definition and possible ranges for calibration.</p>
 <table class="docutils align-default">
 <thead>
@@ -187,17 +191,6 @@ The following is an example of how to set up the calibration parameters in the c
 </tr>
 </tbody>
 </table>
-<div class="admonition-there-are-two-ways-to-define-parameters-for-a-basin admonition">
-<p class="admonition-title">There are two ways to define parameters for a basin:</p>
-<ol class="arabic simple">
-<li><p><strong>Lumped (aggregated) parameter sets:</strong> Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.</p></li>
-<li><p><strong>Distributed (grided) parameter sets:</strong> Parameters are defined in a grid format, where each parameter corresponds to a grid file. Grided parameters could be identified by <cite>_grid</cite> suffix in the parameter name. After the grided files are defined, the user must specify the parameters multiplier values for each grid, using the lumped parameter name without the <cite>_grid</cite> suffix.</p></li>
-</ol>
-<p>Additional information about the parameters definition and units could be found in the <cite>calibration</cite> section.</p>
-</div>
-<p><strong>Figure:</strong> How to handle lumped and distributed parameters.</p>
-<a class="reference internal image-reference" href="_images/Parameters_definition.png"><img alt="_images/Parameters_definition.png" class="align-center" src="_images/Parameters_definition.png" style="width: 400px;" />
-</a>
 <section id="control-file-example-for-calibration">
 <h2><span class="section-number">9.1. </span>Control file example for Calibration<a class="headerlink" href="#control-file-example-for-calibration" title="Link to this heading"></a></h2>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
@@ -313,44 +306,47 @@ The following is an example of how to set up the calibration parameters in the c
 </div>
 <div class="admonition-common-ef5-warning-message-in-this-step admonition">
 <p class="admonition-title">Common EF5 warning message in this step.</p>
+<p><em>WARNING: Failed to load preload file outputs/califorcings.bin</em></p>
 <blockquote>
-<div><p>WARNING: Failed to load preload file outputs/califorcings.bin</p>
+<div><p>This warning does not affect the process, it is related about a file created during the calibration task, which could be used in the future to re-run it.</p>
 </div></blockquote>
-<p>It does not affect the process, it is related about a file created during the calibration task, which could be used in the future to re-run it.</p>
 </div>
 <div class="admonition-common-ef5-warning-message-in-this-step admonition">
 <p class="admonition-title">Common EF5 warning message in this step.</p>
+<p><em>ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style “7”</em></p>
 <blockquote>
-<div><p>ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style “7”</p>
+<div><p>This warning does not affect the calibration process.</p>
 </div></blockquote>
-<p>It does not affect the calibration process.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<dl>
-<dt>Common EF5 error message in this step:</dt><dd><p><a class="reference external" href="INFO:src/BasicGrids.cpp(625">INFO:src/BasicGrids.cpp(625</a>): Max gauge search distance is 217
-<a class="reference external" href="INFO:src/BasicGrids.cpp(735">INFO:src/BasicGrids.cpp(735</a>): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1
-<a class="reference external" href="INFO:src/BasicGrids.cpp(954">INFO:src/BasicGrids.cpp(954</a>): Walked 48852383 (out of 48893469) nodes for 0!
-terminate called after throwing an instance of ‘std::bad_alloc’</p>
+<p>Common EF5 error message in this step:</p>
+<div class="line-block">
+<div class="line"><em>INFO:src/BasicGrids.cpp(625): Max gauge search distance is 217</em></div>
+<div class="line"><em>INFO:src/BasicGrids.cpp(735): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1</em></div>
+<div class="line"><em>INFO:src/BasicGrids.cpp(954): Walked 48852383 (out of 48893469) nodes for 0!</em></div>
+<div class="line"><em>terminate called after throwing an instance of ‘std::bad_alloc’</em></div>
+<div class="line"><em>what():  std::bad_alloc</em></div>
+<div class="line"><em>Aborted.</em></div>
+</div>
 <blockquote>
-<div><p>what():  std::bad_alloc</p>
+<div><p>This error message could be related to the gauge basin area verification, but it is also caused by a memory overload. Adding more RAM to your job would solve this problem.</p>
 </div></blockquote>
-<p>Aborted.</p>
-</dd>
-</dl>
-<p>It could be related to the gauge basin area verification, but it is also caused by a memory overload. Adding more RAM to your configuration would solve this problem.</p>
 </div>
 </section>
 <section id="parameters-sensitivity">
 <h2><span class="section-number">9.3. </span>Parameters’ sensitivity<a class="headerlink" href="#parameters-sensitivity" title="Link to this heading"></a></h2>
 <p>The following image shows the parameters’ sensitivity in the simulated time series. Each parameter is varied while the others are kept constant. The sensitivity analysis helps to understand how each parameter influences the model output.</p>
-<a class="reference internal image-reference" href="_images/Parameters_Sensitivity.png"><img alt="_images/Parameters_Sensitivity.png" class="align-center" src="_images/Parameters_Sensitivity.png" style="width: 400px;" />
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/Parameters_Sensitivity.png"><img alt="_images/Parameters_Sensitivity.png" src="_images/Parameters_Sensitivity.png" style="width: 400px;" />
 </a>
-<p>Text</p>
+<figcaption>
+<p><span class="caption-text">Parameters sensitivity analysis. Blue line represents the observed streamflow, the read lines goes from the lowest to the highest value of each parameter, where thickness indicates the increasing value of the parameter.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 <div class="toggle docutils container">
 <p>Here is my toggle-able content!</p>
 </div>
-<p>Text</p>
 </section>
 </section>
 

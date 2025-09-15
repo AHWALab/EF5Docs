@@ -118,6 +118,8 @@ Parameter Sets
 
 The `gauge` parameter specifies the gauge identifier for which the parameters are defined. The user must specify at least the set of parameters for one gauge and use them for the entire domain, or can specify parameters for multiple gauges in the same block.
 
+.. _lumped distributed:
+
 .. admonition:: There are two ways to define parameters for a basin:
    
    #. **Lumped (aggregated) parameter sets:** Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.
@@ -125,11 +127,11 @@ The `gauge` parameter specifies the gauge identifier for which the parameters ar
    
    Additional information about the parameters definition and units could be found in the `calibration` section.
 
-Figure: How to handle lumped and distributed parameters.
-
-.. image:: _static/Parameters_definition.png
+.. figure:: _static/Parameters_definition.png
    :width: 400
    :align: center
+
+   How to interpret lumped and distributed parameters.
 
 CREST Parameter Set block
 ----------------

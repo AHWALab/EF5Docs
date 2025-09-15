@@ -7,6 +7,10 @@ The following is an example of how to set up the calibration parameters in the c
 
 
 
+.. admonition:: Lumped (aggregated) vs distributed (grided) parameters.
+   
+   Take a look at the :ref:`lumped and distributed description <lumped distributed>` in the Coltrolfile section for more details about the difference between lumped and distributed parameters.
+   
 **Table:** Kinematic wave **lumped** parameters definition and possible ranges for calibration.
 
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
@@ -28,6 +32,7 @@ The following is an example of how to set up the calibration parameters in the c
 +-----------+--------------------------------------------------------------------------------+-------------+--------------+
 
 
+
 **Table:** CREST **lumped** parameters definition and possible ranges for calibration.
 
 +-----------+-------------------------------------------------------+-------------+--------------+
@@ -46,18 +51,7 @@ The following is an example of how to set up the calibration parameters in the c
 | iwu       | Initial value of soil water                           | 2.5         | 250          |
 +-----------+-------------------------------------------------------+-------------+--------------+
 
-.. admonition:: There are two ways to define parameters for a basin:
-   
-   #. **Lumped (aggregated) parameter sets:** Each parameter corresponds to a single (scalar) value. This is the traditional way of defining parameters for hydrological models.
-   #. **Distributed (grided) parameter sets:** Parameters are defined in a grid format, where each parameter corresponds to a grid file. Grided parameters could be identified by `_grid` suffix in the parameter name. After the grided files are defined, the user must specify the parameters multiplier values for each grid, using the lumped parameter name without the `_grid` suffix.
-   
-   Additional information about the parameters definition and units could be found in the `calibration` section.
 
-**Figure:** How to handle lumped and distributed parameters.
-
-.. image:: _static/Parameters_definition.png
-   :width: 400
-   :align: center
 
 Control file example for Calibration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,48 +175,52 @@ The optimized parameters will be saved in the following format:
 
 .. admonition:: Common EF5 warning message in this step.
    
-      WARNING: Failed to load preload file outputs/califorcings.bin
+   *WARNING: Failed to load preload file outputs/califorcings.bin*
    
-   It does not affect the process, it is related about a file created during the calibration task, which could be used in the future to re-run it.
+      This warning does not affect the process, it is related about a file created during the calibration task, which could be used in the future to re-run it.
 
 .. admonition:: Common EF5 warning message in this step.
    
-      ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style "7"
+   *ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style "7"*
    
-   It does not affect the calibration process.
+      This warning does not affect the calibration process.
 
 .. WARNING::
    
-   Common EF5 error message in this step:
-      INFO:src/BasicGrids.cpp(625): Max gauge search distance is 217
-      INFO:src/BasicGrids.cpp(735): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1
-      INFO:src/BasicGrids.cpp(954): Walked 48852383 (out of 48893469) nodes for 0!
-      terminate called after throwing an instance of 'std::bad_alloc'
-         what():  std::bad_alloc
-      Aborted.
+   Common EF5 error message in this step:   
    
-   It could be related to the gauge basin area verification, but it is also caused by a memory overload. Adding more RAM to your configuration would solve this problem.
+   | *INFO:src/BasicGrids.cpp(625): Max gauge search distance is 217*  
+   | *INFO:src/BasicGrids.cpp(735): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1*  
+   | *INFO:src/BasicGrids.cpp(954): Walked 48852383 (out of 48893469) nodes for 0!*  
+   | *terminate called after throwing an instance of 'std::bad_alloc'*  
+   | *what():  std::bad_alloc*  
+   | *Aborted.*
+   
+      This error message could be related to the gauge basin area verification, but it is also caused by a memory overload. Adding more RAM to your job would solve this problem.
 
 Parameters' sensitivity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The following image shows the parameters' sensitivity in the simulated time series. Each parameter is varied while the others are kept constant. The sensitivity analysis helps to understand how each parameter influences the model output.
 
-.. image:: _static/Parameters_Sensitivity.png
+.. figure:: _static/Parameters_Sensitivity.png
    :width: 400
    :align: center
 
-
-
-   
-
-Text
-
-.. dropdown:: Dropdown title
-
-    Dropdown content
+   Parameters sensitivity analysis. Blue line represents the observed streamflow, the read lines goes from the lowest to the highest value of each parameter, where thickness indicates the increasing value of the parameter.
 
 .. toggle::
 
    Here is my toggle-able content!
 
-Text
+.. dropdown::
+
+    Dropdown content
+
+.. dropdown:: Dropdown title
+
+    Dropdown content
+
+.. dropdown:: Open dropdown
+    :open:
+
+    Dropdown content
