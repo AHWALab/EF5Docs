@@ -215,8 +215,14 @@ The following image shows the parameters' sensitivity in the simulated time seri
 
    
 
-
+Text
 
 .. dropdown:: Dropdown title
 
     Dropdown content
+
+.. toggle::
+
+   Here is my toggle-able content!
+
+Text

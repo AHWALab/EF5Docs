@@ -211,12 +211,7 @@ The following image shows the parameters' sensitivity in the simulated time seri
    :width: 400
    :align: center
 
+.. toggle::
 
+   Here is my toggle-able content!
 
-   
-
-
-
-.. dropdown:: Dropdown title
-
-    Dropdown content
