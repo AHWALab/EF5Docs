@@ -1,6 +1,7 @@
-**************
+**********************************
 Control file (Configuration file)
-**************
+**********************************
+
 The configuration file controls all user-adjustable settings for EF5, including input forcings, output options, and run methods. It is generally case **insensitive** (except for file paths on case-sensitive systems). Three styles of comments are supported: bash (#), C (/* */), and C++ (//).
 
 
@@ -15,7 +16,8 @@ This is an example of comments in the control file:
    */
 
 Format and taxonomy information
-=====
+===============================
+
 Tiff files requirements:
 
 #. -9999 as nodata value.
@@ -24,7 +26,7 @@ Tiff files requirements:
 #. The ESRI flow direction convention must be restricted to the following values: **1, 2, 4, 8, 16, 32, 64, and 128**.
 
 About time taxonomy
-----------------
+-------------------
 
 EF5 uses a time taxonomy to define the simulation period and timestep. The time format is specified in the configuration file, allowing for flexible simulation periods. This time taxonomy is also used in the precipitation and PET forcing files names.
 
@@ -38,7 +40,7 @@ EF5 uses a time taxonomy to define the simulation period and timestep. The time 
 
 
 Blocks
-=====
+========
 
 The control file is structured into blocks, each containing key-value pairs. Each block is defined by a header in square brackets, and the key-value pairs are separated by an equals sign (`=`).
 
@@ -58,7 +60,7 @@ Specifies file locations for the digital elevation model (DEM), drainage directi
    SELFFAM=true
 
 Precipitation block
-----------------
+---------------------
 Defines the properties of the precipitation forcing files. EF5 considers the indicated layer units to be consistent with the simulation timestep.
 
 .. code-block:: ini
@@ -71,7 +73,7 @@ Defines the properties of the precipitation forcing files. EF5 considers the ind
    NAME=Q2_YYYYMMDDHHUU.bif
 
 Potential Evapotranspiration (PET) block
-----------------
+-----------------------------------------
 Defines the PET forcing file details. EF5 considers the indicated layer units to be consistent with the simulation timestep.
 
 .. code-block:: ini
@@ -134,7 +136,7 @@ The `gauge` parameter specifies the gauge identifier for which the parameters ar
    Guidance on how to interpret lumped and distributed parameters.
 
 Hydrologic Water Balance Models
---------------------------
+---------------------------------
 
 The listed water balance models are explained in detail in the :ref:`water balance models section <water balance models>`.
 
@@ -168,7 +170,7 @@ Defines the parameters for the Snow-17 model.
    SCF=2.219492
 
 Full control file example
-=====================
+==========================
 
 This is a full EF5 control file example for a basic simulation using the CREST model. It includes the basic block, precipitation forcing, PET forcing, gauge locations, basin definition, parameter set for CREST, and a task to run the simulation.
 

@@ -17,26 +17,6 @@
   margin-right: 0.5em;
 }
 
-/* Completely hide sub-model pages from main sidebar - regardless of navigation state */
-.wy-nav-side .wy-menu-vertical > li.toctree-l1 a[href*="water_balance_models"],
-.wy-nav-side .wy-menu-vertical > li.toctree-l1 a[href*="routing_models"],
-.wy-nav-side .wy-menu-vertical > li.toctree-l1 a[href*="snow_melt_models"],
-.wy-nav-side .wy-menu-vertical > li.toctree-l1 a[href*="inundation_models"],
-.wy-nav-side .wy-menu-vertical > li.toctree-l1 a[href*="water_balance_models.html"],
-.wy-nav-side .wy-menu-vertical > li.toctree-l1 a[href*="routing_models.html"],
-.wy-nav-side .wy-menu-vertical > li.toctree-l1 a[href*="snow_melt_models.html"],
-.wy-nav-side .wy-menu-vertical > li.toctree-l1 a[href*="inundation_models.html"] {
-  display: none !important;
-}
-
-/* Hide the entire list item if it contains sub-model links */
-.wy-nav-side .wy-menu-vertical > li.toctree-l1:has(a[href*="water_balance_models"]),
-.wy-nav-side .wy-menu-vertical > li.toctree-l1:has(a[href*="routing_models"]),
-.wy-nav-side .wy-menu-vertical > li.toctree-l1:has(a[href*="snow_melt_models"]),
-.wy-nav-side .wy-menu-vertical > li.toctree-l1:has(a[href*="inundation_models"]) {
-  display: none !important;
-}
-
 /* Style section numbers in the main content */
 .section-number {
   font-weight: bold;

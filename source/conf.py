@@ -36,6 +36,23 @@ html_theme_options = {
 
 }
 
+# Show a persistent global table of contents in the sidebar and
+# control navigation behaviour so the index doesn't change per-page.
+html_sidebars = {
+    '**': [
+        'globaltoc.html',  # full tree for the whole site
+        'relations.html',
+        'searchbox.html',
+    ]
+}
+
+# sphinx_rtd_theme options to avoid collapsing sections unexpectedly
+html_theme_options.update({
+    'collapse_navigation': False,
+    'navigation_depth': 3,
+    'titles_only': False,
+})
+
 html_static_path = ['_static']
 
 # Add custom CSS for numbering

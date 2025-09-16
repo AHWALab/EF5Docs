@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c2edda77" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cddb36ac" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -52,32 +52,58 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#a-modeling-tool-for-large-scale-hydrologic-forecasting">1.1. A modeling tool for large scale hydrologic forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#flexible-architecture-for-multiple-physics-representations">1.2. Flexible architecture for multiple physics representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#acknowledgements">1.3. Acknowledgements</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="models.html">2. Models</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Hydrologic Water Balance Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#crest">2.1.1. CREST</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#crest-parameter-set-block">2.1.1.1. CREST Parameter Set block</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sac-sma">2.1.2. SAC-SMA</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sac-sma-parameter-set">2.1.2.1. SAC-SMA Parameter Set</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#crest">2.1.1. CREST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sac-sma">2.1.2. SAC-SMA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#hp">2.1.3. HP</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="routing_models.html">2.2. Routing Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inundation_models.html">2.3. Inundation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing_models.html">2.2. Routing Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="routing_models.html#linear-reservoir">2.2.1. Linear Reservoir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="routing_models.html#kinematic-wave">2.2.2. Kinematic Wave</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Task block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">6. Task Block Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calibrating.html">9. Model calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inundation_models.html">2.3. Inundation Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inundation_models.html#simple-inundation-hand-method">2.3.1. Simple Inundation (HAND method)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_installation.html">3. Software installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#compiling-ef5">3.1. Compiling EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.2. Changelog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-5">3.2.1. v 1.2.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-4">3.2.2. v 1.2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-0">3.2.3. v 1.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">4. Running EF5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-configuration">4.2. Setting up your configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file (Configuration file)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#final-step">4.3. Final step</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calibrating.html#calibration-output">5.1. Calibration output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibrating.html#parameters-sensitivity">5.2. Parameters’ sensitivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibrating.html#control-file-example-for-calibration">5.3. Control file example for Calibration</a></li>
+</ul>
+</li>
 </ul>
 
         </div>

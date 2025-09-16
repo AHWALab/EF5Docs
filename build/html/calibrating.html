@@ -6,11 +6,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>9. Model calibration &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>5. Model calibration &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c2edda77" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cddb36ac" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -27,8 +27,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="10. Changelog" href="changelog.html" />
-    <link rel="prev" title="8. Running EF5" href="running.html" /> 
+    <link rel="prev" title="4.2.4. Execute Block" href="execute_block.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,21 +51,58 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">4. Control file (Configuration file)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Task block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">6. Task Block Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Model calibration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#calibration-output">9.1. Calibration output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#parameters-sensitivity">9.2. Parameters’ sensitivity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#control-file-example-for-calibration">9.3. Control file example for Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#a-modeling-tool-for-large-scale-hydrologic-forecasting">1.1. A modeling tool for large scale hydrologic forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#flexible-architecture-for-multiple-physics-representations">1.2. Flexible architecture for multiple physics representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#acknowledgements">1.3. Acknowledgements</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="water_balance_models.html">2.1. Hydrologic Water Balance Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#crest">2.1.1. CREST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#sac-sma">2.1.2. SAC-SMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#hp">2.1.3. HP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="routing_models.html">2.2. Routing Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="routing_models.html#linear-reservoir">2.2.1. Linear Reservoir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="routing_models.html#kinematic-wave">2.2.2. Kinematic Wave</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inundation_models.html">2.3. Inundation Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inundation_models.html#simple-inundation-hand-method">2.3.1. Simple Inundation (HAND method)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_installation.html">3. Software installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#compiling-ef5">3.1. Compiling EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.2. Changelog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-5">3.2.1. v 1.2.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-4">3.2.2. v 1.2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-0">3.2.3. v 1.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">4. Running EF5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-configuration">4.2. Setting up your configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file (Configuration file)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#final-step">4.3. Final step</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Model calibration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#calibration-output">5.1. Calibration output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-sensitivity">5.2. Parameters’ sensitivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-file-example-for-calibration">5.3. Control file example for Calibration</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -83,7 +119,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">9. </span>Model calibration</li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Model calibration</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/calibrating.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,13 +130,13 @@
            <div itemprop="articleBody">
              
   <section id="model-calibration">
-<h1><span class="section-number">9. </span>Model calibration<a class="headerlink" href="#model-calibration" title="Link to this heading"></a></h1>
+<h1><span class="section-number">5. </span>Model calibration<a class="headerlink" href="#model-calibration" title="Link to this heading"></a></h1>
 <p>To calibrate a specific model, CREST or SAC-SMA, you need to set up the calibration parameters range in the control file. The calibration process will optimize the parameters to minimize the difference between observed and simulated streamflow.
 EF5 uses the DREAM method for optimization. You can specify the objective function -CC, NSCE, SSE-, which are statistic metrics to evaluate the model performance. The possible parameter ranges for calibration are also defined in the configuration file.
 The following is an example of how to set up the calibration parameters in the configuration file:</p>
 <div class="admonition-lumped-aggregated-vs-distributed-grided-parameters admonition">
 <p class="admonition-title">Lumped (aggregated) vs distributed (grided) parameters.</p>
-<p>Take a look at the <a class="reference internal" href="configuration.html#lumped-distributed"><span class="std std-ref">lumped and distributed description</span></a> in the Coltrolfile section for more details about the difference between lumped and distributed parameters.</p>
+<p>Take a look at the <a class="reference internal" href="controlfile.html#lumped-distributed"><span class="std std-ref">lumped and distributed description</span></a> in the Coltrolfile section for more details about the difference between lumped and distributed parameters.</p>
 </div>
 <p><strong>Table:</strong> Kinematic wave <strong>lumped</strong> parameters definition and possible ranges for calibration.</p>
 <table class="docutils align-default">
@@ -192,7 +228,7 @@ The following is an example of how to set up the calibration parameters in the c
 </tbody>
 </table>
 <section id="calibration-output">
-<h2><span class="section-number">9.1. </span>Calibration output<a class="headerlink" href="#calibration-output" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.1. </span>Calibration output<a class="headerlink" href="#calibration-output" title="Link to this heading"></a></h2>
 <p>The calibration process will generate an output file, “cali_dream.gauge_name.crest.csv”, that contains the optimized parameters, at the end of the .csv file, and the objective function value. The output will be saved in the specified directory.</p>
 <p>The optimized parameters will be saved in the following format:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">wm,b,im,ke,fc,iwu,under,leaki,th,isu,alpha,beta,alpha0,nsce,nsce/2</span>
@@ -248,7 +284,7 @@ The following is an example of how to set up the calibration parameters in the c
 </div>
 </section>
 <section id="parameters-sensitivity">
-<h2><span class="section-number">9.2. </span>Parameters’ sensitivity<a class="headerlink" href="#parameters-sensitivity" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.2. </span>Parameters’ sensitivity<a class="headerlink" href="#parameters-sensitivity" title="Link to this heading"></a></h2>
 <p>The following image shows the parameters’ sensitivity in the simulated time series. Each parameter is varied while the others are kept constant. The sensitivity analysis helps to understand how each parameter influences the model output.</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/Parameters_Sensitivity.png"><img alt="_images/Parameters_Sensitivity.png" src="_images/Parameters_Sensitivity.png" style="width: 400px;" />
@@ -259,7 +295,7 @@ The following is an example of how to set up the calibration parameters in the c
 </figure>
 </section>
 <section id="control-file-example-for-calibration">
-<h2><span class="section-number">9.3. </span>Control file example for Calibration<a class="headerlink" href="#control-file-example-for-calibration" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3. </span>Control file example for Calibration<a class="headerlink" href="#control-file-example-for-calibration" title="Link to this heading"></a></h2>
 <p>The following is an example of a control file for calibrating the CREST model with Kinematic wave routing. The calibration parameters ranges are set up according to the tables above. The task section specifies the calibration process using the DREAM method.</p>
 <div class="toggle docutils container">
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
@@ -354,8 +390,7 @@ The following is an example of how to set up the calibration parameters in the c
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="running.html" class="btn btn-neutral float-left" title="8. Running EF5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="changelog.html" class="btn btn-neutral float-right" title="10. Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="execute_block.html" class="btn btn-neutral float-left" title="4.2.4. Execute Block" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -15,13 +15,9 @@ This is the user manual for EF5, a tool for ensemble flood forecasting. See the 
 
    about
    models
-   compiling
-   configuration
-   tasks
-   execute_block
+   software_installation
    running
    calibrating
-   changelog
 
 
 

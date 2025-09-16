@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hydrologic Water Balance Models &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>Changelog &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
@@ -118,9 +118,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Hydrologic Water Balance Models</li>
+      <li class="breadcrumb-item active">Changelog</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/DELETE/crest.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/DELETE/changelog.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -128,32 +128,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hydrologic-water-balance-models">
-<h1>Hydrologic Water Balance Models<a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h1>
-<section id="crest">
-<h2>CREST<a class="headerlink" href="#crest" title="Link to this heading"></a></h2>
-<p>The Coupled Routing and Excess Storage (CREST) distributed hydrological model is a hybrid strategy developed by the University of Oklahoma and the NASA SERVIR Project Team. CREST simulates the spatiotemporal variation of water and energy fluxes and storages on a user-defined grid. Its scalability is achieved through sub-grid scale representation of soil moisture storage (using a variable infiltration curve) and runoff generation (using linear reservoirs). Originally developed for global flood predictions, it is also suitable for basin-scale applications.</p>
-<p>More detailed information about CREST can be found in the publication:
-<a class="reference external" href="https://gmd.copernicus.org/articles/13/4943/2020/gmd-13-4943-2020.html">Flamig et al., (2020)</a></p>
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
+<section id="v-1-2-5">
+<h2>v 1.2.5<a class="headerlink" href="#v-1-2-5" title="Link to this heading"></a></h2>
+<p><strong>Status</strong>: Under development</p>
+<ul class="simple">
+<li><p>[To be updated with changes once released]</p></li>
+</ul>
 </section>
+<section id="v-1-2-4">
+<h2>v 1.2.4<a class="headerlink" href="#v-1-2-4" title="Link to this heading"></a></h2>
+<p><strong>Status</strong>: Released</p>
+<ul class="simple">
+<li><p>Merged average Grids branch with master, allowing users to run both simulation and averaging on the same EF5 so there is no need to use different versions of EF5 to do averaging.</p></li>
+</ul>
 </section>
-<section id="crest-parameter-set-block">
-<h1>CREST Parameter Set block<a class="headerlink" href="#crest-parameter-set-block" title="Link to this heading"></a></h1>
-<p>Defines the parameters for the CREST model.</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[CrestParamSet ABRFC]</span>
-<span class="na">wm_grid</span><span class="o">=</span><span class="s">/path/to/wm.tif</span>
-<span class="na">im_grid</span><span class="o">=</span><span class="s">/path/to/im.tif</span>
-<span class="na">fc_grid</span><span class="o">=</span><span class="s">/path/to/ksat.tif</span>
-<span class="na">b_grid</span><span class="o">=</span><span class="s">/path/to/b.tif</span>
-<span class="na">gauge</span><span class="o">=</span><span class="s">03455500</span>
-<span class="na">wm</span><span class="o">=</span><span class="s">1.00</span>
-<span class="na">b</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">im</span><span class="o">=</span><span class="s">0.01</span>
-<span class="na">ke</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">fc</span><span class="o">=</span><span class="s">1.00</span>
-<span class="na">iwu</span><span class="o">=</span><span class="s">50.0</span>
-</pre></div>
-</div>
+<section id="v-1-0">
+<h2>v 1.0<a class="headerlink" href="#v-1-0" title="Link to this heading"></a></h2>
+<p><strong>Status</strong>: Released</p>
+<ul class="simple">
+<li><p>Initial release of EF5.</p></li>
+</ul>
+</section>
 </section>
 
 
