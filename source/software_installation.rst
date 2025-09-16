@@ -2,6 +2,10 @@
 Software installation
 *********************
 
+EF5 is open-source and can be run in Windows, MacOS and Linux. Get Started by downloading the source code (MacOS/Linux) or pre-compiled executable (Windows).
+
+
+
 Compiling EF5
 ==============
 EF5 uses the TIFF and GEOTIFF libraries for raster formats. Compilation can be performed in three steps:
@@ -26,30 +30,33 @@ EF5 uses the TIFF and GEOTIFF libraries for raster formats. Compilation can be p
 
 Upon successful compilation, a binary named ``ef5`` will be created in the ``bin`` directory.
 
+.. _how to cite ef5:
+
+How to cite EF5
+=========================
+
+Flamig, Z. L., Vergara, H., and Gourley, J. J.: The Ensemble Framework For Flash Flood Forecasting (EF5) v1.2: description and case study, Geosci. Model Dev., 13, 4943–4958, https://doi.org/10.5194/gmd-13-4943-2020, 2020.
+
 
 Changelog
 =========
 
+* v 1.2.5
 
-v 1.2.5
---------
+    **Status**: Under development
 
-**Status**: Under development
-
-* [To be updated with changes once released]
+    * [To be updated with changes once released]
 
 
-v 1.2.4
---------
+* v 1.2.4
 
-**Status**: Released
+    **Status**: Released
 
-* Merged average Grids branch with master, allowing users to run both simulation and averaging on the same EF5 so there is no need to use different versions of EF5 to do averaging.
+    * Merged average Grids branch with master, allowing users to run both simulation and averaging on the same EF5 so there is no need to use different versions of EF5 to do averaging.
 
 
-v 1.0
-------
+* v 1.0
 
-**Status**: Released
+    **Status**: Released
 
-* Initial release of EF5.
+    * Initial release of EF5.

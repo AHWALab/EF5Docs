@@ -56,3 +56,4 @@ to researchers at The University of Oklahoma and National Severe Storms Laborato
 
     * Jorge Duarte [`Scholar <https://scholar.google.com/citations?hl=en&user=8GC5yRgAAAAJ>`_ | `GitHub <https://github.com/babetoduarte>`_]
 
+To cite EF5, please refer to :ref:`how to cite ef5 <how to cite ef5>`.

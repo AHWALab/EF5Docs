@@ -9,5 +9,4 @@ EF5 is a compilation of the following models:
 
    water_balance_models
    routing_models
-   snow_melt_models
    inundation_models
