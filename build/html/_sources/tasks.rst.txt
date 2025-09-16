@@ -1,3 +1,5 @@
+.. _task styles:
+
 Task block
 -----
 The Task block specifies key information needed for running EF5. It defines the type of modeling task to be executed, the time period for the simulation, the time step, and the forcing data to be used.

@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.2.4. Execute Block" href="execute_block.html" />
-    <link rel="prev" title="4.2.1. Control file (Configuration file)" href="controlfile.html" /> 
+    <link rel="prev" title="4.2.1. Control file structure" href="controlfile.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -78,24 +78,20 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="software_installation.html">3. Software installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software_installation.html#compiling-ef5">3.1. Compiling EF5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.2. Changelog</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-5">3.2.1. v 1.2.5</a></li>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-4">3.2.2. v 1.2.4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-0">3.2.3. v 1.0</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#how-to-cite-ef5">3.2. How to cite EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.3. Changelog</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="running.html">4. Running EF5</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="running.html#setting-up-your-configuration">4.2. Setting up your configuration</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file (Configuration file)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="running.html#control-file-configuration-file">4.2. Control file (Configuration file)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.2. Task block</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#task-block-parameters">4.2.3. Task Block Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="running.html#final-step">4.3. Final step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#execute-ef5">4.3. Execute EF5</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -132,7 +128,7 @@
            <div itemprop="articleBody">
              
   <section id="task-block">
-<h1><span class="section-number">4.2.2. </span>Task block<a class="headerlink" href="#task-block" title="Link to this heading"></a></h1>
+<span id="task-styles"></span><h1><span class="section-number">4.2.2. </span>Task block<a class="headerlink" href="#task-block" title="Link to this heading"></a></h1>
 <p>The Task block specifies key information needed for running EF5. It defines the type of modeling task to be executed, the time period for the simulation, the time step, and the forcing data to be used.</p>
 <p>A simple example of a Task block might look like this:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Task RunFF]</span>
@@ -390,7 +386,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="controlfile.html" class="btn btn-neutral float-left" title="4.2.1. Control file (Configuration file)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="controlfile.html" class="btn btn-neutral float-left" title="4.2.1. Control file structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="execute_block.html" class="btn btn-neutral float-right" title="4.2.4. Execute Block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

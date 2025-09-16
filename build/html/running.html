@@ -78,12 +78,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="software_installation.html">3. Software installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software_installation.html#compiling-ef5">3.1. Compiling EF5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.2. Changelog</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-5">3.2.1. v 1.2.5</a></li>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-4">3.2.2. v 1.2.4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-0">3.2.3. v 1.0</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#how-to-cite-ef5">3.2. How to cite EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.3. Changelog</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Running EF5</a><ul>
@@ -155,7 +151,71 @@
 </section>
 <section id="control-file-configuration-file">
 <h2><span class="section-number">4.2. </span>Control file (Configuration file)<a class="headerlink" href="#control-file-configuration-file" title="Link to this heading"></a></h2>
-<p>Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or taks. To set up your configuration, refer to the components listed below.</p>
+<p>Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or taks.</p>
+<p>The control file is structured into blocks, each containing key-value pairs. Example:</p>
+<blockquote>
+<div><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Basic]                                       # Basic block</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The minimum required blocks are:</p>
+<ol class="arabic simple">
+<li><p>Basic block: Specifies file locations for the digital elevation model (DEM), flow direction map (DDM), and flow accumulation map (FAM).</p></li>
+<li><p>Precipitation forcing block: Defines the properties of the precipitation forcing files.</p></li>
+<li><p>PET forcing block: Defines the PET forcing files details.</p></li>
+<li><p>Gauge block(s): Specifies the locations of gauges for output and parameter assignment. At least one gauge block is required.</p></li>
+<li><p>Basin block(s): Defines the basin(s) for the simulation, including associated gauges. At least one basin block is required.</p></li>
+<li><p>Parameter set block(s): For the chosen models.</p></li>
+<li><dl class="simple">
+<dt>Task block(s): Defines the style to be executed, the routing model, the time period for the simulation, the time step, and the forcing data to be used. See <a class="reference internal" href="tasks.html#task-styles"><span class="std std-ref">task styles</span></a> for more details.</dt><dd><p>The Style parameter within the Task block defines the type of task EF5 will execute, e.g., <code class="docutils literal notranslate"><span class="pre">SIMU</span></code> for a standard simulation, <code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code> for clipping model inputs to the entire domain, <code class="docutils literal notranslate"><span class="pre">CALI_DREAM</span></code> for calibration using the DREAM algorithm, etc. See <a class="reference internal" href="tasks.html#task-styles"><span class="std std-ref">task styles</span></a> for the full list of supported Style types.</p>
+</dd>
+</dl>
+</li>
+<li><p>Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.</p></li>
+</ol>
+<p>The following mock-up illustrates the bare minimum structure for a control file required to run any of the available styles.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Basic]                                       # Basic block</span>
+<span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
+<span class="na">...</span>
+
+<span class="na">[PrecipForcing Q2Precip]                      # Precipitation forcing block</span>
+<span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
+<span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
+<span class="na">...</span>
+
+<span class="na">[PETForcing PET]                              # PET forcing block</span>
+<span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
+<span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
+<span class="na">...</span>
+
+<span class="na">[Gauge 0]                                     # At least one gauge is required</span>
+<span class="na">LON</span><span class="o">=</span><span class="s">-97.01</span>
+<span class="na">LAT</span><span class="o">=</span><span class="s">35.68</span>
+<span class="na">...</span>
+
+<span class="na">[Basin FF]                                    # At least one basin is required</span>
+<span class="na">GAUGE</span><span class="o">=</span><span class="s">0</span><span class="w">                                       </span><span class="c1"># containing at least one gauge</span>
+
+<span class="na">[CrestParamSet FF]                            # Parameter set for routing model</span>
+<span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
+<span class="na">...</span>
+
+<span class="na">[Task RunFF]                                  # Task block</span>
+<span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span><span class="w">                                    </span><span class="c1"># Style, refer to &quot;4.2.3. Task block parameters&quot;</span>
+<span class="na">MODEL</span><span class="o">=</span><span class="s">CREST</span>
+<span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
+<span class="na">PRECIP</span><span class="o">=</span><span class="s">Q2_PRECIP</span>
+<span class="na">PET</span><span class="o">=</span><span class="s">PET</span>
+<span class="na">OUTPUT</span><span class="o">=</span><span class="s">/EF5Demo/FF/output/</span>
+<span class="na">TIMESTEP</span><span class="o">=</span><span class="s">5u</span>
+<span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">201006010000</span>
+<span class="na">TIME_END</span><span class="o">=</span><span class="s">201006010030</span>
+
+<span class="na">[Execute]                                     # Execute block</span>
+<span class="na">TASK</span><span class="o">=</span><span class="s">RunFF</span>
+</pre></div>
+</div>
+<p>To set up your configuration, refer to the components listed below.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Components:</span></p>
 <ul>
