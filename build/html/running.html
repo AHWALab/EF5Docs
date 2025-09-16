@@ -27,7 +27,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.2.1. Control file (Configuration file)" href="controlfile.html" />
+    <link rel="next" title="4.2.1. Control file structure" href="controlfile.html" />
     <link rel="prev" title="3. Software installation" href="software_installation.html" /> 
 </head>
 
@@ -88,14 +88,14 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Running EF5</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-your-configuration">4.2. Setting up your configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file (Configuration file)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-file-configuration-file">4.2. Control file (Configuration file)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#final-step">4.3. Final step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execute-ef5">4.3. Execute EF5</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -153,23 +153,23 @@
 <li><p>Generate the Kinematic Wave (KW) Parameters</p></li>
 </ol>
 </section>
-<section id="setting-up-your-configuration">
-<h2><span class="section-number">4.2. </span>Setting up your configuration<a class="headerlink" href="#setting-up-your-configuration" title="Link to this heading"></a></h2>
+<section id="control-file-configuration-file">
+<h2><span class="section-number">4.2. </span>Control file (Configuration file)<a class="headerlink" href="#control-file-configuration-file" title="Link to this heading"></a></h2>
 <p>Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or taks. To set up your configuration, refer to the components listed below.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Components:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="controlfile.html">4.2.1. Control file (Configuration file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
 </ul>
 </div>
 </section>
-<section id="final-step">
-<h2><span class="section-number">4.3. </span>Final step<a class="headerlink" href="#final-step" title="Link to this heading"></a></h2>
-<p>To run EF5, execute the binary with an optional control file argument:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ef5<span class="w"> </span>&lt;your_controlfile_name.txt&gt;
+<section id="execute-ef5">
+<h2><span class="section-number">4.3. </span>Execute EF5<a class="headerlink" href="#execute-ef5" title="Link to this heading"></a></h2>
+<p>For the final step, to run EF5, execute the binary with the control file argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>../bin/ef5<span class="w"> </span>&lt;your_controlfile_name.txt&gt;
 </pre></div>
 </div>
 </section>
@@ -180,7 +180,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="software_installation.html" class="btn btn-neutral float-left" title="3. Software installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="controlfile.html" class="btn btn-neutral float-right" title="4.2.1. Control file (Configuration file)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="controlfile.html" class="btn btn-neutral float-right" title="4.2.1. Control file structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

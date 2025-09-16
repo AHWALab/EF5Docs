@@ -17,8 +17,8 @@ For a detailed guide on setting up your own domain (generate files for your own 
 #. Generate CREST parameters
 #. Generate the Kinematic Wave (KW) Parameters
 
-Setting up your configuration
-----------------------------
+Control file (Configuration file)
+----------------------------------
 
 Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or taks. To set up your configuration, refer to the components listed below.
 
@@ -32,11 +32,11 @@ Before running EF5, ensure you have a properly configured control file. The cont
    execute_block
 
 
-Final step
+Execute EF5
 ----------
 
-To run EF5, execute the binary with an optional control file argument:
+For the final step, to run EF5, execute the binary with the control file argument:
 
 .. code-block:: bash
 
-   ef5 <your_controlfile_name.txt>
+   ../bin/ef5 <your_controlfile_name.txt>

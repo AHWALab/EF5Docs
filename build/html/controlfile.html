@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.1. Control file (Configuration file) &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>4.2.1. Control file structure &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
@@ -88,14 +88,14 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="running.html">4. Running EF5</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="running.html#setting-up-your-configuration">4.2. Setting up your configuration</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.1. Control file (Configuration file)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="running.html#control-file-configuration-file">4.2. Control file (Configuration file)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.1. Control file structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="running.html#final-step">4.3. Final step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#execute-ef5">4.3. Execute EF5</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -121,7 +121,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="running.html"><span class="section-number">4. </span>Running EF5</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4.2.1. </span>Control file (Configuration file)</li>
+      <li class="breadcrumb-item active"><span class="section-number">4.2.1. </span>Control file structure</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/controlfile.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -131,8 +131,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="control-file-configuration-file">
-<h1><span class="section-number">4.2.1. </span>Control file (Configuration file)<a class="headerlink" href="#control-file-configuration-file" title="Link to this heading"></a></h1>
+  <section id="control-file-structure">
+<h1><span class="section-number">4.2.1. </span>Control file structure<a class="headerlink" href="#control-file-structure" title="Link to this heading"></a></h1>
 <p>The configuration file controls all user-adjustable settings for EF5, including input forcings, output options, and run methods. It is generally case <strong>insensitive</strong> (except for file paths on case-sensitive systems). Three styles of comments are supported: bash (#), C (/* <a href="#id1"><span class="problematic" id="id2">*</span></a>/), and C++ (//).</p>
 <p>This is an example of comments in the control file:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># All variables (except file paths) are case insensitive</span>

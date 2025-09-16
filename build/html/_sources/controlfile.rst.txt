@@ -1,6 +1,6 @@
-**********************************
-Control file (Configuration file)
-**********************************
+*******************************************
+Control file structure
+*******************************************
 
 The configuration file controls all user-adjustable settings for EF5, including input forcings, output options, and run methods. It is generally case **insensitive** (except for file paths on case-sensitive systems). Three styles of comments are supported: bash (#), C (/* */), and C++ (//).
 
