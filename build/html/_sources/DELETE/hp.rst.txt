@@ -7,21 +7,13 @@ The Coupled Routing and Excess Storage (CREST) distributed hydrological model is
 More detailed information about CREST can be found in the publication:  
 `Flamig et al., (2020) <https://gmd.copernicus.org/articles/13/4943/2020/gmd-13-4943-2020.html>`_
 
-CREST Parameter Set block
-----------------
-Defines the parameters for the CREST model.
+SAC-SMA
+~~~~~~~
+The Sacramento Soil Moisture Accounting (SAC-SMA) Model was developed by the U.S. National Weather Service. Its purpose is to parameterize soil moisture characteristics so that applied moisture is logically distributed, percolation is realistically simulated, and streamflow is effectively modeled.
 
-.. code-block:: ini
+More detailed information about SAC-SMA is available at:  
+`U.S. NWS SAC-SMA algorithm description  <http://www.nws.noaa.gov/oh/hrl/nwsrfs/users_manual/part2/_pdf/23sacsma.pdf>`_
 
-   [CrestParamSet ABRFC]
-   wm_grid=/path/to/wm.tif
-   im_grid=/path/to/im.tif
-   fc_grid=/path/to/ksat.tif
-   b_grid=/path/to/b.tif
-   gauge=03455500
-   wm=1.00
-   b=1.0
-   im=0.01
-   ke=1.0
-   fc=1.00
-   iwu=50.0
+HP
+~~
+The Hydrophobic (HP) water balance model assumes an entirely impervious surface where all rainfall is transformed directly into surface runoff.

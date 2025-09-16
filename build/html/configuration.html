@@ -67,19 +67,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#basic-block">4.2.1. Basic block</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#precipitation-block">4.2.2. Precipitation block</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#potential-evapotranspiration-pet-block">4.2.3. Potential Evapotranspiration (PET) block</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gauge-locations-blocks">4.2.4. Gauge locations blocks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#basin-block">4.2.5. Basin block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gauge-locations-block-s">4.2.4. Gauge locations block(s)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basin-block-s">4.2.5. Basin block(s)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#parameter-sets">4.3. Parameter Sets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#crest-parameter-set-block">4.3.1. CREST Parameter Set block</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sac-sma-parameter-set">4.3.2. SAC-SMA Parameter Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kinematic-wave-parameter-set">4.3.3. Kinematic Wave Parameter Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#linear-reservoir-parameter-set">4.3.4. Linear Reservoir Parameter Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#snow-17-parameter-set">4.3.5. Snow-17 Parameter Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simple-inundation-parameter-set">4.3.6. Simple Inundation Parameter Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hydrologic-water-balance-models">4.3.1. Hydrologic Water Balance Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routing-models">4.3.2. Routing Models</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#snow-17-parameter-set">4.4. Snow-17 Parameter Set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#full-control-file-example">4.5. Full control file example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">5. Task block</a></li>
@@ -187,8 +185,8 @@
 </pre></div>
 </div>
 </section>
-<section id="gauge-locations-blocks">
-<h3><span class="section-number">4.2.4. </span>Gauge locations blocks<a class="headerlink" href="#gauge-locations-blocks" title="Link to this heading"></a></h3>
+<section id="gauge-locations-block-s">
+<h3><span class="section-number">4.2.4. </span>Gauge locations block(s)<a class="headerlink" href="#gauge-locations-block-s" title="Link to this heading"></a></h3>
 <p>Each gauge information is defined in a separate block, with the block name being the gauge identifier. The gauge identifier is used to reference the gauge in other blocks, such as the basin block.
 The gauge location block specifies the locations of gauges for output and parameter assignment. <code class="docutils literal notranslate"><span class="pre">OUTPUTTS</span></code> is an optional parameter that, when set to <cite>TRUE</cite>, indicates that the gauge will output time series data. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is an optional parameter that specifies the path to the observed data file for the gauge. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is required if the gauge will be used for calibration task. The <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> parameter is also optional and indicates the area of the basin in square kilometers. When <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a threshold. If no match is found, EF5 will raise a warning.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Gauge OKC]</span>
@@ -204,8 +202,8 @@ The gauge location block specifies the locations of gauges for output and parame
 </pre></div>
 </div>
 </section>
-<section id="basin-block">
-<h3><span class="section-number">4.2.5. </span>Basin block<a class="headerlink" href="#basin-block" title="Link to this heading"></a></h3>
+<section id="basin-block-s">
+<h3><span class="section-number">4.2.5. </span>Basin block(s)<a class="headerlink" href="#basin-block-s" title="Link to this heading"></a></h3>
 <p>Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn’t follow the classic basin definition, but rather groups gauges that are required by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basin FF]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
@@ -229,101 +227,28 @@ The gauge location block specifies the locations of gauges for output and parame
 <a class="reference internal image-reference" href="_images/Parameters_definition.png"><img alt="_images/Parameters_definition.png" src="_images/Parameters_definition.png" style="width: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">How to interpret lumped and distributed parameters.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-text">Guidance on how to interpret lumped and distributed parameters.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<section id="crest-parameter-set-block">
-<h3><span class="section-number">4.3.1. </span>CREST Parameter Set block<a class="headerlink" href="#crest-parameter-set-block" title="Link to this heading"></a></h3>
-<p>Defines the parameters for the CREST model.</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[CrestParamSet ABRFC]</span>
-<span class="na">wm_grid</span><span class="o">=</span><span class="s">/path/to/wm.tif</span>
-<span class="na">im_grid</span><span class="o">=</span><span class="s">/path/to/im.tif</span>
-<span class="na">fc_grid</span><span class="o">=</span><span class="s">/path/to/ksat.tif</span>
-<span class="na">b_grid</span><span class="o">=</span><span class="s">/path/to/b.tif</span>
-<span class="na">gauge</span><span class="o">=</span><span class="s">03455500</span>
-<span class="na">wm</span><span class="o">=</span><span class="s">1.00</span>
-<span class="na">b</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">im</span><span class="o">=</span><span class="s">0.01</span>
-<span class="na">ke</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">fc</span><span class="o">=</span><span class="s">1.00</span>
-<span class="na">iwu</span><span class="o">=</span><span class="s">50.0</span>
-</pre></div>
-</div>
+<section id="hydrologic-water-balance-models">
+<h3><span class="section-number">4.3.1. </span>Hydrologic Water Balance Models<a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h3>
+<p>The listed water balance models are explained in detail in the <a class="reference internal" href="water_balance_models.html#water-balance-models"><span class="std std-ref">water balance models section</span></a>.</p>
+<ol class="arabic simple">
+<li><p>CREST Parameter Set</p></li>
+<li><p>SAC-SMA Parameter Set</p></li>
+</ol>
 </section>
-<section id="sac-sma-parameter-set">
-<h3><span class="section-number">4.3.2. </span>SAC-SMA Parameter Set<a class="headerlink" href="#sac-sma-parameter-set" title="Link to this heading"></a></h3>
-<p>Defines the parameters for the SAC-SMA model.</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[SacParamSet ABRFC]</span>
-<span class="na">UZTWM_grid</span><span class="o">=</span><span class="s">/path/to/uztwm.tif</span>
-<span class="na">UZFWM_grid</span><span class="o">=</span><span class="s">/path/to/uzfwm.tif</span>
-<span class="na">UZK_grid</span><span class="o">=</span><span class="s">/path/to/uzk.tif</span>
-<span class="na">ZPERC_grid</span><span class="o">=</span><span class="s">/path/to/zperc.tif</span>
-<span class="na">REXP_grid</span><span class="o">=</span><span class="s">/path/to/rexp.tif</span>
-<span class="na">LZTWM_grid</span><span class="o">=</span><span class="s">/path/to/lztwm.tif</span>
-<span class="na">LZFSM_grid</span><span class="o">=</span><span class="s">/path/to/lzfsm.tif</span>
-<span class="na">LZFPM_grid</span><span class="o">=</span><span class="s">/path/to/lzfpm.tif</span>
-<span class="na">LZSK_grid</span><span class="o">=</span><span class="s">/path/to/lzsk.tif</span>
-<span class="na">LZPK_grid</span><span class="o">=</span><span class="s">/path/to/lzpk.tif</span>
-<span class="na">PFREE_grid</span><span class="o">=</span><span class="s">/path/to/pfree.tif</span>
-<span class="na">gauge</span><span class="o">=</span><span class="s">01055000</span>
-<span class="na">UZTWM</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">UZFWM</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">UZK</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">PCTIM</span><span class="o">=</span><span class="s">0.101</span>
-<span class="na">ADIMP</span><span class="o">=</span><span class="s">0.10</span>
-<span class="na">RIVA</span><span class="o">=</span><span class="s">1.001</span>
-<span class="na">ZPERC</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">REXP</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">LZTWM</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">LZFSM</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">LZFPM</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">LZSK</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">LZPK</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">PFREE</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">SIDE</span><span class="o">=</span><span class="s">0.0</span>
-<span class="na">RSERV</span><span class="o">=</span><span class="s">0.3</span>
-<span class="na">ADIMC</span><span class="o">=</span><span class="s">1.0</span>
-<span class="na">UZTWC</span><span class="o">=</span><span class="s">0.55</span>
-<span class="na">UZFWC</span><span class="o">=</span><span class="s">0.14</span>
-<span class="na">LZTWC</span><span class="o">=</span><span class="s">0.56</span>
-<span class="na">LZFSC</span><span class="o">=</span><span class="s">0.11</span>
-<span class="na">LZFPC</span><span class="o">=</span><span class="s">0.46</span>
-</pre></div>
-</div>
+<section id="routing-models">
+<h3><span class="section-number">4.3.2. </span>Routing Models<a class="headerlink" href="#routing-models" title="Link to this heading"></a></h3>
+<p>The listed routing models are explained in detail in the <a class="reference internal" href="routing_models.html#routing-models"><span class="std std-ref">routing models section</span></a>.</p>
+<ol class="arabic simple">
+<li><p>Linear Reservoir Parameter Set</p></li>
+<li><p>Kinematic Wave Parameter Set</p></li>
+</ol>
 </section>
-<section id="kinematic-wave-parameter-set">
-<h3><span class="section-number">4.3.3. </span>Kinematic Wave Parameter Set<a class="headerlink" href="#kinematic-wave-parameter-set" title="Link to this heading"></a></h3>
-<p>Defines the parameters for the kinematic wave model.</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[KWParamSet rundu]</span>
-<span class="na">GAUGE</span><span class="o">=</span><span class="s">rundu</span>
-<span class="na">UNDER</span><span class="o">=</span><span class="s">1.673110</span>
-<span class="na">LEAKI</span><span class="o">=</span><span class="s">0.043105</span>
-<span class="na">TH</span><span class="o">=</span><span class="s">6.658569</span>
-<span class="na">ISU</span><span class="o">=</span><span class="s">0.000000</span>
-<span class="na">ALPHA</span><span class="o">=</span><span class="s">2.991570</span>
-<span class="na">BETA</span><span class="o">=</span><span class="s">0.932080</span>
-<span class="na">ALPHA0</span><span class="o">=</span><span class="s">4.603945</span>
-</pre></div>
-</div>
-</section>
-<section id="linear-reservoir-parameter-set">
-<h3><span class="section-number">4.3.4. </span>Linear Reservoir Parameter Set<a class="headerlink" href="#linear-reservoir-parameter-set" title="Link to this heading"></a></h3>
-<p>Defines the parameters for the linear reservoir model.</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[lrparamset rundu]</span>
-<span class="na">gauge</span><span class="o">=</span><span class="s">rundu</span>
-<span class="na">coem</span><span class="o">=</span><span class="s">1611.115479</span>
-<span class="na">river</span><span class="o">=</span><span class="s">307.980042</span>
-<span class="na">under</span><span class="o">=</span><span class="s">2531.556641</span>
-<span class="na">leako</span><span class="o">=</span><span class="s">0.918236</span>
-<span class="na">leaki</span><span class="o">=</span><span class="s">0.017568</span>
-<span class="na">th</span><span class="o">=</span><span class="s">8.140809</span>
-<span class="na">iso</span><span class="o">=</span><span class="s">0.000040</span>
-<span class="na">isu</span><span class="o">=</span><span class="s">0.000073</span>
-</pre></div>
-</div>
 </section>
 <section id="snow-17-parameter-set">
-<h3><span class="section-number">4.3.5. </span>Snow-17 Parameter Set<a class="headerlink" href="#snow-17-parameter-set" title="Link to this heading"></a></h3>
+<h2><span class="section-number">4.4. </span>Snow-17 Parameter Set<a class="headerlink" href="#snow-17-parameter-set" title="Link to this heading"></a></h2>
 <p>Defines the parameters for the Snow-17 model.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[snow17paramset tarbela]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">tarbela</span>
@@ -338,15 +263,8 @@ The gauge location block specifies the locations of gauges for output and parame
 </pre></div>
 </div>
 </section>
-<section id="simple-inundation-parameter-set">
-<h3><span class="section-number">4.3.6. </span>Simple Inundation Parameter Set<a class="headerlink" href="#simple-inundation-parameter-set" title="Link to this heading"></a></h3>
-<p>Defines the parameters for the simple inundation model. The parameters <cite>alpha</cite> and <cite>beta</cite> are used to define the coefficients for the rating curve power function, which is used to calculate the flow depth from the simulated flow rate.</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[simpleinundationparamset rundu]</span>
-<span class="na">gauge</span><span class="o">=</span><span class="s">rundu</span>
-<span class="na">alpha</span><span class="o">=</span><span class="s">2.991570</span>
-<span class="na">beta</span><span class="o">=</span><span class="s">0.932080</span>
-</pre></div>
-</div>
+<section id="full-control-file-example">
+<h2><span class="section-number">4.5. </span>Full control file example<a class="headerlink" href="#full-control-file-example" title="Link to this heading"></a></h2>
 <p>This is a full EF5 control file example for a basic simulation using the CREST model. It includes the basic block, precipitation forcing, PET forcing, gauge locations, basin definition, parameter set for CREST, and a task to run the simulation.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
 <span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
@@ -415,7 +333,6 @@ The gauge location block specifies the locations of gauges for output and parame
 <span class="na">TASK</span><span class="o">=</span><span class="s">RunFF</span>
 </pre></div>
 </div>
-</section>
 </section>
 </section>
 

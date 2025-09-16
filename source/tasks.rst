@@ -30,7 +30,7 @@ Task Block Parameters
 
       ``SIMU``: Runs a standard simulation using the defined model, forcings, and parameters.
       
-      ``SIMU_RP``: Similar to `SIMU`, but also generates grids for standard deviation, mean, and skewness to support return period estimation using the Log-Pearson Type III distribution.
+      ``SIMU_RP``: Similar to ``SIMU``, but also generates grids for standard deviation, mean, and skewness to support return period estimation using the Log-Pearson Type III distribution.
 
       ``CLIP_GAUGE``: Automatically identifies all outlets and creates necessary configuration files for distributed modeling. Useful when setting up models with many gauges.
 
@@ -38,9 +38,13 @@ Task Block Parameters
 
       ``BASIN_AVG``: Calculates basin-wide averages from gridded data (e.g., average precipitation). Usefull in parameter estimation, such as for kinematic wave routing.
       
+      .. figure:: _static/outputs_examples/ex_mask.png
+            :width: 200
+            :align: center
+
+            Example of a basin mask .tif file generated using the ``CLIP_GAUGE`` task style.
+
       ``CALI_DREAM``: Performs model calibration using the DREAM algorithm. Requires additional parameter blocks specific to calibration.
-      
-      ``CALI_SCE``: Calibration using SCE algorithm
 
 .. confval:: MODEL
 

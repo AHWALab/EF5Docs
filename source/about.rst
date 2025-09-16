@@ -48,12 +48,11 @@ to researchers at The University of Oklahoma and National Severe Storms Laborato
 
 **Original Developers**
 
-Zac Flamig [`Scholar <https://scholar.google.com/citations?user=AYUjs0YAAAAJ&hl=en&oi=ao>`_ | `GitHub <https://github.com/zflamig>`_]
-
-Humberto Vergara [`Scholar <https://scholar.google.com/citations?user=v-irprAAAAAJ&hl=en&oi=ao>`_ | `GitHub <https://github.com/humberva>`_]
-
-Jonathan Gourley [`Scholar <https://scholar.google.com/citations?user=ez7FKEsAAAAJ&hl=en>`_]
+    * Zac Flamig [`Scholar <https://scholar.google.com/citations?user=AYUjs0YAAAAJ&hl=en&oi=ao>`_ | `GitHub <https://github.com/zflamig>`_]
+    * Humberto Vergara [`Scholar <https://scholar.google.com/citations?user=v-irprAAAAAJ&hl=en&oi=ao>`_ | `GitHub <https://github.com/humberva>`_]
+    * Jonathan Gourley [`Scholar <https://scholar.google.com/citations?user=ez7FKEsAAAAJ&hl=en>`_]
 
 *Other contributors*
 
-Jorge Duarte [`Scholar <https://scholar.google.com/citations?hl=en&user=8GC5yRgAAAAJ>`_ | `GitHub <https://github.com/babetoduarte>`_]
+    * Jorge Duarte [`Scholar <https://scholar.google.com/citations?hl=en&user=8GC5yRgAAAAJ>`_ | `GitHub <https://github.com/babetoduarte>`_]
+

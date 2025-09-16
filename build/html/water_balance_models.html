@@ -55,14 +55,19 @@
 <li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="models.html">2. Models</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Hydrologic Water Balance Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#crest">2.1.1. CREST</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sac-sma">2.1.2. SAC-SMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crest">2.1.1. CREST</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#crest-parameter-set-block">2.1.1.1. CREST Parameter Set block</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sac-sma">2.1.2. SAC-SMA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sac-sma-parameter-set">2.1.2.1. SAC-SMA Parameter Set</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#hp">2.1.3. HP</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="routing_models.html">2.2. Routing Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="snow_melt_models.html">2.3. Snow Melt Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inundation_models.html">2.4. Inundation Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inundation_models.html">2.3. Inundation Models</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">3. Compiling EF5</a></li>
@@ -101,18 +106,77 @@
            <div itemprop="articleBody">
              
   <section id="hydrologic-water-balance-models">
-<h1><span class="section-number">2.1. </span>Hydrologic Water Balance Models<a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h1>
+<span id="water-balance-models"></span><h1><span class="section-number">2.1. </span>Hydrologic Water Balance Models<a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h1>
 <section id="crest">
 <h2><span class="section-number">2.1.1. </span>CREST<a class="headerlink" href="#crest" title="Link to this heading"></a></h2>
 <p>The Coupled Routing and Excess Storage (CREST) distributed hydrological model is a hybrid strategy developed by the University of Oklahoma and the NASA SERVIR Project Team. CREST simulates the spatiotemporal variation of water and energy fluxes and storages on a user-defined grid. Its scalability is achieved through sub-grid scale representation of soil moisture storage (using a variable infiltration curve) and runoff generation (using linear reservoirs). Originally developed for global flood predictions, it is also suitable for basin-scale applications.</p>
 <p>More detailed information about CREST can be found in the publication:
 <a class="reference external" href="https://gmd.copernicus.org/articles/13/4943/2020/gmd-13-4943-2020.html">Flamig et al., (2020)</a></p>
+<section id="crest-parameter-set-block">
+<h3><span class="section-number">2.1.1.1. </span>CREST Parameter Set block<a class="headerlink" href="#crest-parameter-set-block" title="Link to this heading"></a></h3>
+<p>Defines the parameters for the CREST model.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[CrestParamSet ABRFC]</span>
+<span class="na">wm_grid</span><span class="o">=</span><span class="s">/path/to/wm.tif</span>
+<span class="na">im_grid</span><span class="o">=</span><span class="s">/path/to/im.tif</span>
+<span class="na">fc_grid</span><span class="o">=</span><span class="s">/path/to/ksat.tif</span>
+<span class="na">b_grid</span><span class="o">=</span><span class="s">/path/to/b.tif</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">03455500</span>
+<span class="na">wm</span><span class="o">=</span><span class="s">1.00</span>
+<span class="na">b</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">im</span><span class="o">=</span><span class="s">0.01</span>
+<span class="na">ke</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">fc</span><span class="o">=</span><span class="s">1.00</span>
+<span class="na">iwu</span><span class="o">=</span><span class="s">50.0</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="sac-sma">
 <h2><span class="section-number">2.1.2. </span>SAC-SMA<a class="headerlink" href="#sac-sma" title="Link to this heading"></a></h2>
 <p>The Sacramento Soil Moisture Accounting (SAC-SMA) Model was developed by the U.S. National Weather Service. Its purpose is to parameterize soil moisture characteristics so that applied moisture is logically distributed, percolation is realistically simulated, and streamflow is effectively modeled.</p>
 <p>More detailed information about SAC-SMA is available at:
 <a class="reference external" href="http://www.nws.noaa.gov/oh/hrl/nwsrfs/users_manual/part2/_pdf/23sacsma.pdf">U.S. NWS SAC-SMA algorithm description</a></p>
+<section id="sac-sma-parameter-set">
+<h3><span class="section-number">2.1.2.1. </span>SAC-SMA Parameter Set<a class="headerlink" href="#sac-sma-parameter-set" title="Link to this heading"></a></h3>
+<p>Defines the parameters for the SAC-SMA model.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[SacParamSet ABRFC]</span>
+<span class="na">UZTWM_grid</span><span class="o">=</span><span class="s">/path/to/uztwm.tif</span>
+<span class="na">UZFWM_grid</span><span class="o">=</span><span class="s">/path/to/uzfwm.tif</span>
+<span class="na">UZK_grid</span><span class="o">=</span><span class="s">/path/to/uzk.tif</span>
+<span class="na">ZPERC_grid</span><span class="o">=</span><span class="s">/path/to/zperc.tif</span>
+<span class="na">REXP_grid</span><span class="o">=</span><span class="s">/path/to/rexp.tif</span>
+<span class="na">LZTWM_grid</span><span class="o">=</span><span class="s">/path/to/lztwm.tif</span>
+<span class="na">LZFSM_grid</span><span class="o">=</span><span class="s">/path/to/lzfsm.tif</span>
+<span class="na">LZFPM_grid</span><span class="o">=</span><span class="s">/path/to/lzfpm.tif</span>
+<span class="na">LZSK_grid</span><span class="o">=</span><span class="s">/path/to/lzsk.tif</span>
+<span class="na">LZPK_grid</span><span class="o">=</span><span class="s">/path/to/lzpk.tif</span>
+<span class="na">PFREE_grid</span><span class="o">=</span><span class="s">/path/to/pfree.tif</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">01055000</span>
+<span class="na">UZTWM</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">UZFWM</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">UZK</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">PCTIM</span><span class="o">=</span><span class="s">0.101</span>
+<span class="na">ADIMP</span><span class="o">=</span><span class="s">0.10</span>
+<span class="na">RIVA</span><span class="o">=</span><span class="s">1.001</span>
+<span class="na">ZPERC</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">REXP</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">LZTWM</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">LZFSM</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">LZFPM</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">LZSK</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">LZPK</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">PFREE</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">SIDE</span><span class="o">=</span><span class="s">0.0</span>
+<span class="na">RSERV</span><span class="o">=</span><span class="s">0.3</span>
+<span class="na">ADIMC</span><span class="o">=</span><span class="s">1.0</span>
+<span class="na">UZTWC</span><span class="o">=</span><span class="s">0.55</span>
+<span class="na">UZFWC</span><span class="o">=</span><span class="s">0.14</span>
+<span class="na">LZTWC</span><span class="o">=</span><span class="s">0.56</span>
+<span class="na">LZFSC</span><span class="o">=</span><span class="s">0.11</span>
+<span class="na">LZFPC</span><span class="o">=</span><span class="s">0.46</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="hp">
 <h2><span class="section-number">2.1.3. </span>HP<a class="headerlink" href="#hp" title="Link to this heading"></a></h2>

@@ -53,93 +53,6 @@ The following is an example of how to set up the calibration parameters in the c
 
 
 
-Control file example for Calibration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: ini
-
-   [Basic]
-   ...
-
-   [PETForcing CLIMO]
-   ...
-
-   [PrecipForcing MRMS]
-   ...
-
-   [Gauge 03404900]
-   lon=-84.093599999999995
-   lat=36.951400000000000
-   obs=data/observations/usgs/Q_03404900.csv
-
-   [Basin 0]
-   gauge=03404900
-
-   # The following code is used for the simulation process.
-   # It is kept here to replace the optimized parameters later and run the simulation.  
-   [CrestParamSet EF5KY] 
-   gauge=03404900
-   wm=9.883508
-   ...
-
-   # The following code is used for the simulation process.
-   # It is kept here to replace the optimized parameters later and run the simulation.  
-   [KWParamSet EF5KY]
-   gauge=03404900
-   under=0.000100
-   leaki=5.144720
-   ...
-
-   [CrestCaliParams 0CRESTCALI]
-   # To set up the following ranges, please refer to the above table
-   gauge=03404900
-   objective=CC                       # Possible options: CC, NSCE, SSE
-   dream_ndraw=20000 
-   wm=0.05,10
-   b=0.05,10
-   im=0.005,1
-   ke=0.001,1
-   fc=0.0,150.0
-   iwu=0.0,300.0
-
-   [kwcaliparams 0KWCALI]
-   # To set up the following ranges, please refer to the above table
-   gauge=03404900
-   under=0.0001,0.00010001
-   leaki=0.02,10.0
-   th=10,10.00001
-   isu=0.0,0.000001
-   alpha=0.05,10
-   beta=0.05,10
-   alpha0=0.05,10
-
-   [Task TaskCalibration]
-   STYLE=CALI_DREAM
-   MODEL=crest
-   ROUTING=KW
-   BASIN=0
-   PRECIP=MRMS
-   PET=CLIMO
-   OUTPUT=outputs
-   STATES=data/states
-   defaultparamsgauge=03404900
-   PARAM_SET=EF5KY
-   ROUTING_PARAM_Set=EF5KY
-   CALI_PARAM=0CRESTCALI
-   ROUTING_CALI_PARAM=0KWCALI
-   TIMESTEP=2u
-   TIME_BEGIN=20220727120000
-   TIME_END=20220730120000
-
-   # The following code is used for the simulation process.
-   # It is kept here to replace the optimized parameters later and run the simulation.  
-   [Task CREST_Simulation]
-   ...
-
-   [Execute]
-   task=TaskCalibration
-   #task=CREST_Simulation              # Comment this line, and then, after the calibration, update the parameters
-                                       # with the optimized values and un-comment it to run the simulation
 
 
 Calibration output
@@ -208,10 +121,6 @@ The following image shows the parameters' sensitivity in the simulated time seri
 
    Parameters sensitivity analysis. Blue line represents the observed streamflow, the read lines goes from the lowest to the highest value of each parameter, where thickness indicates the increasing value of the parameter.
 
-.. toggle::
-
-   Here is my toggle-able content!
-
 .. dropdown::
 
     Dropdown content
@@ -224,3 +133,95 @@ The following image shows the parameters' sensitivity in the simulated time seri
     :open:
 
     Dropdown content
+
+Control file example for Calibration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following is an example of a control file for calibrating the CREST model with Kinematic wave routing. The calibration parameters ranges are set up according to the tables above. The task section specifies the calibration process using the DREAM method.
+
+.. toggle::
+
+   .. code-block:: ini
+
+      [Basic]
+      ...
+
+      [PETForcing CLIMO]
+      ...
+
+      [PrecipForcing MRMS]
+      ...
+
+      [Gauge 03404900]
+      lon=-84.093599999999995
+      lat=36.951400000000000
+      obs=data/observations/usgs/Q_03404900.csv
+
+      [Basin 0]
+      gauge=03404900
+
+      # The following code is used for the simulation process.
+      # It is kept here to replace the optimized parameters later and run the simulation.  
+      [CrestParamSet EF5KY] 
+      gauge=03404900
+      wm=9.883508
+      ...
+
+      # The following code is used for the simulation process.
+      # It is kept here to replace the optimized parameters later and run the simulation.  
+      [KWParamSet EF5KY]
+      gauge=03404900
+      under=0.000100
+      leaki=5.144720
+      ...
+
+      [CrestCaliParams 0CRESTCALI]
+      # To set up the following ranges, please refer to the above table
+      gauge=03404900
+      objective=CC                       # Possible options: CC, NSCE, SSE
+      dream_ndraw=20000 
+      wm=0.05,10
+      b=0.05,10
+      im=0.005,1
+      ke=0.001,1
+      fc=0.0,150.0
+      iwu=0.0,300.0
+
+      [kwcaliparams 0KWCALI]
+      # To set up the following ranges, please refer to the above table
+      gauge=03404900
+      under=0.0001,0.00010001
+      leaki=0.02,10.0
+      th=10,10.00001
+      isu=0.0,0.000001
+      alpha=0.05,10
+      beta=0.05,10
+      alpha0=0.05,10
+
+      [Task TaskCalibration]
+      STYLE=CALI_DREAM
+      MODEL=crest
+      ROUTING=KW
+      BASIN=0
+      PRECIP=MRMS
+      PET=CLIMO
+      OUTPUT=outputs
+      STATES=data/states
+      defaultparamsgauge=03404900
+      PARAM_SET=EF5KY
+      ROUTING_PARAM_Set=EF5KY
+      CALI_PARAM=0CRESTCALI
+      ROUTING_CALI_PARAM=0KWCALI
+      TIMESTEP=2u
+      TIME_BEGIN=20220727120000
+      TIME_END=20220730120000
+
+      # The following code is used for the simulation process.
+      # It is kept here to replace the optimized parameters later and run the simulation.  
+      [Task CREST_Simulation]
+      ...
+
+      [Execute]
+      task=TaskCalibration
+      #task=CREST_Simulation              # Comment this line, and then, after the calibration, update the parameters
+                                          # with the optimized values and un-comment it to run the simulation

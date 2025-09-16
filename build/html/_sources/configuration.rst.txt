@@ -83,8 +83,8 @@ Defines the PET forcing file details. EF5 considers the indicated layer units to
    LOC=/EF5Demo/FF/pet
    NAME=PET_MM.bif
 
-Gauge locations blocks
-----------------
+Gauge locations block(s)
+------------------------
 Each gauge information is defined in a separate block, with the block name being the gauge identifier. The gauge identifier is used to reference the gauge in other blocks, such as the basin block.
 The gauge location block specifies the locations of gauges for output and parameter assignment. ``OUTPUTTS`` is an optional parameter that, when set to `TRUE`, indicates that the gauge will output time series data. ``OBS`` is an optional parameter that specifies the path to the observed data file for the gauge. ``OBS`` is required if the gauge will be used for calibration task. The ``BASINAREA`` parameter is also optional and indicates the area of the basin in square kilometers. When ``BASINAREA`` is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a threshold. If no match is found, EF5 will raise a warning.
 
@@ -103,7 +103,7 @@ The gauge location block specifies the locations of gauges for output and parame
    LON=-93.62
    LAT=34.37
 
-Basin block
+Basin block(s)
 ----------------
 Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn't follow the classic basin definition, but rather groups gauges that are required by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.
 
@@ -114,7 +114,7 @@ Groups gauge locations into basins. The user can define multiple basins, each wi
    GAUGE=AR
 
 Parameter Sets
-=====
+==============
 
 The `gauge` parameter specifies the gauge identifier for which the parameters are defined. The user must specify at least the set of parameters for one gauge and use them for the entire domain, or can specify parameters for multiple gauges in the same block.
 
@@ -131,110 +131,26 @@ The `gauge` parameter specifies the gauge identifier for which the parameters ar
    :width: 400
    :align: center
 
-   How to interpret lumped and distributed parameters.
+   Guidance on how to interpret lumped and distributed parameters.
 
-CREST Parameter Set block
-----------------
-Defines the parameters for the CREST model.
+Hydrologic Water Balance Models
+--------------------------
 
-.. code-block:: ini
+The listed water balance models are explained in detail in the :ref:`water balance models section <water balance models>`.
 
-   [CrestParamSet ABRFC]
-   wm_grid=/path/to/wm.tif
-   im_grid=/path/to/im.tif
-   fc_grid=/path/to/ksat.tif
-   b_grid=/path/to/b.tif
-   gauge=03455500
-   wm=1.00
-   b=1.0
-   im=0.01
-   ke=1.0
-   fc=1.00
-   iwu=50.0
+#. CREST Parameter Set
+#. SAC-SMA Parameter Set
 
-SAC-SMA Parameter Set
-----------------
-Defines the parameters for the SAC-SMA model.
+Routing Models
+--------------------------
 
-.. code-block:: ini
+The listed routing models are explained in detail in the :ref:`routing models section <routing models>`.
 
-   [SacParamSet ABRFC]
-   UZTWM_grid=/path/to/uztwm.tif
-   UZFWM_grid=/path/to/uzfwm.tif
-   UZK_grid=/path/to/uzk.tif
-   ZPERC_grid=/path/to/zperc.tif
-   REXP_grid=/path/to/rexp.tif
-   LZTWM_grid=/path/to/lztwm.tif
-   LZFSM_grid=/path/to/lzfsm.tif
-   LZFPM_grid=/path/to/lzfpm.tif
-   LZSK_grid=/path/to/lzsk.tif
-   LZPK_grid=/path/to/lzpk.tif
-   PFREE_grid=/path/to/pfree.tif
-   gauge=01055000
-   UZTWM=1.0
-   UZFWM=1.0
-   UZK=1.0
-   PCTIM=0.101
-   ADIMP=0.10
-   RIVA=1.001
-   ZPERC=1.0
-   REXP=1.0
-   LZTWM=1.0
-   LZFSM=1.0
-   LZFPM=1.0
-   LZSK=1.0
-   LZPK=1.0
-   PFREE=1.0
-   SIDE=0.0
-   RSERV=0.3
-   ADIMC=1.0
-   UZTWC=0.55
-   UZFWC=0.14
-   LZTWC=0.56
-   LZFSC=0.11
-   LZFPC=0.46
-
-.. HP Parameter Set
-   *To be completed in a future revision.*
-
-
-
-Kinematic Wave Parameter Set
-----------------
-
-Defines the parameters for the kinematic wave model.
-
-.. code-block:: ini
-
-   [KWParamSet rundu]
-   GAUGE=rundu
-   UNDER=1.673110
-   LEAKI=0.043105
-   TH=6.658569
-   ISU=0.000000
-   ALPHA=2.991570
-   BETA=0.932080
-   ALPHA0=4.603945
-
-Linear Reservoir Parameter Set
-----------------
-Defines the parameters for the linear reservoir model.
-
-.. code-block:: ini
-
-   [lrparamset rundu]
-   gauge=rundu
-   coem=1611.115479
-   river=307.980042
-   under=2531.556641
-   leako=0.918236
-   leaki=0.017568
-   th=8.140809
-   iso=0.000040
-   isu=0.000073
+#. Linear Reservoir Parameter Set
+#. Kinematic Wave Parameter Set
 
 Snow-17 Parameter Set
-----------------
+=====================
 
 Defines the parameters for the Snow-17 model.
 
@@ -251,17 +167,8 @@ Defines the parameters for the Snow-17 model.
    PLWHC=0.093812
    SCF=2.219492
 
-Simple Inundation Parameter Set
-----------------
-
-Defines the parameters for the simple inundation model. The parameters `alpha` and `beta` are used to define the coefficients for the rating curve power function, which is used to calculate the flow depth from the simulated flow rate.
-
-.. code-block:: ini
-
-   [simpleinundationparamset rundu]
-   gauge=rundu
-   alpha=2.991570
-   beta=0.932080
+Full control file example
+=====================
 
 This is a full EF5 control file example for a basic simulation using the CREST model. It includes the basic block, precipitation forcing, PET forcing, gauge locations, basin definition, parameter set for CREST, and a task to run the simulation.
 

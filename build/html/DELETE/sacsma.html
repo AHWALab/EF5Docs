@@ -1,0 +1,137 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hydrologic Water Balance Models &mdash; EF5Manual 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c2edda77" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #003285" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            EF5Manual
+              <img src="../_static/EF5-01.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">1. About EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">2. Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiling.html">3. Compiling EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">4. Control file (Configuration file)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tasks.html">5. Task block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tasks.html#task-block-parameters">6. Task Block Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../execute_block.html">7. Execute Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running.html">8. Running EF5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calibrating.html">9. Model calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #003285" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EF5Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Hydrologic Water Balance Models</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/DELETE/sacsma.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hydrologic-water-balance-models">
+<h1>Hydrologic Water Balance Models<a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h1>
+<section id="crest">
+<h2>CREST<a class="headerlink" href="#crest" title="Link to this heading"></a></h2>
+<p>The Coupled Routing and Excess Storage (CREST) distributed hydrological model is a hybrid strategy developed by the University of Oklahoma and the NASA SERVIR Project Team. CREST simulates the spatiotemporal variation of water and energy fluxes and storages on a user-defined grid. Its scalability is achieved through sub-grid scale representation of soil moisture storage (using a variable infiltration curve) and runoff generation (using linear reservoirs). Originally developed for global flood predictions, it is also suitable for basin-scale applications.</p>
+<p>More detailed information about CREST can be found in the publication:
+<a class="reference external" href="https://gmd.copernicus.org/articles/13/4943/2020/gmd-13-4943-2020.html">Flamig et al., (2020)</a></p>
+</section>
+<section id="sac-sma">
+<h2>SAC-SMA<a class="headerlink" href="#sac-sma" title="Link to this heading"></a></h2>
+<p>The Sacramento Soil Moisture Accounting (SAC-SMA) Model was developed by the U.S. National Weather Service. Its purpose is to parameterize soil moisture characteristics so that applied moisture is logically distributed, percolation is realistically simulated, and streamflow is effectively modeled.</p>
+<p>More detailed information about SAC-SMA is available at:
+<a class="reference external" href="http://www.nws.noaa.gov/oh/hrl/nwsrfs/users_manual/part2/_pdf/23sacsma.pdf">U.S. NWS SAC-SMA algorithm description</a></p>
+</section>
+<section id="hp">
+<h2>HP<a class="headerlink" href="#hp" title="Link to this heading"></a></h2>
+<p>The Hydrophobic (HP) water balance model assumes an entirely impervious surface where all rainfall is transformed directly into surface runoff.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, AHWA Laboratory, IIHR - Hydroscience &amp; Engineering, University of Iowa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

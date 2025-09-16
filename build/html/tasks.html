@@ -148,12 +148,18 @@
 <span class="sig-name descname"><span class="pre">STYLE</span></span><a class="headerlink" href="#confval-STYLE" title="Link to this definition"></a></dt>
 <dd><p>Defines the type of task EF5 will execute. See Section 4.1 for the full list of supported task types. The available styles are:</p>
 <p><code class="docutils literal notranslate"><span class="pre">SIMU</span></code>: Runs a standard simulation using the defined model, forcings, and parameters.</p>
-<p><code class="docutils literal notranslate"><span class="pre">SIMU_RP</span></code>: Similar to <cite>SIMU</cite>, but also generates grids for standard deviation, mean, and skewness to support return period estimation using the Log-Pearson Type III distribution.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SIMU_RP</span></code>: Similar to <code class="docutils literal notranslate"><span class="pre">SIMU</span></code>, but also generates grids for standard deviation, mean, and skewness to support return period estimation using the Log-Pearson Type III distribution.</p>
 <p><code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code>: Automatically identifies all outlets and creates necessary configuration files for distributed modeling. Useful when setting up models with many gauges.</p>
 <p><code class="docutils literal notranslate"><span class="pre">CLIP_BASIN</span></code>: Clips model inputs to the domain defined in the BASIN block.</p>
 <p><code class="docutils literal notranslate"><span class="pre">BASIN_AVG</span></code>: Calculates basin-wide averages from gridded data (e.g., average precipitation). Usefull in parameter estimation, such as for kinematic wave routing.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/ex_mask.png"><img alt="_images/ex_mask.png" src="_images/ex_mask.png" style="width: 200px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example of a basin mask .tif file generated using the <code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code> task style.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 <p><code class="docutils literal notranslate"><span class="pre">CALI_DREAM</span></code>: Performs model calibration using the DREAM algorithm. Requires additional parameter blocks specific to calibration.</p>
-<p><code class="docutils literal notranslate"><span class="pre">CALI_SCE</span></code>: Calibration using SCE algorithm</p>
 </dd></dl>
 
 <dl class="std confval">

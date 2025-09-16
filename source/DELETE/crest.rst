@@ -6,3 +6,22 @@ The Coupled Routing and Excess Storage (CREST) distributed hydrological model is
 
 More detailed information about CREST can be found in the publication:  
 `Flamig et al., (2020) <https://gmd.copernicus.org/articles/13/4943/2020/gmd-13-4943-2020.html>`_
+
+CREST Parameter Set block
+----------------
+Defines the parameters for the CREST model.
+
+.. code-block:: ini
+
+   [CrestParamSet ABRFC]
+   wm_grid=/path/to/wm.tif
+   im_grid=/path/to/im.tif
+   fc_grid=/path/to/ksat.tif
+   b_grid=/path/to/b.tif
+   gauge=03455500
+   wm=1.00
+   b=1.0
+   im=0.01
+   ke=1.0
+   fc=1.00
+   iwu=50.0

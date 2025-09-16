@@ -61,9 +61,9 @@
 <li class="toctree-l1"><a class="reference internal" href="execute_block.html">7. Execute Block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">8. Running EF5</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">9. Model calibration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#control-file-example-for-calibration">9.1. Control file example for Calibration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#calibration-output">9.2. Calibration output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#parameters-sensitivity">9.3. Parameters’ sensitivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calibration-output">9.1. Calibration output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-sensitivity">9.2. Parameters’ sensitivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-file-example-for-calibration">9.3. Control file example for Calibration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a></li>
@@ -191,8 +191,77 @@ The following is an example of how to set up the calibration parameters in the c
 </tr>
 </tbody>
 </table>
+<section id="calibration-output">
+<h2><span class="section-number">9.1. </span>Calibration output<a class="headerlink" href="#calibration-output" title="Link to this heading"></a></h2>
+<p>The calibration process will generate an output file, “cali_dream.gauge_name.crest.csv”, that contains the optimized parameters, at the end of the .csv file, and the objective function value. The output will be saved in the specified directory.</p>
+<p>The optimized parameters will be saved in the following format:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">wm,b,im,ke,fc,iwu,under,leaki,th,isu,alpha,beta,alpha0,nsce,nsce/2</span>
+<span class="na">1.243439,1.027347,0.028567,2.212074,0.690118,232.437332,0.002938,0.339752,12.009190,13.275298,1.238962,0.246814,2.164778,-8814420.000000,-4407210.000000</span>
+<span class="na">...</span>
+<span class="na">...</span>
+<span class="na">...</span>
+<span class="k">[WaterBalance]</span>
+<span class="na">wm</span><span class="o">=</span><span class="s">2.861236</span>
+<span class="na">b</span><span class="o">=</span><span class="s">1.986400</span>
+<span class="na">im</span><span class="o">=</span><span class="s">0.016121</span>
+<span class="na">ke</span><span class="o">=</span><span class="s">2.344525</span>
+<span class="na">fc</span><span class="o">=</span><span class="s">1.774454</span>
+<span class="na">iwu</span><span class="o">=</span><span class="s">281.206879</span>
+<span class="k">[Routing]</span>
+<span class="na">under</span><span class="o">=</span><span class="s">0.002960</span>
+<span class="na">leaki</span><span class="o">=</span><span class="s">0.707585</span>
+<span class="na">th</span><span class="o">=</span><span class="s">12.006120</span>
+<span class="na">isu</span><span class="o">=</span><span class="s">19.988890</span>
+<span class="na">alpha</span><span class="o">=</span><span class="s">2.894948</span>
+<span class="na">beta</span><span class="o">=</span><span class="s">2.375221</span>
+<span class="na">alpha0</span><span class="o">=</span><span class="s">2.960580</span>
+</pre></div>
+</div>
+<div class="admonition-common-ef5-warning-message-in-this-step admonition">
+<p class="admonition-title">Common EF5 warning message in this step.</p>
+<p><em>WARNING: Failed to load preload file outputs/califorcings.bin</em></p>
+<blockquote>
+<div><p>This warning does not affect the process, it is related about a file created during the calibration task, which could be used in the future to re-run it.</p>
+</div></blockquote>
+</div>
+<div class="admonition-common-ef5-warning-message-in-this-step admonition">
+<p class="admonition-title">Common EF5 warning message in this step.</p>
+<p><em>ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style “7”</em></p>
+<blockquote>
+<div><p>This warning does not affect the calibration process.</p>
+</div></blockquote>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Common EF5 error message in this step:</p>
+<div class="line-block">
+<div class="line"><em>INFO:src/BasicGrids.cpp(625): Max gauge search distance is 217</em></div>
+<div class="line"><em>INFO:src/BasicGrids.cpp(735): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1</em></div>
+<div class="line"><em>INFO:src/BasicGrids.cpp(954): Walked 48852383 (out of 48893469) nodes for 0!</em></div>
+<div class="line"><em>terminate called after throwing an instance of ‘std::bad_alloc’</em></div>
+<div class="line"><em>what():  std::bad_alloc</em></div>
+<div class="line"><em>Aborted.</em></div>
+</div>
+<blockquote>
+<div><p>This error message could be related to the gauge basin area verification, but it is also caused by a memory overload. Adding more RAM to your job would solve this problem.</p>
+</div></blockquote>
+</div>
+</section>
+<section id="parameters-sensitivity">
+<h2><span class="section-number">9.2. </span>Parameters’ sensitivity<a class="headerlink" href="#parameters-sensitivity" title="Link to this heading"></a></h2>
+<p>The following image shows the parameters’ sensitivity in the simulated time series. Each parameter is varied while the others are kept constant. The sensitivity analysis helps to understand how each parameter influences the model output.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/Parameters_Sensitivity.png"><img alt="_images/Parameters_Sensitivity.png" src="_images/Parameters_Sensitivity.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Parameters sensitivity analysis. Blue line represents the observed streamflow, the read lines goes from the lowest to the highest value of each parameter, where thickness indicates the increasing value of the parameter.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
 <section id="control-file-example-for-calibration">
-<h2><span class="section-number">9.1. </span>Control file example for Calibration<a class="headerlink" href="#control-file-example-for-calibration" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.3. </span>Control file example for Calibration<a class="headerlink" href="#control-file-example-for-calibration" title="Link to this heading"></a></h2>
+<p>The following is an example of a control file for calibrating the CREST model with Kinematic wave routing. The calibration parameters ranges are set up according to the tables above. The task section specifies the calibration process using the DREAM method.</p>
+<div class="toggle docutils container">
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
 <span class="na">...</span>
 
@@ -277,75 +346,6 @@ The following is an example of how to set up the calibration parameters in the c
 <span class="w">                                    </span><span class="c1"># with the optimized values and un-comment it to run the simulation</span>
 </pre></div>
 </div>
-</section>
-<section id="calibration-output">
-<h2><span class="section-number">9.2. </span>Calibration output<a class="headerlink" href="#calibration-output" title="Link to this heading"></a></h2>
-<p>The calibration process will generate an output file, “cali_dream.gauge_name.crest.csv”, that contains the optimized parameters, at the end of the .csv file, and the objective function value. The output will be saved in the specified directory.</p>
-<p>The optimized parameters will be saved in the following format:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">wm,b,im,ke,fc,iwu,under,leaki,th,isu,alpha,beta,alpha0,nsce,nsce/2</span>
-<span class="na">1.243439,1.027347,0.028567,2.212074,0.690118,232.437332,0.002938,0.339752,12.009190,13.275298,1.238962,0.246814,2.164778,-8814420.000000,-4407210.000000</span>
-<span class="na">...</span>
-<span class="na">...</span>
-<span class="na">...</span>
-<span class="k">[WaterBalance]</span>
-<span class="na">wm</span><span class="o">=</span><span class="s">2.861236</span>
-<span class="na">b</span><span class="o">=</span><span class="s">1.986400</span>
-<span class="na">im</span><span class="o">=</span><span class="s">0.016121</span>
-<span class="na">ke</span><span class="o">=</span><span class="s">2.344525</span>
-<span class="na">fc</span><span class="o">=</span><span class="s">1.774454</span>
-<span class="na">iwu</span><span class="o">=</span><span class="s">281.206879</span>
-<span class="k">[Routing]</span>
-<span class="na">under</span><span class="o">=</span><span class="s">0.002960</span>
-<span class="na">leaki</span><span class="o">=</span><span class="s">0.707585</span>
-<span class="na">th</span><span class="o">=</span><span class="s">12.006120</span>
-<span class="na">isu</span><span class="o">=</span><span class="s">19.988890</span>
-<span class="na">alpha</span><span class="o">=</span><span class="s">2.894948</span>
-<span class="na">beta</span><span class="o">=</span><span class="s">2.375221</span>
-<span class="na">alpha0</span><span class="o">=</span><span class="s">2.960580</span>
-</pre></div>
-</div>
-<div class="admonition-common-ef5-warning-message-in-this-step admonition">
-<p class="admonition-title">Common EF5 warning message in this step.</p>
-<p><em>WARNING: Failed to load preload file outputs/califorcings.bin</em></p>
-<blockquote>
-<div><p>This warning does not affect the process, it is related about a file created during the calibration task, which could be used in the future to re-run it.</p>
-</div></blockquote>
-</div>
-<div class="admonition-common-ef5-warning-message-in-this-step admonition">
-<p class="admonition-title">Common EF5 warning message in this step.</p>
-<p><em>ERROR:src/ExecutionController.cpp(94): Unimplemented simulation run style “7”</em></p>
-<blockquote>
-<div><p>This warning does not affect the calibration process.</p>
-</div></blockquote>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Common EF5 error message in this step:</p>
-<div class="line-block">
-<div class="line"><em>INFO:src/BasicGrids.cpp(625): Max gauge search distance is 217</em></div>
-<div class="line"><em>INFO:src/BasicGrids.cpp(735): Gauge 21677 (14.856667, -2.904167; 7, 2935): FAM 1</em></div>
-<div class="line"><em>INFO:src/BasicGrids.cpp(954): Walked 48852383 (out of 48893469) nodes for 0!</em></div>
-<div class="line"><em>terminate called after throwing an instance of ‘std::bad_alloc’</em></div>
-<div class="line"><em>what():  std::bad_alloc</em></div>
-<div class="line"><em>Aborted.</em></div>
-</div>
-<blockquote>
-<div><p>This error message could be related to the gauge basin area verification, but it is also caused by a memory overload. Adding more RAM to your job would solve this problem.</p>
-</div></blockquote>
-</div>
-</section>
-<section id="parameters-sensitivity">
-<h2><span class="section-number">9.3. </span>Parameters’ sensitivity<a class="headerlink" href="#parameters-sensitivity" title="Link to this heading"></a></h2>
-<p>The following image shows the parameters’ sensitivity in the simulated time series. Each parameter is varied while the others are kept constant. The sensitivity analysis helps to understand how each parameter influences the model output.</p>
-<figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="_images/Parameters_Sensitivity.png"><img alt="_images/Parameters_Sensitivity.png" src="_images/Parameters_Sensitivity.png" style="width: 400px;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Parameters sensitivity analysis. Blue line represents the observed streamflow, the read lines goes from the lowest to the highest value of each parameter, where thickness indicates the increasing value of the parameter.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<div class="toggle docutils container">
-<p>Here is my toggle-able content!</p>
 </div>
 </section>
 </section>
