@@ -20,7 +20,7 @@ For a detailed guide on setting up your own domain (generate files for your own 
 Control file (Configuration file)
 ----------------------------------
 
-Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or taks. 
+Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or tasks. 
 
 The control file is structured into blocks, each containing key-value pairs. Example:
 
