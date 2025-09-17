@@ -95,8 +95,8 @@ To set up your configuration, refer to the components listed below.
    execute_block
 
 
-Execute EF5
-----------
+Run EF5 in the terminal
+------------------------
 
 For the final step, to run EF5, execute the binary with the control file argument:
 
