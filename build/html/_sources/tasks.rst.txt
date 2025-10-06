@@ -38,7 +38,7 @@ Task Block Parameters
 
       ``CLIP_BASIN``: Clips model inputs to the domain defined in the BASIN block.
 
-      ``BASIN_AVG``: Calculates basin-wide averages from gridded data (e.g., average precipitation). Usefull in parameter estimation, such as for kinematic wave routing.
+      ``BASIN_AVG``: Calculates basin-wide averages from gridded data (e.g., average precipitation). Useful in parameter estimation, such as for kinematic wave routing.
       
       .. figure:: _static/outputs_examples/ex_mask.png
             :width: 200
@@ -138,13 +138,13 @@ Task Block Parameters
 
       ``MAXUNITSTREAMFLOW``: Maximum unit discharge (streamflow per unit area) observed during the simulation (m³/s per km²).
 
-      ``PRECIP``: Precipitaiton (mm)
+      ``PRECIP``: Precipitation (mm)
 
       ``PRECIPACCUM``: Accumulated precipitation (mm)  
 
       ``INUNDATION``: Simulated water depth for inundated areas, in meters (m).
 
-      ``MAXINUNDATION``: Simulated maximum water depth for inundated areas during the simulaton period (m)
+      ``MAXINUNDATION``: Simulated maximum water depth for inundated areas during the simulation period (m)
 
       ``SOILMOISTURE``: Volumetric soil moisture content, expressed as a percentage (%).
 

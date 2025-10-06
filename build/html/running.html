@@ -91,7 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#execute-ef5">4.3. Execute EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-ef5-in-the-terminal">4.3. Run EF5 in the terminal</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -151,7 +151,7 @@
 </section>
 <section id="control-file-configuration-file">
 <h2><span class="section-number">4.2. </span>Control file (Configuration file)<a class="headerlink" href="#control-file-configuration-file" title="Link to this heading"></a></h2>
-<p>Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or taks.</p>
+<p>Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or tasks.</p>
 <p>The control file is structured into blocks, each containing key-value pairs. Example:</p>
 <blockquote>
 <div><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Basic]                                       # Basic block</span>
@@ -173,6 +173,38 @@
 </li>
 <li><p>Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.</p></li>
 </ol>
+<p>Depending on the routing model selected in the Task block, additional grids may be required. The table below summarizes the grid requirements for each model:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Grids</p></th>
+<th class="head"><p>Must Match Basic Files?</p></th>
+<th class="head"><p>Free grid?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Precipitation</p></td>
+<td></td>
+<td><p>🟢</p></td>
+</tr>
+<tr class="row-odd"><td><p>PET</p></td>
+<td></td>
+<td><p>🟢</p></td>
+</tr>
+<tr class="row-even"><td><p>CREST</p></td>
+<td></td>
+<td><p>🟢</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kinematic wave</p></td>
+<td><p>🟠</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Simple inundation</p></td>
+<td></td>
+<td><p>🟢</p></td>
+</tr>
+</tbody>
+</table>
+<p>Legend: 🟢 = Yes, 🟠 = Only if using distributed model</p>
 <p>The following mock-up illustrates the bare minimum structure for a control file required to run any of the available styles.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Basic]                                       # Basic block</span>
 <span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
@@ -226,8 +258,8 @@
 </ul>
 </div>
 </section>
-<section id="execute-ef5">
-<h2><span class="section-number">4.3. </span>Execute EF5<a class="headerlink" href="#execute-ef5" title="Link to this heading"></a></h2>
+<section id="run-ef5-in-the-terminal">
+<h2><span class="section-number">4.3. </span>Run EF5 in the terminal<a class="headerlink" href="#run-ef5-in-the-terminal" title="Link to this heading"></a></h2>
 <p>For the final step, to run EF5, execute the binary with the control file argument:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>../bin/ef5<span class="w"> </span>&lt;your_controlfile_name.txt&gt;
 </pre></div>

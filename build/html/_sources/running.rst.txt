@@ -20,7 +20,7 @@ For a detailed guide on setting up your own domain (generate files for your own 
 Control file (Configuration file)
 ----------------------------------
 
-Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or taks. 
+Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or tasks. 
 
 The control file is structured into blocks, each containing key-value pairs. Example:
 
@@ -39,6 +39,26 @@ The minimum required blocks are:
 #. Task block(s): Defines the style to be executed, the routing model, the time period for the simulation, the time step, and the forcing data to be used. See :ref:`task styles <task styles>` for more details.
     The Style parameter within the Task block defines the type of task EF5 will execute, e.g., ``SIMU`` for a standard simulation, ``CLIP_GAUGE`` for clipping model inputs to the entire domain, ``CALI_DREAM`` for calibration using the DREAM algorithm, etc. See :ref:`task styles <task styles>` for the full list of supported Style types.
 #. Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.
+
+
+Depending on the routing model selected in the Task block, additional grids may be required. The table below summarizes the grid requirements for each model:
+
++-------------------+-------------------------+-------------+
+|       Grids       | Must Match Basic Files? | Free grid?  |
++===================+=========================+=============+
+|   Precipitation   |                         |     🟢      |
++-------------------+-------------------------+-------------+
+|        PET        |                         |     🟢      |
++-------------------+-------------------------+-------------+
+|       CREST       |                         |     🟢      |
++-------------------+-------------------------+-------------+
+|  Kinematic wave   |           🟠            |             |
++-------------------+-------------------------+-------------+
+| Simple inundation |                         |     🟢      |
++-------------------+-------------------------+-------------+
+
+Legend: 🟢 = Yes, 🟠 = Only if using distributed model
+
 
 The following mock-up illustrates the bare minimum structure for a control file required to run any of the available styles.
 
@@ -95,8 +115,8 @@ To set up your configuration, refer to the components listed below.
    execute_block
 
 
-Execute EF5
-----------
+Run EF5 in the terminal
+------------------------
 
 For the final step, to run EF5, execute the binary with the control file argument:
 
