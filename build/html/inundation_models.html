@@ -27,7 +27,8 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Software installation" href="software_installation.html" /> 
+    <link rel="next" title="3. Software installation" href="software_installation.html" />
+    <link rel="prev" title="2.2. Routing Models" href="routing_models.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -77,24 +78,20 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="software_installation.html">3. Software installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software_installation.html#compiling-ef5">3.1. Compiling EF5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.2. Changelog</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-5">3.2.1. v 1.2.5</a></li>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-2-4">3.2.2. v 1.2.4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="software_installation.html#v-1-0">3.2.3. v 1.0</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#how-to-cite-ef5">3.2. How to cite EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.3. Changelog</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="running.html">4. Running EF5</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-configuration">4.2. Setting up your configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file (Configuration file)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#control-file-configuration-file">4.2. Control file (Configuration file)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="running.html#final-step">4.3. Final step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#run-ef5-in-the-terminal">4.3. Run EF5 in the terminal</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -166,16 +163,40 @@
 <dd><p><code class="docutils literal notranslate"><span class="pre">gauge</span></code>: Gauge ID as defined in the BASIN block.</p>
 <p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: Lumped parameter for the rating curve alpha*(discharge)^beta.</p>
 <p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: Lumped parameter for the rating curve alpha*(discharge)^beta.</p>
+<p><code class="docutils literal notranslate"><span class="pre">th_fim</span></code>: Flow accumulation threshold to estimate the inundation area. This parameter is independent of the routing model threshold <code class="docutils literal notranslate"><span class="pre">th</span></code>. v 1.2.6 and later. Previous versions use the <code class="docutils literal notranslate"><span class="pre">th</span></code> parameter as the threshold for inundation.</p>
 <p><strong>Optional parameters:</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">alpha_grid</span></code>: Path for the grid of alpha parameter (.tif) for the rating curve alpha*(discharge)^beta. It must be accompanied by the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter, which will work as a multiplier factor for the grid values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">beta_grid</span></code>: Path for the grid of beta parameter (.tif) for the rating curve alpha*(discharge)^beta. It must be accompanied by the <code class="docutils literal notranslate"><span class="pre">beta</span></code> parameter, which will work as a multiplier factor for the grid values.</p>
 </dd></dl>
 
-<p>Example of Simple Inundation Parameter Set block</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[simpleinundationparamset rundu]</span>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-OUTPUT-GRIDS">
+<span class="sig-name descname"><span class="pre">OUTPUT</span> <span class="pre">GRIDS</span></span><a class="headerlink" href="#confval-OUTPUT-GRIDS" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">MAXINUNDATION</span></code>: Maximum inundation depth (m) for the simulation period. (v 1.2.4 and later)</p>
+<p><code class="docutils literal notranslate"><span class="pre">INUNDATION</span></code>: Inundation depth (m) at each time step.</p>
+<p><code class="docutils literal notranslate"><span class="pre">HANDCATCHMENT</span></code>: HAND catchment areas (v 1.2.6 and later)</p>
+</dd></dl>
+
+<p>Example of Simple Inundation control file</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">...</span>
+
+<span class="k">[simpleinundationparamset rundufim]</span>
 <span class="na">gauge</span><span class="o">=</span><span class="s">rundu</span>
-<span class="na">alpha</span><span class="o">=</span><span class="s">2.991570</span>
-<span class="na">beta</span><span class="o">=</span><span class="s">0.932080</span>
+<span class="na">alpha_grid</span><span class="o">=</span><span class="s">parameters/alpha_fim_rundu.tif</span>
+<span class="na">beta_grid</span><span class="o">=</span><span class="s">parameters/beta_fim_rundu.tif</span>
+<span class="na">alpha</span><span class="o">=</span><span class="s">1</span><span class="w">                    </span><span class="c1"># Multiplier factor for the grided parameter</span>
+<span class="na">beta</span><span class="o">=</span><span class="s">1</span><span class="w">                     </span><span class="c1"># Multiplier factor for the grided parameter</span>
+<span class="na">th_fim</span><span class="o">=</span><span class="s">1000</span><span class="w">                </span><span class="c1"># v 1.2.6 and later</span>
+
+<span class="k">[Task SimulationRundu]</span>
+<span class="na">...</span>
+<span class="na">inundation</span><span class="o">=</span><span class="s">simpleinundation</span>
+<span class="na">inundation_param_set</span><span class="o">=</span><span class="s">rundufim</span>
+<span class="na">output_grids</span><span class="o">=</span><span class="s">INUNDATION|MAXINUNDATION|HANDCATCHMENT</span>
+<span class="na">...</span>
+
+<span class="k">[Execute]</span>
+<span class="na">TASK</span><span class="o">=</span><span class="s">SimulationRundu</span>
 </pre></div>
 </div>
 </section>
@@ -186,6 +207,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="routing_models.html" class="btn btn-neutral float-left" title="2.2. Routing Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="software_installation.html" class="btn btn-neutral float-right" title="3. Software installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

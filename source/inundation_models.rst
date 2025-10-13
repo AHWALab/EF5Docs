@@ -33,13 +33,14 @@ Simple Inundation Parameter Set
 Defines the parameters for the simple inundation model. The parameters `alpha` and `beta` are used to define the coefficients for the rating curve power function, which is used to calculate the flow depth from the simulated flow rate.
 
 .. confval:: PARAMETERS FOR INUNDATION
-
  
    ``gauge``: Gauge ID as defined in the BASIN block.
    
-   ``alpha``: Lumped parameter for the rating curve alpha*(discharge)^beta.
+   ``alpha``: Lumped parameter for the rating curve alpha*(discharge)^beta. If using distributed parameters, it will work as a multiplier factor for the grid values.
    
-   ``beta``: Lumped parameter for the rating curve alpha*(discharge)^beta.
+   ``beta``: Lumped parameter for the rating curve alpha*(discharge)^beta. If using distributed parameters, it will work as a multiplier factor for the grid values.
+
+   ``th_fim``: Flow accumulation threshold to estimate the inundation area. This parameter is independent of the routing model threshold ``th``. v 1.2.6 and later. Previous versions use the ``th`` parameter as the threshold for inundation.
 
    **Optional parameters:**
 
@@ -47,11 +48,34 @@ Defines the parameters for the simple inundation model. The parameters `alpha` a
 
    ``beta_grid``: Path for the grid of beta parameter (.tif) for the rating curve alpha*(discharge)^beta. It must be accompanied by the ``beta`` parameter, which will work as a multiplier factor for the grid values.
 
-Example of Simple Inundation Parameter Set block
+.. confval:: OUTPUT GRIDS
+
+   ``MAXINUNDATION``: Maximum inundation depth (m) for the simulation period. (v 1.2.4 and later)
+   
+   ``INUNDATION``: Inundation depth (m) at each time step.
+
+   ``HANDCATCHMENT``: HAND catchment areas (v 1.2.6 and later)
+
+Example of Simple Inundation control file
 
 .. code-block:: ini
 
-   [simpleinundationparamset rundu]
+   ...
+
+   [simpleinundationparamset rundufim]
    gauge=rundu
-   alpha=2.991570
-   beta=0.932080
+   alpha_grid=parameters/alpha_fim_rundu.tif
+   beta_grid=parameters/beta_fim_rundu.tif
+   alpha=1                    # Multiplier factor for the grided parameter
+   beta=1                     # Multiplier factor for the grided parameter
+   th_fim=1000                # v 1.2.6 and later
+
+   [Task SimulationRundu]
+   ...
+   inundation=simpleinundation
+   inundation_param_set=rundufim
+   output_grids=INUNDATION|MAXINUNDATION|HANDCATCHMENT
+   ...
+
+   [Execute]
+   TASK=SimulationRundu

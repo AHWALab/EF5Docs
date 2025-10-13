@@ -91,7 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="running.html#execute-ef5">4.3. Execute EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#run-ef5-in-the-terminal">4.3. Run EF5 in the terminal</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -157,7 +157,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">SIMU_RP</span></code>: Similar to <code class="docutils literal notranslate"><span class="pre">SIMU</span></code>, but also generates grids for standard deviation, mean, and skewness to support return period estimation using the Log-Pearson Type III distribution.</p>
 <p><code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code>: Automatically identifies all outlets and creates necessary configuration files for distributed modeling. Useful when setting up models with many gauges.</p>
 <p><code class="docutils literal notranslate"><span class="pre">CLIP_BASIN</span></code>: Clips model inputs to the domain defined in the BASIN block.</p>
-<p><code class="docutils literal notranslate"><span class="pre">BASIN_AVG</span></code>: Calculates basin-wide averages from gridded data (e.g., average precipitation). Usefull in parameter estimation, such as for kinematic wave routing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">BASIN_AVG</span></code>: Calculates basin-wide averages from gridded data (e.g., average precipitation). Useful in parameter estimation, such as for kinematic wave routing.</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/ex_mask.png"><img alt="_images/ex_mask.png" src="_images/ex_mask.png" style="width: 200px;" />
 </a>
@@ -270,10 +270,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">UNITSTREAMFLOW</span></code>: Unit discharge, calculated as streamflow per contributing area (e.g., m³/s per km²).</p>
 <p><code class="docutils literal notranslate"><span class="pre">MAXSTREAMFLOW</span></code>: Maximum streamflow value at each grid cell during the simulation period (m³/s).</p>
 <p><code class="docutils literal notranslate"><span class="pre">MAXUNITSTREAMFLOW</span></code>: Maximum unit discharge (streamflow per unit area) observed during the simulation (m³/s per km²).</p>
-<p><code class="docutils literal notranslate"><span class="pre">PRECIP</span></code>: Precipitaiton (mm)</p>
+<p><code class="docutils literal notranslate"><span class="pre">PRECIP</span></code>: Precipitation (mm)</p>
 <p><code class="docutils literal notranslate"><span class="pre">PRECIPACCUM</span></code>: Accumulated precipitation (mm)</p>
 <p><code class="docutils literal notranslate"><span class="pre">INUNDATION</span></code>: Simulated water depth for inundated areas, in meters (m).</p>
-<p><code class="docutils literal notranslate"><span class="pre">MAXINUNDATION</span></code>: Simulated maximum water depth for inundated areas during the simulaton period (m)</p>
+<p><code class="docutils literal notranslate"><span class="pre">MAXINUNDATION</span></code>: Simulated maximum water depth for inundated areas during the simulation period (m)</p>
 <p><code class="docutils literal notranslate"><span class="pre">SOILMOISTURE</span></code>: Volumetric soil moisture content, expressed as a percentage (%).</p>
 <p><code class="docutils literal notranslate"><span class="pre">MAXSOILMOISTURE</span></code>: Maximum soil moisture value reached during the simulation, as a percentage (%).</p>
 <p><code class="docutils literal notranslate"><span class="pre">PET</span></code>: Potential evapotranspiration, in millimeters (mm).</p>
