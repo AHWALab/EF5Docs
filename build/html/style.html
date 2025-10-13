@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.2.4. Style &mdash; EF5Manual 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cddb36ac" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.2.5. Execute Block" href="execute_block.html" />
+    <link rel="prev" title="4.2.2. Task block" href="tasks.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #003285" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EF5Manual
+              <img src="_static/EF5-01.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">1. About EF5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#a-modeling-tool-for-large-scale-hydrologic-forecasting">1.1. A modeling tool for large scale hydrologic forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#flexible-architecture-for-multiple-physics-representations">1.2. Flexible architecture for multiple physics representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#acknowledgements">1.3. Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="water_balance_models.html">2.1. Hydrologic Water Balance Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#crest">2.1.1. CREST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#sac-sma">2.1.2. SAC-SMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#hp">2.1.3. HP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="routing_models.html">2.2. Routing Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="routing_models.html#linear-reservoir">2.2.1. Linear Reservoir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="routing_models.html#kinematic-wave">2.2.2. Kinematic Wave</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inundation_models.html">2.3. Inundation Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inundation_models.html#simple-inundation-hand-method">2.3.1. Simple Inundation (HAND method)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_installation.html">3. Software installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#compiling-ef5">3.1. Compiling EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#how-to-cite-ef5">3.2. How to cite EF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_installation.html#changelog">3.3. Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="running.html">4. Running EF5</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="running.html#control-file-configuration-file">4.2. Control file (Configuration file)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.4. Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.5. Execute Block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#run-ef5-in-the-terminal">4.3. Run EF5 in the terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calibrating.html#calibration-output">5.1. Calibration output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibrating.html#parameters-sensitivity">5.2. Parameters’ sensitivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibrating.html#control-file-example-for-calibration">5.3. Control file example for Calibration</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #003285" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EF5Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="running.html"><span class="section-number">4. </span>Running EF5</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4.2.4. </span>Style</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/style.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="style">
+<span id="id1"></span><h1><span class="section-number">4.2.4. </span>Style<a class="headerlink" href="#style" title="Link to this heading"></a></h1>
+<section id="clip-gauge">
+<h2><span class="section-number">4.2.4.1. </span>CLIP_GAUGE<a class="headerlink" href="#clip-gauge" title="Link to this heading"></a></h2>
+<p>Used to clip model input grids to the spatial extent of the digital elevation model (DEM) defined in the Basic block.</p>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-OUTPUT-GRIDS">
+<span class="sig-name descname"><span class="pre">OUTPUT</span> <span class="pre">GRIDS</span></span><a class="headerlink" href="#confval-OUTPUT-GRIDS" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">maskgrid.tif</span></code>: Binary mask grid that covers the entire spatial extent of the DEM.</p>
+<blockquote>
+<div><figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/ex_mask.png"><img alt="_images/ex_mask.png" src="_images/ex_mask.png" style="width: 200px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example of a basin mask .tif file generated using the <code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code> task style.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">basin_new.txt</span></code>: Text file containing the gauges and basin to cover the entire DEM domain</p>
+<blockquote>
+<div><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Gauge 0] cellx</span><span class="o">=</span><span class="s">7198 celly=10880 outputts=false</span><span class="w"> </span><span class="c1">#Num Cells = 48893468.000000</span>
+<span class="na">[Gauge 1] cellx</span><span class="o">=</span><span class="s">2180 celly=9025 outputts=false</span><span class="w"> </span><span class="c1">#Num Cells = 6793795.000000</span>
+<span class="na">...</span>
+<span class="k">[Basin 0]</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">0 gauge=1 ...</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<p>Example of CLIP_GAUGE control file</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">...</span>
+
+<span class="w"> </span><span class="k">[Task CLIPGAGING]</span>
+<span class="w"> </span><span class="na">STYLE</span><span class="o">=</span><span class="s">CLIP_GAUGE</span>
+<span class="w"> </span><span class="na">MODEL</span><span class="o">=</span><span class="s">crest</span>
+<span class="w"> </span><span class="na">ROUTING</span><span class="o">=</span><span class="s">KW</span>
+<span class="w"> </span><span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
+<span class="w"> </span><span class="na">PRECIP</span><span class="o">=</span><span class="s">IMERG</span>
+<span class="w"> </span><span class="na">PET</span><span class="o">=</span><span class="s">CLIMO</span>
+<span class="w"> </span><span class="na">OUTPUT</span><span class="o">=</span><span class="s">outputs</span>
+<span class="w"> </span><span class="na">defaultparamsgauge</span><span class="o">=</span><span class="s">0</span>
+<span class="w"> </span><span class="na">PARAM_SET</span><span class="o">=</span><span class="s">MyCRESTPAR_90</span>
+<span class="w"> </span><span class="na">ROUTING_PARAM_Set</span><span class="o">=</span><span class="s">MyKWPAR_90</span>
+<span class="w"> </span><span class="na">TIMESTEP</span><span class="o">=</span><span class="s">30u</span>
+<span class="w"> </span><span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">202010100830</span>
+<span class="w"> </span><span class="na">TIME_END</span><span class="o">=</span><span class="s">202010100930</span>
+</pre></div>
+</div>
+</section>
+<section id="basin-avg">
+<h2><span class="section-number">4.2.4.2. </span>BASIN_AVG<a class="headerlink" href="#basin-avg" title="Link to this heading"></a></h2>
+<p>EF5 supports spatial aggregation of input grids. The aggregation is computed by averaging the accumulated values of the variable by the flow accumulation grid. The output grid corresponds to the average value of the variable in each catchment area.
+To run the aggregation task, set the <cite>STYLE</cite> parameter in the <cite>Task</cite> block to <cite>BASIN_AVG</cite>. The variables to be averaged should be located inside the output folder defined in the <cite>Task</cite> block. The aggregation will be performed for all the variables (.tif) found in the output folder.
+The aggregation zone is defined by the most downstream gauge in the <cite>BASIN</cite> block. If the user requires to be computed for the entire domain, the <cite>CLIP_GAUGE</cite> task style can be used to automatically identify all outlets and create a basin that covers the entire domain.
+The following output grids will be generated in the output folder:</p>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-0">
+<span class="sig-name descname"><span class="pre">OUTPUT</span> <span class="pre">GRIDS</span></span><a class="headerlink" href="#confval-0" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">basin.area.tif</span></code>: Catchment area at each pixel (km²).</p>
+<p><code class="docutils literal notranslate"><span class="pre">relief.ratio.tif</span></code>: Relief ratio at each pixel (m/km).</p>
+<p><code class="docutils literal notranslate"><span class="pre">relief.tif</span></code>: Relief at each pixel (m).</p>
+<p><code class="docutils literal notranslate"><span class="pre">river.length.tif</span></code>: Length of the river network at each pixel (km).</p>
+<p><code class="docutils literal notranslate"><span class="pre">your_variable_1.tif.avg.tif</span></code>: Average of the variable in each pixel.</p>
+<p><code class="docutils literal notranslate"><span class="pre">your_variable_2.tif.avg.tif</span></code>: Average of the variable in each pixel.</p>
+<p><code class="docutils literal notranslate"><span class="pre">...</span></code>: Additional variables as defined in the control file.</p>
+</dd></dl>
+
+<p>Example of BASIN_AVG control file</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">...</span>
+
+<span class="w"> </span><span class="k">[Task BASINAVGING]</span>
+<span class="w"> </span><span class="na">STYLE</span><span class="o">=</span><span class="s">BASIN_AVG</span>
+<span class="w"> </span><span class="na">MODEL</span><span class="o">=</span><span class="s">crest</span>
+<span class="w"> </span><span class="na">ROUTING</span><span class="o">=</span><span class="s">KW</span>
+<span class="w"> </span><span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
+<span class="w"> </span><span class="na">PRECIP</span><span class="o">=</span><span class="s">IMERG</span>
+<span class="w"> </span><span class="na">PET</span><span class="o">=</span><span class="s">CLIMO</span>
+<span class="w"> </span><span class="na">OUTPUT</span><span class="o">=</span><span class="s">outputs</span>
+<span class="w"> </span><span class="na">defaultparamsgauge</span><span class="o">=</span><span class="s">0</span>
+<span class="w"> </span><span class="na">PARAM_SET</span><span class="o">=</span><span class="s">MyCRESTPAR_90</span>
+<span class="w"> </span><span class="na">ROUTING_PARAM_Set</span><span class="o">=</span><span class="s">MyKWPAR_90</span>
+<span class="w"> </span><span class="na">TIMESTEP</span><span class="o">=</span><span class="s">30u</span>
+<span class="w"> </span><span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">202010100830</span>
+<span class="w"> </span><span class="na">TIME_END</span><span class="o">=</span><span class="s">202010100930</span>
+</pre></div>
+</div>
+</section>
+<section id="simu-using-long-range-mode">
+<h2><span class="section-number">4.2.4.3. </span>SIMU using long range mode<a class="headerlink" href="#simu-using-long-range-mode" title="Link to this heading"></a></h2>
+<p>The Long Range mode enables EF5 to incorporate forecasted precipitation datasets in addition to the standard observed precipitation inputs. This is particularly useful for generating forecast simulations beyond the observation window.</p>
+<p>To activate Long Range mode, configure the <cite>Task</cite> block as follows:</p>
+<ul class="simple">
+<li><p>set the <cite>STYLE</cite> parameter in the <cite>Task</cite> block to <code class="docutils literal notranslate"><span class="pre">SIMU</span></code></p></li>
+<li><p>Provide both, the <code class="docutils literal notranslate"><span class="pre">PRECIP</span></code> and the <code class="docutils literal notranslate"><span class="pre">PRECIPFORECAST</span></code> parameter with the name of the precipitation forecast block defined in the control file.</p></li>
+</ul>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">...</span>
+
+<span class="w"> </span><span class="k">[Task Simulation_QPF]</span>
+<span class="w"> </span><span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span>
+<span class="w"> </span><span class="na">MODEL</span><span class="o">=</span><span class="s">crest</span>
+<span class="w"> </span><span class="na">ROUTING</span><span class="o">=</span><span class="s">KW</span>
+<span class="w"> </span><span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
+<span class="w"> </span><span class="na">PRECIP</span><span class="o">=</span><span class="s">IMERG</span><span class="w">                        </span><span class="c1"># Observed precipitation forcing</span>
+<span class="w"> </span><span class="na">PRECIPFORECAST</span><span class="o">=</span><span class="s">GFS</span><span class="w">                  </span><span class="c1"># Precipitation forecast forcing</span>
+<span class="w"> </span><span class="na">PET</span><span class="o">=</span><span class="s">CLIMO</span>
+<span class="w"> </span><span class="na">OUTPUT</span><span class="o">=</span><span class="s">outputs</span>
+<span class="w"> </span><span class="na">STATES</span><span class="o">=</span><span class="s">states</span>
+<span class="w"> </span><span class="na">OUTPUT_GRIDS</span><span class="o">=</span><span class="s">MAXUNITSTREAMFLOW|MAXSTREAMFLOW|PRECIPACCUM</span>
+<span class="w"> </span><span class="na">defaultparamsgauge</span><span class="o">=</span><span class="s">0</span>
+<span class="w"> </span><span class="na">PARAM_SET</span><span class="o">=</span><span class="s">MyCRESTPAR</span>
+<span class="w"> </span><span class="na">ROUTING_PARAM_Set</span><span class="o">=</span><span class="s">MyKWPAR</span>
+<span class="w"> </span><span class="na">TIMESTEP</span><span class="o">=</span><span class="s">30u</span>
+<span class="w"> </span><span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">202001010000</span>
+<span class="w"> </span><span class="na">TIME_WARMEND</span><span class="o">=</span><span class="s">202002010000</span>
+<span class="w"> </span><span class="na">TIME_STATE</span><span class="o">=</span><span class="s">202003010000</span>
+<span class="w"> </span><span class="na">TIMESTEP_LR</span><span class="o">=</span><span class="s">60u</span><span class="w">                     </span><span class="c1"># Time step for long range mode</span>
+<span class="w"> </span><span class="na">TIME_BEGIN_LR</span><span class="o">=</span><span class="s">202003010000</span><span class="w">          </span><span class="c1"># Start date for forecast forcing</span>
+<span class="w"> </span><span class="na">TIME_END</span><span class="o">=</span><span class="s">202003011200</span><span class="w">               </span><span class="c1"># End date of simulation including forecast period</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tasks.html" class="btn btn-neutral float-left" title="4.2.2. Task block" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="execute_block.html" class="btn btn-neutral float-right" title="4.2.5. Execute Block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, AHWA Laboratory, IIHR - Hydroscience &amp; Engineering, University of Iowa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

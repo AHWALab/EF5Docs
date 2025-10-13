@@ -4,7 +4,7 @@ Software installation
 
 EF5 is open-source and can be run in Windows, MacOS and Linux. Get Started by downloading the source code (MacOS/Linux) or pre-compiled executable (Windows).
 
-
+`Go to EF5 GitHub repository <https://github.com/AHWALab/EF5>`_
 
 Compiling EF5
 ==============

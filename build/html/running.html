@@ -88,7 +88,8 @@
 <li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html">4.2.4. Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.5. Execute Block</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#run-ef5-in-the-terminal">4.3. Run EF5 in the terminal</a></li>
@@ -173,7 +174,7 @@
 </li>
 <li><p>Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.</p></li>
 </ol>
-<p>Depending on the routing model selected in the Task block, additional grids may be required. The table below summarizes the grid requirements for each model:</p>
+<p>The table below summarizes the grid requirements for each model:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Grids</p></th>
@@ -199,12 +200,12 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Simple inundation</p></td>
+<td><p>🟠</p></td>
 <td></td>
-<td><p>🟢</p></td>
 </tr>
 </tbody>
 </table>
-<p>Legend: 🟢 = Yes, 🟠 = Only if using distributed model</p>
+<p>Legend: 🟢 = free grid, 🟠 = restricted to flow direction grid</p>
 <p>The following mock-up illustrates the bare minimum structure for a control file required to run any of the available styles.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Basic]                                       # Basic block</span>
 <span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
@@ -254,7 +255,8 @@
 <li class="toctree-l1"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execute_block.html">4.2.4. Execute Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">4.2.4. Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execute_block.html">4.2.5. Execute Block</a></li>
 </ul>
 </div>
 </section>

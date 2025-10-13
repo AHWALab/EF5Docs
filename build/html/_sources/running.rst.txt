@@ -41,7 +41,7 @@ The minimum required blocks are:
 #. Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.
 
 
-Depending on the routing model selected in the Task block, additional grids may be required. The table below summarizes the grid requirements for each model:
+The table below summarizes the grid requirements for each model:
 
 +-------------------+-------------------------+-------------+
 |       Grids       | Must Match Basic Files? | Free grid?  |
@@ -54,10 +54,10 @@ Depending on the routing model selected in the Task block, additional grids may 
 +-------------------+-------------------------+-------------+
 |  Kinematic wave   |           🟠            |             |
 +-------------------+-------------------------+-------------+
-| Simple inundation |                         |     🟢      |
+| Simple inundation |           🟠            |             |
 +-------------------+-------------------------+-------------+
 
-Legend: 🟢 = Yes, 🟠 = Only if using distributed model
+Legend: 🟢 = free grid, 🟠 = restricted to flow direction grid
 
 
 The following mock-up illustrates the bare minimum structure for a control file required to run any of the available styles.
@@ -112,6 +112,7 @@ To set up your configuration, refer to the components listed below.
 
    controlfile
    tasks
+   style
    execute_block
 
 
