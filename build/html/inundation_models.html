@@ -161,8 +161,8 @@
 <dt class="sig sig-object std" id="confval-PARAMETERS-FOR-INUNDATION">
 <span class="sig-name descname"><span class="pre">PARAMETERS</span> <span class="pre">FOR</span> <span class="pre">INUNDATION</span></span><a class="headerlink" href="#confval-PARAMETERS-FOR-INUNDATION" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">gauge</span></code>: Gauge ID as defined in the BASIN block.</p>
-<p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: Lumped parameter for the rating curve alpha*(discharge)^beta.</p>
-<p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: Lumped parameter for the rating curve alpha*(discharge)^beta.</p>
+<p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: Lumped parameter for the rating curve alpha*(discharge)^beta. If using distributed parameters, it will work as a multiplier factor for the grid values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: Lumped parameter for the rating curve alpha*(discharge)^beta. If using distributed parameters, it will work as a multiplier factor for the grid values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">th_fim</span></code>: Flow accumulation threshold to estimate the inundation area. This parameter is independent of the routing model threshold <code class="docutils literal notranslate"><span class="pre">th</span></code>. v 1.2.6 and later. Previous versions use the <code class="docutils literal notranslate"><span class="pre">th</span></code> parameter as the threshold for inundation.</p>
 <p><strong>Optional parameters:</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">alpha_grid</span></code>: Path for the grid of alpha parameter (.tif) for the rating curve alpha*(discharge)^beta. It must be accompanied by the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter, which will work as a multiplier factor for the grid values.</p>

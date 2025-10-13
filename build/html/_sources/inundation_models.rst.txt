@@ -36,9 +36,9 @@ Defines the parameters for the simple inundation model. The parameters `alpha` a
  
    ``gauge``: Gauge ID as defined in the BASIN block.
    
-   ``alpha``: Lumped parameter for the rating curve alpha*(discharge)^beta.
+   ``alpha``: Lumped parameter for the rating curve alpha*(discharge)^beta. If using distributed parameters, it will work as a multiplier factor for the grid values.
    
-   ``beta``: Lumped parameter for the rating curve alpha*(discharge)^beta.
+   ``beta``: Lumped parameter for the rating curve alpha*(discharge)^beta. If using distributed parameters, it will work as a multiplier factor for the grid values.
 
    ``th_fim``: Flow accumulation threshold to estimate the inundation area. This parameter is independent of the routing model threshold ``th``. v 1.2.6 and later. Previous versions use the ``th`` parameter as the threshold for inundation.
 

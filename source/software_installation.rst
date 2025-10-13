@@ -41,22 +41,33 @@ Flamig, Z. L., Vergara, H., and Gourley, J. J.: The Ensemble Framework For Flash
 Changelog
 =========
 
-* v 1.2.5
+* v 1.2.6.                    **Status**: Released
 
-    **Status**: Under development
+      **Added**
+      
+        * New parameter th_fim to set a threshold for Simple Inundation simulations      
+        * New output grid for simple inundation: HAND catchments      
+        * Resource utilization summary printed after any task completes
+      
+      **Fixed**
+      
+        * Incorrect precipitation values when switching from Normal to Long Range simulations
+      
+      **Optimized**
+      
+        * Reduced duplicate warning prints, especially for "Node Soil Moisture" messages
+    
+
+* v 1.2.5.                    **Status**: Under development
 
     * [To be updated with changes once released]
 
 
-* v 1.2.4
-
-    **Status**: Released
+* v 1.2.4.                    **Status**: Released
 
     * Merged average Grids branch with master, allowing users to run both simulation and averaging on the same EF5 so there is no need to use different versions of EF5 to do averaging.
 
 
-* v 1.0
-
-    **Status**: Released
+* v 1.0.                      **Status**: Released
 
     * Initial release of EF5.
