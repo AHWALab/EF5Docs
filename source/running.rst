@@ -40,6 +40,26 @@ The minimum required blocks are:
     The Style parameter within the Task block defines the type of task EF5 will execute, e.g., ``SIMU`` for a standard simulation, ``CLIP_GAUGE`` for clipping model inputs to the entire domain, ``CALI_DREAM`` for calibration using the DREAM algorithm, etc. See :ref:`task styles <task styles>` for the full list of supported Style types.
 #. Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.
 
+
+Depending on the routing model selected in the Task block, additional grids may be required. The table below summarizes the grid requirements for each model:
+
++-------------------+-------------------------+-------------+
+|       Grids       | Must Match Basic Files? | Free grid?  |
++===================+=========================+=============+
+|   Precipitation   |                         |     🟢      |
++-------------------+-------------------------+-------------+
+|        PET        |                         |     🟢      |
++-------------------+-------------------------+-------------+
+|       CREST       |                         |     🟢      |
++-------------------+-------------------------+-------------+
+|  Kinematic wave   |           🟠            |             |
++-------------------+-------------------------+-------------+
+| Simple inundation |                         |     🟢      |
++-------------------+-------------------------+-------------+
+
+Legend: 🟢 = Yes, 🟠 = Only if using distributed model
+
+
 The following mock-up illustrates the bare minimum structure for a control file required to run any of the available styles.
 
 .. code-block:: ini

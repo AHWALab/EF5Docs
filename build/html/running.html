@@ -173,6 +173,38 @@
 </li>
 <li><p>Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.</p></li>
 </ol>
+<p>Depending on the routing model selected in the Task block, additional grids may be required. The table below summarizes the grid requirements for each model:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Grids</p></th>
+<th class="head"><p>Must Match Basic Files?</p></th>
+<th class="head"><p>Free grid?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Precipitation</p></td>
+<td></td>
+<td><p>🟢</p></td>
+</tr>
+<tr class="row-odd"><td><p>PET</p></td>
+<td></td>
+<td><p>🟢</p></td>
+</tr>
+<tr class="row-even"><td><p>CREST</p></td>
+<td></td>
+<td><p>🟢</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kinematic wave</p></td>
+<td><p>🟠</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Simple inundation</p></td>
+<td></td>
+<td><p>🟢</p></td>
+</tr>
+</tbody>
+</table>
+<p>Legend: 🟢 = Yes, 🟠 = Only if using distributed model</p>
 <p>The following mock-up illustrates the bare minimum structure for a control file required to run any of the available styles.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Basic]                                       # Basic block</span>
 <span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
