@@ -70,11 +70,11 @@ The following output grids will be generated in the output folder:
     
     ``river.length.tif``: Length of the river network at each pixel (km).
     
-    ``your_variable_1.tif.avg.tif``: Average of the variable in each pixel.
+    ``your_variable_1.tif.avg.tif``: Average of the variable "1" in each pixel.
 
-    ``your_variable_2.tif.avg.tif``: Average of the variable in each pixel.
+    ``your_variable_2.tif.avg.tif``: Average of the variable "2" in each pixel.
 
-    ``...``: Additional variables as defined in the control file.
+    ``...``: Additional variables processed if tif located in the outputs folder.
 
 Example of BASIN_AVG control file
 
@@ -133,3 +133,62 @@ To activate Long Range mode, configure the `Task` block as follows:
     TIMESTEP_LR=60u                     # Time step for long range mode
     TIME_BEGIN_LR=202003010000          # Start date for forecast forcing
     TIME_END=202003011200               # End date of simulation including forecast period
+
+
+----------------------------
+ DATA ASSIMILATION
+----------------------------
+
+EF5 supports data assimilation (DA) of streamflow observations to improve hydrologic simulations. The DA process adjusts model states based on observed streamflow data at specified gauge locations. The following figure illustrates the effect of data assimilation on streamflow simulations.
+
+.. figure:: _static/outputs_examples/da_effects.png
+      :width: 600
+      :align: center
+
+      Example of the effect of data assimilation on streamflow simulations using EF5. The blue line represents the simulated streamflow without data assimilation, while the green line shows the improved simulation after assimilating observed data (red dots).
+
+EF5 requires the user to provide a file containing streamflow observations for the gauges defined in the BASIN block. The file should be in CSV format with the following structure (no header):
+
+.. code-block:: ini
+
+    da1,2022-07-27 12:30:00,1924.11
+    da1,2022-07-27 13:00:00,4197.91
+    ...
+
+    da2,2022-07-27 12:30:00,1030.03
+    da2,2022-07-27 13:00:00,1255.62
+    ...
+
+
+Example of Data Assimilation control file:
+
+.. code-block:: ini
+
+    ...
+
+    [gauge A] lat=37.755 lon=-84.025 outputts=true
+    [gauge DA1] lat=37.384 lon=-83.684 outputts=true
+    [gauge DA2] lat=37.443 lon=-83.464 outputts=true
+
+    [Basin 0]
+    gauge=A
+    gauge=DA1
+    gauge=DA2
+
+    ...
+
+    [Task CREST_Simulation]
+    STYLE=simu
+    MODEL=crest
+    ROUTING=KW
+    BASIN=0
+    PRECIP=MRMS
+    PET=CLIMO
+    OUTPUT=outputs
+    STATES=data/states
+    DA_FILE=da.observations.csv # Name of the file containing streamflow observations for data assimilation
+    defaultparamsgauge=A
+    ...
+
+    [Execute]
+    task=CREST_Simulation

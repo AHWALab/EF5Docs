@@ -221,7 +221,7 @@ The following output grids will be generated in the output folder:</p>
 <p>The Long Range mode enables EF5 to incorporate forecasted precipitation datasets in addition to the standard observed precipitation inputs. This is particularly useful for generating forecast simulations beyond the observation window.</p>
 <p>To activate Long Range mode, configure the <cite>Task</cite> block as follows:</p>
 <ul class="simple">
-<li><p>set the <cite>STYLE</cite> parameter in the <cite>Task</cite> block to <code class="docutils literal notranslate"><span class="pre">SIMU</span></code></p></li>
+<li><p>Set the <cite>STYLE</cite> parameter in the <cite>Task</cite> block to <code class="docutils literal notranslate"><span class="pre">SIMU</span></code></p></li>
 <li><p>Provide both, the <code class="docutils literal notranslate"><span class="pre">PRECIP</span></code> and the <code class="docutils literal notranslate"><span class="pre">PRECIPFORECAST</span></code> parameter with the name of the precipitation forecast block defined in the control file.</p></li>
 </ul>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">...</span>
@@ -247,6 +247,58 @@ The following output grids will be generated in the output folder:</p>
 <span class="w"> </span><span class="na">TIMESTEP_LR</span><span class="o">=</span><span class="s">60u</span><span class="w">                     </span><span class="c1"># Time step for long range mode</span>
 <span class="w"> </span><span class="na">TIME_BEGIN_LR</span><span class="o">=</span><span class="s">202003010000</span><span class="w">          </span><span class="c1"># Start date for forecast forcing</span>
 <span class="w"> </span><span class="na">TIME_END</span><span class="o">=</span><span class="s">202003011200</span><span class="w">               </span><span class="c1"># End date of simulation including forecast period</span>
+</pre></div>
+</div>
+</section>
+<section id="data-assimilation">
+<h2><span class="section-number">4.2.4.4. </span>DATA ASSIMILATION<a class="headerlink" href="#data-assimilation" title="Link to this heading"></a></h2>
+<p>EF5 supports data assimilation (DA) of streamflow observations to improve hydrologic simulations. The DA process adjusts model states based on observed streamflow data at specified gauge locations. The following figure illustrates the effect of data assimilation on streamflow simulations.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/da_effects.png"><img alt="_images/da_effects.png" src="_images/da_effects.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example of the effect of data assimilation on streamflow simulations using EF5. The blue line represents the simulated streamflow without data assimilation, while the green line shows the improved simulation after assimilating observed data (red dots).</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>EF5 requires the user to provide a file containing streamflow observations for the gauges defined in the BASIN block. The file should be in CSV format with the following structure (no header):</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">da1,2022-07-27 12</span><span class="o">:</span><span class="s">30:00,1924.11</span>
+<span class="na">da1,2022-07-27 13</span><span class="o">:</span><span class="s">00:00,4197.91</span>
+<span class="na">...</span>
+
+<span class="na">da2,2022-07-27 12</span><span class="o">:</span><span class="s">30:00,1030.03</span>
+<span class="na">da2,2022-07-27 13</span><span class="o">:</span><span class="s">00:00,1255.62</span>
+<span class="na">...</span>
+</pre></div>
+</div>
+<p>Example of Data Assimilation control file:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">...</span>
+
+<span class="na">[gauge A] lat</span><span class="o">=</span><span class="s">37.755 lon=-84.025 outputts=true</span>
+<span class="na">[gauge DA1] lat</span><span class="o">=</span><span class="s">37.384 lon=-83.684 outputts=true</span>
+<span class="na">[gauge DA2] lat</span><span class="o">=</span><span class="s">37.443 lon=-83.464 outputts=true</span>
+
+<span class="k">[Basin 0]</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">A</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">DA1</span>
+<span class="na">gauge</span><span class="o">=</span><span class="s">DA2</span>
+
+<span class="na">...</span>
+
+<span class="k">[Task CREST_Simulation]</span>
+<span class="na">STYLE</span><span class="o">=</span><span class="s">simu</span>
+<span class="na">MODEL</span><span class="o">=</span><span class="s">crest</span>
+<span class="na">ROUTING</span><span class="o">=</span><span class="s">KW</span>
+<span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
+<span class="na">PRECIP</span><span class="o">=</span><span class="s">MRMS</span>
+<span class="na">PET</span><span class="o">=</span><span class="s">CLIMO</span>
+<span class="na">OUTPUT</span><span class="o">=</span><span class="s">outputs</span>
+<span class="na">STATES</span><span class="o">=</span><span class="s">data/states</span>
+<span class="na">DA_FILE</span><span class="o">=</span><span class="s">da.observations.csv</span><span class="w"> </span><span class="c1"># Name of the file containing streamflow observations for data assimilation</span>
+<span class="na">defaultparamsgauge</span><span class="o">=</span><span class="s">A</span>
+<span class="na">...</span>
+
+<span class="k">[Execute]</span>
+<span class="na">task</span><span class="o">=</span><span class="s">CREST_Simulation</span>
 </pre></div>
 </div>
 </section>
