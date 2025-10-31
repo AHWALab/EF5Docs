@@ -167,8 +167,8 @@ Example of Data Assimilation control file:
     ...
 
     [gauge A] lat=37.755 lon=-84.025 outputts=true
-    [gauge DA1] lat=37.384 lon=-83.684 outputts=true
-    [gauge DA2] lat=37.443 lon=-83.464 outputts=true
+    [gauge DA1] lat=37.384 lon=-83.684 outputts=true WANTDA=true OBS=obs/DA1.csv   # Enable data assimilation for this gauge
+    [gauge DA2] lat=37.443 lon=-83.464 outputts=true WANTDA=true OBS=obs/DA2.csv   # Enable data assimilation for this gauge
 
     [Basin 0]
     gauge=A
