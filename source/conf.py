@@ -61,3 +61,10 @@ html_css_files = [
 ]
 
 html_logo = '_static/EF5-01.png'
+
+# Add a global warning banner to the bottom of every page
+rst_epilog = """
+.. warning::
+   🚧 This documentation is currently under active development.  
+   Content may change frequently and some sections may be incomplete.
+"""

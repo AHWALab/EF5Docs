@@ -70,11 +70,11 @@ The following output grids will be generated in the output folder:
     
     ``river.length.tif``: Length of the river network at each pixel (km).
     
-    ``your_variable_1.tif.avg.tif``: Average of the variable in each pixel.
+    ``your_variable_1.tif.avg.tif``: Average of the variable "1" in each pixel.
 
-    ``your_variable_2.tif.avg.tif``: Average of the variable in each pixel.
+    ``your_variable_2.tif.avg.tif``: Average of the variable "2" in each pixel.
 
-    ``...``: Additional variables as defined in the control file.
+    ``...``: Additional variables processed if tif located in the outputs folder.
 
 Example of BASIN_AVG control file
 
@@ -167,8 +167,8 @@ Example of Data Assimilation control file:
     ...
 
     [gauge A] lat=37.755 lon=-84.025 outputts=true
-    [gauge DA1] lat=37.384 lon=-83.684 outputts=true
-    [gauge DA2] lat=37.443 lon=-83.464 outputts=true
+    [gauge DA1] lat=37.384 lon=-83.684 outputts=true WANTDA=true OBS=obs/DA1.csv   # Enable data assimilation for this gauge
+    [gauge DA2] lat=37.443 lon=-83.464 outputts=true WANTDA=true OBS=obs/DA2.csv   # Enable data assimilation for this gauge
 
     [Basin 0]
     gauge=A

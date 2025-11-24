@@ -191,9 +191,9 @@ The following output grids will be generated in the output folder:</p>
 <p><code class="docutils literal notranslate"><span class="pre">relief.ratio.tif</span></code>: Relief ratio at each pixel (m/km).</p>
 <p><code class="docutils literal notranslate"><span class="pre">relief.tif</span></code>: Relief at each pixel (m).</p>
 <p><code class="docutils literal notranslate"><span class="pre">river.length.tif</span></code>: Length of the river network at each pixel (km).</p>
-<p><code class="docutils literal notranslate"><span class="pre">your_variable_1.tif.avg.tif</span></code>: Average of the variable in each pixel.</p>
-<p><code class="docutils literal notranslate"><span class="pre">your_variable_2.tif.avg.tif</span></code>: Average of the variable in each pixel.</p>
-<p><code class="docutils literal notranslate"><span class="pre">...</span></code>: Additional variables as defined in the control file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">your_variable_1.tif.avg.tif</span></code>: Average of the variable “1” in each pixel.</p>
+<p><code class="docutils literal notranslate"><span class="pre">your_variable_2.tif.avg.tif</span></code>: Average of the variable “2” in each pixel.</p>
+<p><code class="docutils literal notranslate"><span class="pre">...</span></code>: Additional variables processed if tif located in the outputs folder.</p>
 </dd></dl>
 
 <p>Example of BASIN_AVG control file</p>
@@ -274,8 +274,8 @@ The following output grids will be generated in the output folder:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">...</span>
 
 <span class="na">[gauge A] lat</span><span class="o">=</span><span class="s">37.755 lon=-84.025 outputts=true</span>
-<span class="na">[gauge DA1] lat</span><span class="o">=</span><span class="s">37.384 lon=-83.684 outputts=true</span>
-<span class="na">[gauge DA2] lat</span><span class="o">=</span><span class="s">37.443 lon=-83.464 outputts=true</span>
+<span class="na">[gauge DA1] lat</span><span class="o">=</span><span class="s">37.384 lon=-83.684 outputts=true WANTDA=true OBS=obs/DA1.csv</span><span class="w">   </span><span class="c1"># Enable data assimilation for this gauge</span>
+<span class="na">[gauge DA2] lat</span><span class="o">=</span><span class="s">37.443 lon=-83.464 outputts=true WANTDA=true OBS=obs/DA2.csv</span><span class="w">   </span><span class="c1"># Enable data assimilation for this gauge</span>
 
 <span class="k">[Basin 0]</span>
 <span class="na">gauge</span><span class="o">=</span><span class="s">A</span>
@@ -300,6 +300,11 @@ The following output grids will be generated in the output folder:</p>
 <span class="k">[Execute]</span>
 <span class="na">task</span><span class="o">=</span><span class="s">CREST_Simulation</span>
 </pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>🚧 This documentation is currently under active development.  
+Content may change frequently and some sections may be incomplete.</p>
 </div>
 </section>
 </section>
