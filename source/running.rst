@@ -49,7 +49,7 @@ The minimum required blocks are:
 .. toctree::
    :maxdepth: 1
 
-   controlfile_format_structure
+   controlfile
    execute_block
 
 The table below summarizes the grid requirements for each model:

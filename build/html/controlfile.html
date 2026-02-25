@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.1. Control file structure &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>4.4.1. Format and structure of the control file &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
@@ -27,8 +27,8 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.2.2. Task block" href="tasks.html" />
-    <link rel="prev" title="4. Running EF5" href="running.html" /> 
+    <link rel="next" title="4.4.2. Execute Block" href="execute_block.html" />
+    <link rel="prev" title="4.2. Task block" href="tasks.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -83,16 +83,25 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="running.html">4. Running EF5</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="running.html#control-file-configuration-file">4.2. Control file (Configuration file)</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.1. Control file structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="style.html">4.2.4. Style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.5. Execute Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">4.1. Styles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="style.html#clip-gauge">4.1.1. CLIP_GAUGE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#basin-avg">4.1.2. BASIN_AVG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#simu-using-long-range-mode">4.1.3. SIMU using long range mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#data-assimilation">4.1.4. DATA ASSIMILATION</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="running.html#run-ef5-in-the-terminal">4.3. Run EF5 in the terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">4.2. Task block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#format">4.2.1. Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#parameters">4.2.2. Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.3. Setting up your own domain</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="running.html#control-file-structure">4.4. Control file structure</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.4.1. Format and structure of the control file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.4.2. Execute Block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#run-ef5-in-the-terminal">4.5. Run EF5 in the terminal</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -118,7 +127,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="running.html"><span class="section-number">4. </span>Running EF5</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4.2.1. </span>Control file structure</li>
+      <li class="breadcrumb-item active"><span class="section-number">4.4.1. </span>Format and structure of the control file</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/controlfile.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -128,8 +137,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="control-file-structure">
-<h1><span class="section-number">4.2.1. </span>Control file structure<a class="headerlink" href="#control-file-structure" title="Link to this heading"></a></h1>
+  <section id="format-and-structure-of-the-control-file">
+<h1><span class="section-number">4.4.1. </span>Format and structure of the control file<a class="headerlink" href="#format-and-structure-of-the-control-file" title="Link to this heading"></a></h1>
 <p>The configuration file controls all user-adjustable settings for EF5, including input forcings, output options, and run methods. It is generally case <strong>insensitive</strong> (except for file paths on case-sensitive systems). Three styles of comments are supported: bash (#), C (/* <a href="#id1"><span class="problematic" id="id2">*</span></a>/), and C++ (//).</p>
 <p>This is an example of comments in the control file:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># All variables (except file paths) are case insensitive</span>
@@ -140,7 +149,7 @@
 </pre></div>
 </div>
 <section id="format-and-taxonomy-information">
-<h2><span class="section-number">4.2.1.1. </span>Format and taxonomy information<a class="headerlink" href="#format-and-taxonomy-information" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4.1.1. </span>Format and taxonomy information<a class="headerlink" href="#format-and-taxonomy-information" title="Link to this heading"></a></h2>
 <p>Tiff files requirements:</p>
 <ol class="arabic simple">
 <li><p>-9999 as nodata value.</p></li>
@@ -149,7 +158,7 @@
 <li><p>The ESRI flow direction convention must be restricted to the following values: <strong>1, 2, 4, 8, 16, 32, 64, and 128</strong>.</p></li>
 </ol>
 <section id="about-time-taxonomy">
-<h3><span class="section-number">4.2.1.1.1. </span>About time taxonomy<a class="headerlink" href="#about-time-taxonomy" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1.1.1. </span>About time taxonomy<a class="headerlink" href="#about-time-taxonomy" title="Link to this heading"></a></h3>
 <p>EF5 uses a time taxonomy to define the simulation period and timestep. The time format is specified in the configuration file, allowing for flexible simulation periods. This time taxonomy is also used in the precipitation and PET forcing files names.</p>
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-TIMESTEP-TIME_BEGIN-TIME_END-and-tiff-file-names">
@@ -162,10 +171,10 @@
 </section>
 </section>
 <section id="blocks">
-<h2><span class="section-number">4.2.1.2. </span>Blocks<a class="headerlink" href="#blocks" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4.1.2. </span>Blocks<a class="headerlink" href="#blocks" title="Link to this heading"></a></h2>
 <p>The control file is structured into blocks, each containing key-value pairs. Each block is defined by a header in square brackets, and the key-value pairs are separated by an equals sign (<cite>=</cite>).</p>
 <section id="basic-block">
-<h3><span class="section-number">4.2.1.2.1. </span>Basic block<a class="headerlink" href="#basic-block" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1.2.1. </span>Basic block<a class="headerlink" href="#basic-block" title="Link to this heading"></a></h3>
 <p>Specifies file locations for the digital elevation model (DEM), drainage direction map (DDM), and flow accumulation map (FAM).</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
 <span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
@@ -178,7 +187,7 @@
 </div>
 </section>
 <section id="precipitation-block">
-<h3><span class="section-number">4.2.1.2.2. </span>Precipitation block<a class="headerlink" href="#precipitation-block" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1.2.2. </span>Precipitation block<a class="headerlink" href="#precipitation-block" title="Link to this heading"></a></h3>
 <p>Defines the properties of the precipitation forcing files. EF5 considers the indicated layer units to be consistent with the simulation timestep.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[PrecipForcing Q2Precip]</span>
 <span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
@@ -190,7 +199,7 @@
 </div>
 </section>
 <section id="potential-evapotranspiration-pet-block">
-<h3><span class="section-number">4.2.1.2.3. </span>Potential Evapotranspiration (PET) block<a class="headerlink" href="#potential-evapotranspiration-pet-block" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1.2.3. </span>Potential Evapotranspiration (PET) block<a class="headerlink" href="#potential-evapotranspiration-pet-block" title="Link to this heading"></a></h3>
 <p>Defines the PET forcing file details. EF5 considers the indicated layer units to be consistent with the simulation timestep.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[PETForcing PET]</span>
 <span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
@@ -202,7 +211,7 @@
 </div>
 </section>
 <section id="gauge-locations-block-s">
-<h3><span class="section-number">4.2.1.2.4. </span>Gauge locations block(s)<a class="headerlink" href="#gauge-locations-block-s" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1.2.4. </span>Gauge locations block(s)<a class="headerlink" href="#gauge-locations-block-s" title="Link to this heading"></a></h3>
 <p>Each gauge information is defined in a separate block, with the block name being the gauge identifier. The gauge identifier is used to reference the gauge in other blocks, such as the basin block.
 The gauge location block specifies the locations of gauges for output and parameter assignment. <code class="docutils literal notranslate"><span class="pre">OUTPUTTS</span></code> is an optional parameter that, when set to <cite>TRUE</cite>, indicates that the gauge will output time series data. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is an optional parameter that specifies the path to the observed data file for the gauge. <code class="docutils literal notranslate"><span class="pre">OBS</span></code> is required if the gauge will be used for calibration task. The <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> parameter is also optional and indicates the area of the basin in square kilometers. When <code class="docutils literal notranslate"><span class="pre">BASINAREA</span></code> is indicated, EF5 will compare the basin area with the area of the flow accumulation map (FAM) to ensure they match. If they do not match, EF5 will look for nearest flow accumulation within a threshold. If no match is found, EF5 will raise a warning.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Gauge OKC]</span>
@@ -219,7 +228,7 @@ The gauge location block specifies the locations of gauges for output and parame
 </div>
 </section>
 <section id="basin-block-s">
-<h3><span class="section-number">4.2.1.2.5. </span>Basin block(s)<a class="headerlink" href="#basin-block-s" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1.2.5. </span>Basin block(s)<a class="headerlink" href="#basin-block-s" title="Link to this heading"></a></h3>
 <p>Groups gauge locations into basins. The user can define multiple basins, each with its own set of gauges. This block doesn’t follow the classic basin definition, but rather groups gauges that are required by the user for a specific task. The basin block is used to define the basin name and the gauges that belong to it. The basin name is used to reference the basin in other blocks, such as the task block.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basin FF]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">OKC</span>
@@ -229,7 +238,7 @@ The gauge location block specifies the locations of gauges for output and parame
 </section>
 </section>
 <section id="parameter-sets">
-<h2><span class="section-number">4.2.1.3. </span>Parameter Sets<a class="headerlink" href="#parameter-sets" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4.1.3. </span>Parameter Sets<a class="headerlink" href="#parameter-sets" title="Link to this heading"></a></h2>
 <p>The <cite>gauge</cite> parameter specifies the gauge identifier for which the parameters are defined. The user must specify at least the set of parameters for one gauge and use them for the entire domain, or can specify parameters for multiple gauges in the same block.</p>
 <div class="admonition-there-are-two-ways-to-define-parameters-for-a-basin admonition" id="lumped-distributed">
 <p class="admonition-title">There are two ways to define parameters for a basin:</p>
@@ -247,7 +256,7 @@ The gauge location block specifies the locations of gauges for output and parame
 </figcaption>
 </figure>
 <section id="hydrologic-water-balance-models">
-<h3><span class="section-number">4.2.1.3.1. </span>Hydrologic Water Balance Models<a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1.3.1. </span>Hydrologic Water Balance Models<a class="headerlink" href="#hydrologic-water-balance-models" title="Link to this heading"></a></h3>
 <p>The listed water balance models are explained in detail in the <a class="reference internal" href="water_balance_models.html#water-balance-models"><span class="std std-ref">water balance models section</span></a>.</p>
 <ol class="arabic simple">
 <li><p>CREST Parameter Set</p></li>
@@ -255,7 +264,7 @@ The gauge location block specifies the locations of gauges for output and parame
 </ol>
 </section>
 <section id="routing-models">
-<h3><span class="section-number">4.2.1.3.2. </span>Routing Models<a class="headerlink" href="#routing-models" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1.3.2. </span>Routing Models<a class="headerlink" href="#routing-models" title="Link to this heading"></a></h3>
 <p>The listed routing models are explained in detail in the <a class="reference internal" href="routing_models.html#routing-models"><span class="std std-ref">routing models section</span></a>.</p>
 <ol class="arabic simple">
 <li><p>Linear Reservoir Parameter Set</p></li>
@@ -264,7 +273,7 @@ The gauge location block specifies the locations of gauges for output and parame
 </section>
 </section>
 <section id="snow-17-parameter-set">
-<h2><span class="section-number">4.2.1.4. </span>Snow-17 Parameter Set<a class="headerlink" href="#snow-17-parameter-set" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4.1.4. </span>Snow-17 Parameter Set<a class="headerlink" href="#snow-17-parameter-set" title="Link to this heading"></a></h2>
 <p>Defines the parameters for the Snow-17 model.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[snow17paramset tarbela]</span>
 <span class="na">GAUGE</span><span class="o">=</span><span class="s">tarbela</span>
@@ -280,7 +289,7 @@ The gauge location block specifies the locations of gauges for output and parame
 </div>
 </section>
 <section id="full-control-file-example">
-<h2><span class="section-number">4.2.1.5. </span>Full control file example<a class="headerlink" href="#full-control-file-example" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4.1.5. </span>Full control file example<a class="headerlink" href="#full-control-file-example" title="Link to this heading"></a></h2>
 <p>This is a full EF5 control file example for a basic simulation using the CREST model. It includes the basic block, precipitation forcing, PET forcing, gauge locations, basin definition, parameter set for CREST, and a task to run the simulation.</p>
 <div class="toggle docutils container">
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Basic]</span>
@@ -363,8 +372,8 @@ Content may change frequently and some sections may be incomplete.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="running.html" class="btn btn-neutral float-left" title="4. Running EF5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="tasks.html" class="btn btn-neutral float-right" title="4.2.2. Task block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tasks.html" class="btn btn-neutral float-left" title="4.2. Task block" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="execute_block.html" class="btn btn-neutral float-right" title="4.4.2. Execute Block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
