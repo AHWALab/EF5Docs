@@ -1,6 +1,12 @@
 Running EF5
 ============
 
+.. toctree::
+   :maxdepth: 1
+
+   style
+   tasks   
+
 Setting up your own domain
 ---------------------------
 
@@ -17,7 +23,7 @@ For a detailed guide on setting up your own domain (generate files for your own 
 #. Generate CREST parameters
 #. Generate the Kinematic Wave (KW) Parameters
 
-Control file (Configuration file)
+Control file structure
 ----------------------------------
 
 Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or tasks. 
@@ -40,6 +46,11 @@ The minimum required blocks are:
     The Style parameter within the Task block defines the type of task EF5 will execute, e.g., ``SIMU`` for a standard simulation, ``CLIP_GAUGE`` for clipping model inputs to the entire domain, ``CALI_DREAM`` for calibration using the DREAM algorithm, etc. See :ref:`task styles <task styles>` for the full list of supported Style types.
 #. Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.
 
+.. toctree::
+   :maxdepth: 1
+
+   controlfile_format_structure
+   execute_block
 
 The table below summarizes the grid requirements for each model:
 
@@ -105,15 +116,6 @@ The following mock-up illustrates the bare minimum structure for a control file 
    TASK=RunFF                                    
 
 To set up your configuration, refer to the components listed below.
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Components:
-
-   controlfile
-   tasks
-   style
-   execute_block
 
 
 Run EF5 in the terminal

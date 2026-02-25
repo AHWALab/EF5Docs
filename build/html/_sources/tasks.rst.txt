@@ -2,6 +2,11 @@
 
 Task block
 -----
+
+
+Format
+``````````````````````
+
 The Task block specifies key information needed for running EF5. It defines the type of modeling task to be executed, the time period for the simulation, the time step, and the forcing data to be used.
 
 A simple example of a Task block might look like this:
@@ -23,8 +28,8 @@ A simple example of a Task block might look like this:
    TIME_END=201006010030
 
 
-Task Block Parameters
------
+Parameters
+``````````````````````
 
 .. confval:: STYLE
       

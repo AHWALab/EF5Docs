@@ -27,7 +27,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.2.1. Control file structure" href="controlfile.html" />
+    <link rel="next" title="4.1. Styles" href="style.html" />
     <link rel="prev" title="3. Software installation" href="software_installation.html" /> 
 </head>
 
@@ -83,16 +83,25 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Running EF5</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#control-file-configuration-file">4.2. Control file (Configuration file)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="style.html">4.2.4. Style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.5. Execute Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">4.1. Styles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="style.html#clip-gauge">4.1.1. CLIP_GAUGE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#basin-avg">4.1.2. BASIN_AVG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#simu-using-long-range-mode">4.1.3. SIMU using long range mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#data-assimilation">4.1.4. DATA ASSIMILATION</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#run-ef5-in-the-terminal">4.3. Run EF5 in the terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">4.2. Task block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#format">4.2.1. Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#parameters">4.2.2. Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-your-own-domain">4.3. Setting up your own domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-file-structure">4.4. Control file structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlfile_format_structure.html">4.4.1. Format and structure of the control file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.4.2. Execute Block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#run-ef5-in-the-terminal">4.5. Run EF5 in the terminal</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -129,8 +138,14 @@
              
   <section id="running-ef5">
 <h1><span class="section-number">4. </span>Running EF5<a class="headerlink" href="#running-ef5" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style.html">4.1. Styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">4.2. Task block</a></li>
+</ul>
+</div>
 <section id="setting-up-your-own-domain">
-<h2><span class="section-number">4.1. </span>Setting up your own domain<a class="headerlink" href="#setting-up-your-own-domain" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.3. </span>Setting up your own domain<a class="headerlink" href="#setting-up-your-own-domain" title="Link to this heading"></a></h2>
 <p>For a detailed guide on setting up your own domain (generate files for your own study area), please refer to the <a class="reference external" href="https://github.com/AHWALab/EF5-builder-toolkit">EF5-builder-toolkit</a> GitHub repository. The toolkit provides step by step instructions for generating:</p>
 <ol class="arabic simple">
 <li><p>Basic files (DEM derived files)</p></li>
@@ -150,8 +165,8 @@
 <li><p>Generate the Kinematic Wave (KW) Parameters</p></li>
 </ol>
 </section>
-<section id="control-file-configuration-file">
-<h2><span class="section-number">4.2. </span>Control file (Configuration file)<a class="headerlink" href="#control-file-configuration-file" title="Link to this heading"></a></h2>
+<section id="control-file-structure">
+<h2><span class="section-number">4.4. </span>Control file structure<a class="headerlink" href="#control-file-structure" title="Link to this heading"></a></h2>
 <p>Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or tasks.</p>
 <p>The control file is structured into blocks, each containing key-value pairs. Example:</p>
 <blockquote>
@@ -174,6 +189,12 @@
 </li>
 <li><p>Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.</p></li>
 </ol>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controlfile_format_structure.html">4.4.1. Format and structure of the control file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execute_block.html">4.4.2. Execute Block</a></li>
+</ul>
+</div>
 <p>The table below summarizes the grid requirements for each model:</p>
 <table class="docutils align-default">
 <thead>
@@ -249,19 +270,9 @@
 </pre></div>
 </div>
 <p>To set up your configuration, refer to the components listed below.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Components:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="style.html">4.2.4. Style</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execute_block.html">4.2.5. Execute Block</a></li>
-</ul>
-</div>
 </section>
 <section id="run-ef5-in-the-terminal">
-<h2><span class="section-number">4.3. </span>Run EF5 in the terminal<a class="headerlink" href="#run-ef5-in-the-terminal" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.5. </span>Run EF5 in the terminal<a class="headerlink" href="#run-ef5-in-the-terminal" title="Link to this heading"></a></h2>
 <p>For the final step, to run EF5, execute the binary with the control file argument:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>../bin/ef5<span class="w"> </span>&lt;your_controlfile_name.txt&gt;
 </pre></div>
@@ -279,7 +290,7 @@ Content may change frequently and some sections may be incomplete.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="software_installation.html" class="btn btn-neutral float-left" title="3. Software installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="controlfile.html" class="btn btn-neutral float-right" title="4.2.1. Control file structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="style.html" class="btn btn-neutral float-right" title="4.1. Styles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

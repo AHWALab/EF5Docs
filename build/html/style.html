@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.2.4. Style &mdash; EF5Manual 1.0.0 documentation</title>
+  <title>4.1. Styles &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
@@ -27,8 +27,8 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.2.5. Execute Block" href="execute_block.html" />
-    <link rel="prev" title="4.2.2. Task block" href="tasks.html" /> 
+    <link rel="next" title="4.2. Task block" href="tasks.html" />
+    <link rel="prev" title="4. Running EF5" href="running.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -83,16 +83,25 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="running.html">4. Running EF5</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.1. Setting up your own domain</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="running.html#control-file-configuration-file">4.2. Control file (Configuration file)</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.2.1. Control file structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tasks.html">4.2.2. Task block</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tasks.html#task-block-parameters">4.2.3. Task Block Parameters</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.4. Style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.2.5. Execute Block</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.1. Styles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clip-gauge">4.1.1. CLIP_GAUGE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basin-avg">4.1.2. BASIN_AVG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simu-using-long-range-mode">4.1.3. SIMU using long range mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-assimilation">4.1.4. DATA ASSIMILATION</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="running.html#run-ef5-in-the-terminal">4.3. Run EF5 in the terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">4.2. Task block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#format">4.2.1. Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#parameters">4.2.2. Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#setting-up-your-own-domain">4.3. Setting up your own domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#control-file-structure">4.4. Control file structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlfile_format_structure.html">4.4.1. Format and structure of the control file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.4.2. Execute Block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running.html#run-ef5-in-the-terminal">4.5. Run EF5 in the terminal</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -118,7 +127,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="running.html"><span class="section-number">4. </span>Running EF5</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4.2.4. </span>Style</li>
+      <li class="breadcrumb-item active"><span class="section-number">4.1. </span>Styles</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/style.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -128,21 +137,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="style">
-<span id="id1"></span><h1><span class="section-number">4.2.4. </span>Style<a class="headerlink" href="#style" title="Link to this heading"></a></h1>
+  <section id="styles">
+<span id="style"></span><h1><span class="section-number">4.1. </span>Styles<a class="headerlink" href="#styles" title="Link to this heading"></a></h1>
 <section id="clip-gauge">
-<h2><span class="section-number">4.2.4.1. </span>CLIP_GAUGE<a class="headerlink" href="#clip-gauge" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1.1. </span>CLIP_GAUGE<a class="headerlink" href="#clip-gauge" title="Link to this heading"></a></h2>
 <p>Used to clip model input grids to the spatial extent of the digital elevation model (DEM) defined in the Basic block.</p>
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-OUTPUT-GRIDS">
 <span class="sig-name descname"><span class="pre">OUTPUT</span> <span class="pre">GRIDS</span></span><a class="headerlink" href="#confval-OUTPUT-GRIDS" title="Link to this definition"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">maskgrid.tif</span></code>: Binary mask grid that covers the entire spatial extent of the DEM.</p>
 <blockquote>
-<div><figure class="align-center" id="id2">
+<div><figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/ex_mask.png"><img alt="_images/ex_mask.png" src="_images/ex_mask.png" style="width: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Example of a basin mask .tif file generated using the <code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code> task style.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">Example of a basin mask .tif file generated using the <code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code> task style.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -179,7 +188,7 @@
 </div>
 </section>
 <section id="basin-avg">
-<h2><span class="section-number">4.2.4.2. </span>BASIN_AVG<a class="headerlink" href="#basin-avg" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1.2. </span>BASIN_AVG<a class="headerlink" href="#basin-avg" title="Link to this heading"></a></h2>
 <p>EF5 supports spatial aggregation of input grids. The aggregation is computed by averaging the accumulated values of the variable by the flow accumulation grid. The output grid corresponds to the average value of the variable in each catchment area.
 To run the aggregation task, set the <cite>STYLE</cite> parameter in the <cite>Task</cite> block to <cite>BASIN_AVG</cite>. The variables to be averaged should be located inside the output folder defined in the <cite>Task</cite> block. The aggregation will be performed for all the variables (.tif) found in the output folder.
 The aggregation zone is defined by the most downstream gauge in the <cite>BASIN</cite> block. If the user requires to be computed for the entire domain, the <cite>CLIP_GAUGE</cite> task style can be used to automatically identify all outlets and create a basin that covers the entire domain.
@@ -217,7 +226,7 @@ The following output grids will be generated in the output folder:</p>
 </div>
 </section>
 <section id="simu-using-long-range-mode">
-<h2><span class="section-number">4.2.4.3. </span>SIMU using long range mode<a class="headerlink" href="#simu-using-long-range-mode" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1.3. </span>SIMU using long range mode<a class="headerlink" href="#simu-using-long-range-mode" title="Link to this heading"></a></h2>
 <p>The Long Range mode enables EF5 to incorporate forecasted precipitation datasets in addition to the standard observed precipitation inputs. This is particularly useful for generating forecast simulations beyond the observation window.</p>
 <p>To activate Long Range mode, configure the <cite>Task</cite> block as follows:</p>
 <ul class="simple">
@@ -251,13 +260,13 @@ The following output grids will be generated in the output folder:</p>
 </div>
 </section>
 <section id="data-assimilation">
-<h2><span class="section-number">4.2.4.4. </span>DATA ASSIMILATION<a class="headerlink" href="#data-assimilation" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1.4. </span>DATA ASSIMILATION<a class="headerlink" href="#data-assimilation" title="Link to this heading"></a></h2>
 <p>EF5 supports data assimilation (DA) of streamflow observations to improve hydrologic simulations. The DA process adjusts model states based on observed streamflow data at specified gauge locations. The following figure illustrates the effect of data assimilation on streamflow simulations.</p>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="_images/da_effects.png"><img alt="_images/da_effects.png" src="_images/da_effects.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Example of the effect of data assimilation on streamflow simulations using EF5. The blue line represents the simulated streamflow without data assimilation, while the green line shows the improved simulation after assimilating observed data (red dots).</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-text">Example of the effect of data assimilation on streamflow simulations using EF5. The blue line represents the simulated streamflow without data assimilation, while the green line shows the improved simulation after assimilating observed data (red dots).</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>EF5 requires the user to provide a file containing streamflow observations for the gauges defined in the BASIN block. The file should be in CSV format with the following structure (no header):</p>
@@ -313,8 +322,8 @@ Content may change frequently and some sections may be incomplete.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tasks.html" class="btn btn-neutral float-left" title="4.2.2. Task block" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="execute_block.html" class="btn btn-neutral float-right" title="4.2.5. Execute Block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="running.html" class="btn btn-neutral float-left" title="4. Running EF5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tasks.html" class="btn btn-neutral float-right" title="4.2. Task block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
