@@ -23,6 +23,15 @@ For a detailed guide on setting up your own domain (generate files for your own 
 #. Generate CREST parameters
 #. Generate the Kinematic Wave (KW) Parameters
 
+.. warning::
+   Requirements for TIFF files:
+
+   1. -9999 as nodata value.
+   2. No TILED format.
+   3. ``float32`` data type.
+   4. The ESRI flow direction convention must be restricted to the following values: **1, 2, 4, 8, 16, 32, 64, and 128**.
+   5. Each parameter grid must be a single-band GeoTIFF whose pixels are stored in one image plane (TIFF tag ``PlanarConfiguration = 1``, also called "contiguous", "pixel-interleaved" or "chunky"). Grids saved with separate planes (``PlanarConfiguration = 2``, "band-interleaved" or "planar") are not read.
+
 Control file structure
 ----------------------------------
 

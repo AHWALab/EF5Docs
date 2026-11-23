@@ -8,20 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4. Running EF5 &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cddb36ac" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=8d563738"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script>let toggleHintShow = 'Click to show';</script>
       <script>let toggleHintHide = 'Click to hide';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="_static/togglebutton.js?v=b8b12719"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
@@ -164,6 +164,17 @@
 <li><p>Generate CREST parameters</p></li>
 <li><p>Generate the Kinematic Wave (KW) Parameters</p></li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Requirements for TIFF files:</p>
+<ol class="arabic simple">
+<li><p>-9999 as nodata value.</p></li>
+<li><p>No TILED format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float32</span></code> data type.</p></li>
+<li><p>The ESRI flow direction convention must be restricted to the following values: <strong>1, 2, 4, 8, 16, 32, 64, and 128</strong>.</p></li>
+<li><p>Each parameter grid must be a single-band GeoTIFF whose pixels are stored in one image plane (TIFF tag <code class="docutils literal notranslate"><span class="pre">PlanarConfiguration</span> <span class="pre">=</span> <span class="pre">1</span></code>, also called “contiguous”, “pixel-interleaved” or “chunky”). Grids saved with separate planes (<code class="docutils literal notranslate"><span class="pre">PlanarConfiguration</span> <span class="pre">=</span> <span class="pre">2</span></code>, “band-interleaved” or “planar”) are not read.</p></li>
+</ol>
+</div>
 </section>
 <section id="control-file-structure">
 <h2><span class="section-number">4.4. </span>Control file structure<a class="headerlink" href="#control-file-structure" title="Link to this heading"></a></h2>
@@ -255,7 +266,7 @@
 <span class="na">...</span>
 
 <span class="na">[Task RunFF]                                  # Task block</span>
-<span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span><span class="w">                                    </span><span class="c1"># Style, refer to &quot;4.2.3. Task block parameters&quot;</span>
+<span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span><span class="w">                                    </span><span class="c1"># Style, refer to "4.2.3. Task block parameters"</span>
 <span class="na">MODEL</span><span class="o">=</span><span class="s">CREST</span>
 <span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
 <span class="na">PRECIP</span><span class="o">=</span><span class="s">Q2_PRECIP</span>

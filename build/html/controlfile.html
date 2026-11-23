@@ -8,20 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4.4.1. Format and structure of the control file &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cddb36ac" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=8d563738"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script>let toggleHintShow = 'Click to show';</script>
       <script>let toggleHintHide = 'Click to hide';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+      <script src="_static/togglebutton.js?v=b8b12719"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
@@ -148,17 +148,8 @@
 <span class="na">*/</span>
 </pre></div>
 </div>
-<section id="format-and-taxonomy-information">
-<h2><span class="section-number">4.4.1.1. </span>Format and taxonomy information<a class="headerlink" href="#format-and-taxonomy-information" title="Link to this heading"></a></h2>
-<p>Tiff files requirements:</p>
-<ol class="arabic simple">
-<li><p>-9999 as nodata value.</p></li>
-<li><p>No TILED format.</p></li>
-<li><p><cite>float32</cite> data type.</p></li>
-<li><p>The ESRI flow direction convention must be restricted to the following values: <strong>1, 2, 4, 8, 16, 32, 64, and 128</strong>.</p></li>
-</ol>
-<section id="about-time-taxonomy">
-<h3><span class="section-number">4.4.1.1.1. </span>About time taxonomy<a class="headerlink" href="#about-time-taxonomy" title="Link to this heading"></a></h3>
+<section id="taxonomy-information">
+<h2><span class="section-number">4.4.1.1. </span>Taxonomy information<a class="headerlink" href="#taxonomy-information" title="Link to this heading"></a></h2>
 <p>EF5 uses a time taxonomy to define the simulation period and timestep. The time format is specified in the configuration file, allowing for flexible simulation periods. This time taxonomy is also used in the precipitation and PET forcing files names.</p>
 <dl class="std confval">
 <dt class="sig sig-object std" id="confval-TIMESTEP-TIME_BEGIN-TIME_END-and-tiff-file-names">
@@ -168,7 +159,6 @@
 <p>For time step, where <code class="docutils literal notranslate"><span class="pre">d</span></code> is for day step, <code class="docutils literal notranslate"><span class="pre">h</span></code> is for hour step, and <code class="docutils literal notranslate"><span class="pre">u</span></code> is for minute step.</p>
 </dd></dl>
 
-</section>
 </section>
 <section id="blocks">
 <h2><span class="section-number">4.4.1.2. </span>Blocks<a class="headerlink" href="#blocks" title="Link to this heading"></a></h2>
@@ -249,7 +239,7 @@ The gauge location block specifies the locations of gauges for output and parame
 <p>Additional information about the parameters definition and units could be found in the <cite>calibration</cite> section.</p>
 </div>
 <figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="_images/Parameters_definition.png"><img alt="_images/Parameters_definition.png" src="_images/Parameters_definition.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="_images/Parameters_definition.png"><img alt="_images/Parameters_definition.png" src="_images/Parameters_definition.png" width="400" />
 </a>
 <figcaption>
 <p><span class="caption-text">Guidance on how to interpret lumped and distributed parameters.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
