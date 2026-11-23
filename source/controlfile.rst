@@ -15,18 +15,8 @@ This is an example of comments in the control file:
       Including multi-line C-style comments
    */
 
-Format and taxonomy information
+Taxonomy information
 ===============================
-
-Tiff files requirements:
-
-#. -9999 as nodata value.
-#. No TILED format.
-#. `float32` data type.
-#. The ESRI flow direction convention must be restricted to the following values: **1, 2, 4, 8, 16, 32, 64, and 128**.
-
-About time taxonomy
--------------------
 
 EF5 uses a time taxonomy to define the simulation period and timestep. The time format is specified in the configuration file, allowing for flexible simulation periods. This time taxonomy is also used in the precipitation and PET forcing files names.
 
