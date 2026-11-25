@@ -9,47 +9,13 @@ The following is an example of how to set up the calibration parameters in the c
 
 .. admonition:: Lumped (aggregated) vs distributed (grided) parameters.
    
-   Take a look at the :ref:`lumped and distributed description <lumped distributed>` in the Coltrolfile section for more details about the difference between lumped and distributed parameters.
+   Take a look at the :ref:`lumped and distributed description <lumped distributed>` in the control file section for more details about the difference between lumped and distributed parameters.
    
-**Table:** Kinematic wave **lumped** parameters definition and possible ranges for calibration.
 
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| Parameter | Definition                                                                     | Ref min val | Ref max val  |
-+===========+================================================================================+=============+==============+
-| alpha0    | Used for overland, not channel, routing                                        | 0.01        | 5            |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| alpha     | Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta    | 0.01        | 3            |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| beta      | Used in the equation Streamflow = alpha*(cross-sectional channel area)^beta    | 0.0001      | 1            |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| under     | Interflow flow speed multiplier                                                | 0.0001      | 3            |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| leaki     | Amount of water leaked from interflow reservoir in each time step              | 0.0001      | 1            |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| th        | Number of grid cells needed to flow into a cell for it to be part of a channel | 30          | 300          |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
-| isu       | Initial value of the interflow reservoir                                       | 0           | 0.0001       |
-+-----------+--------------------------------------------------------------------------------+-------------+--------------+
+.. include:: tables/kw_parameters.rst
 
 
-
-**Table:** CREST **lumped** parameters definition and possible ranges for calibration.
-
-+-----------+-------------------------------------------------------+-------------+--------------+
-| Parameter | Definition                                            | Ref min val | Ref max val  |
-+===========+=======================================================+=============+==============+
-| wm        | Maximum soil water capacity                           | 5           | 600          |
-+-----------+-------------------------------------------------------+-------------+--------------+
-| b         | Exponent of the variable infiltration curve (VIC)     | 0.1         | 20           |
-+-----------+-------------------------------------------------------+-------------+--------------+
-| im        | Impervious area ratio                                 | 0.01        | 0.5          |
-+-----------+-------------------------------------------------------+-------------+--------------+
-| ke        | Multiplier to convert between input PET and local PET | 0.001       | 1            |
-+-----------+-------------------------------------------------------+-------------+--------------+
-| fc        | Soil saturated hydraulic conductivity (Ksat) in mm/hr | 0           | 150          |
-+-----------+-------------------------------------------------------+-------------+--------------+
-| iwu       | Initial value of soil water                           | 2.5         | 250          |
-+-----------+-------------------------------------------------------+-------------+--------------+
+.. include:: tables/crest_parameters.rst
 
 
 

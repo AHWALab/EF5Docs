@@ -8,26 +8,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4. Running EF5 &mdash; EF5Manual 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cddb36ac" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f75ee7c5" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=8d563738"></script>
-      <script src="_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script>let toggleHintShow = 'Click to show';</script>
       <script>let toggleHintHide = 'Click to hide';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="_static/togglebutton.js?v=b8b12719"></script>
+      <script src="_static/togglebutton.js?v=4a39c7ea"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.1. Styles" href="style.html" />
+    <link rel="next" title="4.1. Parameters" href="parameters.html" />
     <link rel="prev" title="3. Software installation" href="software_installation.html" /> 
 </head>
 
@@ -60,18 +60,33 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">2. Models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="water_balance_models.html">2.1. Hydrologic Water Balance Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#crest">2.1.1. CREST</a></li>
-<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#sac-sma">2.1.2. SAC-SMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#crest">2.1.1. CREST</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="water_balance_models.html#crest-parameter-set-block">2.1.1.1. CREST Parameter Set block</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#sac-sma">2.1.2. SAC-SMA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="water_balance_models.html#sac-sma-parameter-set">2.1.2.1. SAC-SMA Parameter Set</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="water_balance_models.html#hp">2.1.3. HP</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="routing_models.html">2.2. Routing Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="routing_models.html#linear-reservoir">2.2.1. Linear Reservoir</a></li>
-<li class="toctree-l3"><a class="reference internal" href="routing_models.html#kinematic-wave">2.2.2. Kinematic Wave</a></li>
+<li class="toctree-l3"><a class="reference internal" href="routing_models.html#linear-reservoir">2.2.1. Linear Reservoir</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="routing_models.html#linear-reservoir-parameter-set">2.2.1.1. Linear Reservoir Parameter Set</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="routing_models.html#kinematic-wave">2.2.2. Kinematic Wave</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="routing_models.html#kinematic-wave-parameter-set">2.2.2.1. Kinematic Wave Parameter Set</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="inundation_models.html">2.3. Inundation Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="inundation_models.html#simple-inundation-hand-method">2.3.1. Simple Inundation (HAND method)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inundation_models.html#simple-inundation-hand-method">2.3.1. Simple Inundation (HAND method)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="inundation_models.html#simple-inundation-parameter-set">2.3.1.1. Simple Inundation Parameter Set</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -83,25 +98,45 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Running EF5</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="style.html">4.1. Styles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="style.html#clip-gauge">4.1.1. CLIP_GAUGE</a></li>
-<li class="toctree-l3"><a class="reference internal" href="style.html#basin-avg">4.1.2. BASIN_AVG</a></li>
-<li class="toctree-l3"><a class="reference internal" href="style.html#simu-using-long-range-mode">4.1.3. SIMU using long range mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="style.html#data-assimilation">4.1.4. DATA ASSIMILATION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">4.1. Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="parameters.html#kinematic-wave-parameters">4.1.1. Kinematic wave parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parameters.html#crest-parameters">4.1.2. CREST parameters</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="tasks.html">4.2. Task block</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tasks.html#format">4.2.1. Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tasks.html#parameters">4.2.2. Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">4.2. Styles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="style.html#clip-gauge">4.2.1. CLIP_GAUGE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#basin-avg">4.2.2. BASIN_AVG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#simu-using-long-range-mode">4.2.3. SIMU using long range mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style.html#data-assimilation">4.2.4. DATA ASSIMILATION</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-your-own-domain">4.3. Setting up your own domain</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#control-file-structure">4.4. Control file structure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="controlfile.html">4.4.1. Format and structure of the control file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="execute_block.html">4.4.2. Execute Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">4.3. Task block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#format">4.3.1. Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks.html#parameters">4.3.2. Parameters</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#run-ef5-in-the-terminal">4.5. Run EF5 in the terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlfile.html">4.4. Control file structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html#taxonomy-information">4.4.1. Taxonomy information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html#blocks">4.4.2. Blocks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlfile.html#basic-block">4.4.2.1. Basic block</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlfile.html#precipitation-block">4.4.2.2. Precipitation block</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlfile.html#potential-evapotranspiration-pet-block">4.4.2.3. Potential Evapotranspiration (PET) block</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlfile.html#gauge-locations-block-s">4.4.2.4. Gauge locations block(s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlfile.html#basin-block-s">4.4.2.5. Basin block(s)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html#parameter-sets">4.4.3. Parameter Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlfile.html#hydrologic-water-balance-models">4.4.3.1. Hydrologic Water Balance Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlfile.html#routing-models">4.4.3.2. Routing Models</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html#snow-17-parameter-set">4.4.4. Snow-17 Parameter Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html#full-control-file-example">4.4.5. Full control file example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlfile.html#execute-block">4.4.6. Execute Block</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-your-own-domain">4.5. Setting up your own domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-ef5-in-the-terminal">4.6. Run EF5 in the terminal</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calibrating.html">5. Model calibration</a><ul>
@@ -140,12 +175,14 @@
 <h1><span class="section-number">4. </span>Running EF5<a class="headerlink" href="#running-ef5" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="style.html">4.1. Styles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tasks.html">4.2. Task block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">4.1. Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">4.2. Styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">4.3. Task block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlfile.html">4.4. Control file structure</a></li>
 </ul>
 </div>
 <section id="setting-up-your-own-domain">
-<h2><span class="section-number">4.3. </span>Setting up your own domain<a class="headerlink" href="#setting-up-your-own-domain" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.5. </span>Setting up your own domain<a class="headerlink" href="#setting-up-your-own-domain" title="Link to this heading"></a></h2>
 <p>For a detailed guide on setting up your own domain (generate files for your own study area), please refer to the <a class="reference external" href="https://github.com/AHWALab/EF5-builder-toolkit">EF5-builder-toolkit</a> GitHub repository. The toolkit provides step by step instructions for generating:</p>
 <ol class="arabic simple">
 <li><p>Basic files (DEM derived files)</p></li>
@@ -176,114 +213,8 @@
 </ol>
 </div>
 </section>
-<section id="control-file-structure">
-<h2><span class="section-number">4.4. </span>Control file structure<a class="headerlink" href="#control-file-structure" title="Link to this heading"></a></h2>
-<p>Before running EF5, ensure you have a properly configured control file. The control file specifies various parameters and paths needed for the simulation or tasks.</p>
-<p>The control file is structured into blocks, each containing key-value pairs. Example:</p>
-<blockquote>
-<div><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Basic]                                       # Basic block</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p>The minimum required blocks are:</p>
-<ol class="arabic simple">
-<li><p>Basic block: Specifies file locations for the digital elevation model (DEM), flow direction map (DDM), and flow accumulation map (FAM).</p></li>
-<li><p>Precipitation forcing block: Defines the properties of the precipitation forcing files.</p></li>
-<li><p>PET forcing block: Defines the PET forcing files details.</p></li>
-<li><p>Gauge block(s): Specifies the locations of gauges for output and parameter assignment. At least one gauge block is required.</p></li>
-<li><p>Basin block(s): Defines the basin(s) for the simulation, including associated gauges. At least one basin block is required.</p></li>
-<li><p>Parameter set block(s): For the chosen models.</p></li>
-<li><dl class="simple">
-<dt>Task block(s): Defines the style to be executed, the routing model, the time period for the simulation, the time step, and the forcing data to be used. See <a class="reference internal" href="tasks.html#task-styles"><span class="std std-ref">task styles</span></a> for more details.</dt><dd><p>The Style parameter within the Task block defines the type of task EF5 will execute, e.g., <code class="docutils literal notranslate"><span class="pre">SIMU</span></code> for a standard simulation, <code class="docutils literal notranslate"><span class="pre">CLIP_GAUGE</span></code> for clipping model inputs to the entire domain, <code class="docutils literal notranslate"><span class="pre">CALI_DREAM</span></code> for calibration using the DREAM algorithm, etc. See <a class="reference internal" href="tasks.html#task-styles"><span class="std std-ref">task styles</span></a> for the full list of supported Style types.</p>
-</dd>
-</dl>
-</li>
-<li><p>Execute block: Specifies which task to run, one at a time per run. At least one Execute block is required.</p></li>
-</ol>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="controlfile.html">4.4.1. Format and structure of the control file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execute_block.html">4.4.2. Execute Block</a></li>
-</ul>
-</div>
-<p>The table below summarizes the grid requirements for each model:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Grids</p></th>
-<th class="head"><p>Must Match Basic Files?</p></th>
-<th class="head"><p>Free grid?</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Precipitation</p></td>
-<td></td>
-<td><p>🟢</p></td>
-</tr>
-<tr class="row-odd"><td><p>PET</p></td>
-<td></td>
-<td><p>🟢</p></td>
-</tr>
-<tr class="row-even"><td><p>CREST</p></td>
-<td></td>
-<td><p>🟢</p></td>
-</tr>
-<tr class="row-odd"><td><p>Kinematic wave</p></td>
-<td><p>🟠</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Simple inundation</p></td>
-<td><p>🟠</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Legend: 🟢 = free grid, 🟠 = restricted to flow direction grid</p>
-<p>The following mock-up illustrates the bare minimum structure for a control file required to run any of the available styles.</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">[Basic]                                       # Basic block</span>
-<span class="na">DEM</span><span class="o">=</span><span class="s">/EF5Demo/FF/basic/DEM.asc</span>
-<span class="na">...</span>
-
-<span class="na">[PrecipForcing Q2Precip]                      # Precipitation forcing block</span>
-<span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
-<span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
-<span class="na">...</span>
-
-<span class="na">[PETForcing PET]                              # PET forcing block</span>
-<span class="na">TYPE</span><span class="o">=</span><span class="s">BIF</span>
-<span class="na">UNIT</span><span class="o">=</span><span class="s">mm/h</span>
-<span class="na">...</span>
-
-<span class="na">[Gauge 0]                                     # At least one gauge is required</span>
-<span class="na">LON</span><span class="o">=</span><span class="s">-97.01</span>
-<span class="na">LAT</span><span class="o">=</span><span class="s">35.68</span>
-<span class="na">...</span>
-
-<span class="na">[Basin FF]                                    # At least one basin is required</span>
-<span class="na">GAUGE</span><span class="o">=</span><span class="s">0</span><span class="w">                                       </span><span class="c1"># containing at least one gauge</span>
-
-<span class="na">[CrestParamSet FF]                            # Parameter set for routing model</span>
-<span class="na">GAUGE</span><span class="o">=</span><span class="s">AR</span>
-<span class="na">...</span>
-
-<span class="na">[Task RunFF]                                  # Task block</span>
-<span class="na">STYLE</span><span class="o">=</span><span class="s">SIMU</span><span class="w">                                    </span><span class="c1"># Style, refer to "4.2.3. Task block parameters"</span>
-<span class="na">MODEL</span><span class="o">=</span><span class="s">CREST</span>
-<span class="na">BASIN</span><span class="o">=</span><span class="s">0</span>
-<span class="na">PRECIP</span><span class="o">=</span><span class="s">Q2_PRECIP</span>
-<span class="na">PET</span><span class="o">=</span><span class="s">PET</span>
-<span class="na">OUTPUT</span><span class="o">=</span><span class="s">/EF5Demo/FF/output/</span>
-<span class="na">TIMESTEP</span><span class="o">=</span><span class="s">5u</span>
-<span class="na">TIME_BEGIN</span><span class="o">=</span><span class="s">201006010000</span>
-<span class="na">TIME_END</span><span class="o">=</span><span class="s">201006010030</span>
-
-<span class="na">[Execute]                                     # Execute block</span>
-<span class="na">TASK</span><span class="o">=</span><span class="s">RunFF</span>
-</pre></div>
-</div>
-<p>To set up your configuration, refer to the components listed below.</p>
-</section>
 <section id="run-ef5-in-the-terminal">
-<h2><span class="section-number">4.5. </span>Run EF5 in the terminal<a class="headerlink" href="#run-ef5-in-the-terminal" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.6. </span>Run EF5 in the terminal<a class="headerlink" href="#run-ef5-in-the-terminal" title="Link to this heading"></a></h2>
 <p>For the final step, to run EF5, execute the binary with the control file argument:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>../bin/ef5<span class="w"> </span>&lt;your_controlfile_name.txt&gt;
 </pre></div>
@@ -301,7 +232,7 @@ Content may change frequently and some sections may be incomplete.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="software_installation.html" class="btn btn-neutral float-left" title="3. Software installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="style.html" class="btn btn-neutral float-right" title="4.1. Styles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="parameters.html" class="btn btn-neutral float-right" title="4.1. Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

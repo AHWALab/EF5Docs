@@ -54,3 +54,15 @@ h6 {
   color: #fffcfb;
   margin-right: 0.5em;
 }
+
+/* Mark menu entries that open a separate page with a chevron (›).
+   Applies to the sidebar and to the menu trees (toctrees) inside pages.
+   Links to a page have no "#" in their href; the current page's own sidebar entry is href="#".
+   Links to a section inside a page have "page.html#section" and get no symbol. */
+.wy-menu-vertical a.reference.internal:not([href*="#"])::after,
+.wy-menu-vertical a.reference.internal[href="#"]::after,
+.toctree-wrapper a.reference.internal:not([href*="#"])::after {
+  content: "\203A";  /* › chevron */
+  margin-left: 0.4em;
+  font-weight: bold;
+}

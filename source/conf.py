@@ -22,8 +22,11 @@ extensions = [
 autosectionlabel_prefix_document = True
 autosectionlabel_maxdepth = 1 
 
+# Keep confval entries (STYLE, MODEL, ...) out of the sidebar menu; show section titles only.
+toc_object_entries = False
+
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ["tables/*"]
 
 
 
@@ -49,7 +52,7 @@ html_sidebars = {
 # sphinx_rtd_theme options to avoid collapsing sections unexpectedly
 html_theme_options.update({
     'collapse_navigation': False,
-    'navigation_depth': 3,
+    'navigation_depth': 4,
     'titles_only': False,
 })
 
